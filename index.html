@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="حكايات عربية تربط عائلات الكلمات الإنجليزية بجذورها، مع تدريب وتكرار متباعد واختبار شامل.">
+<meta name="theme-color" content="#f4f5f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11161f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="حكايات العائلات">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>حكايات العائلات الإنجليزية</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cinzel:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@500;600&family=Noto+Naskh+Arabic:wght@400;600&display=swap">
+<style>
+/* Layout: a lexicon — each Latin root is an entry; each word hangs as a headword in the start margin beside its paragraph. */
+:root{
+  --paper:#f4f5f1; --card:#ffffff; --ink:#1c2333; --muted:#5b6274; --line:#d8dbe2;
+  --lapis:#2846a6; --lapis-soft:#e6ebfa; --verd:#0d7a69; --verd-soft:#dff2ee;
+  --ochre:#a86d12; --ochre-soft:#f7ecd8; --good:#23784a; --good-soft:#e1f3e8; --bad:#b4322c; --bad-soft:#fae5e3;
+  --f-display:"Aref Ruqaa","Noto Naskh Arabic",serif;
+  --f-body:"Noto Naskh Arabic","IBM Plex Sans Arabic",serif;
+  --f-ui:"IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-latin:"Cinzel","Times New Roman",serif;
+  --f-en:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11161f; --card:#18202c; --ink:#e6e8ee; --muted:#9aa2b3; --line:#2a3343;
+  --lapis:#91a9ff; --lapis-soft:#1f2a48; --verd:#4fd0b4; --verd-soft:#143430;
+  --ochre:#e2ad4c; --ochre-soft:#3a2d16; --good:#63cf8f; --good-soft:#163524; --bad:#f08a80; --bad-soft:#3d1c1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11161f; --card:#18202c; --ink:#e6e8ee; --muted:#9aa2b3; --line:#2a3343;
+  --lapis:#91a9ff; --lapis-soft:#1f2a48; --verd:#4fd0b4; --verd-soft:#143430;
+  --ochre:#e2ad4c; --ochre-soft:#3a2d16; --good:#63cf8f; --good-soft:#163524; --bad:#f08a80; --bad-soft:#3d1c1a; color-scheme:dark}
+*{box-sizing:border-box}
+html{direction:rtl}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:10px}
+.brand{display:flex;align-items:baseline;gap:10px;margin-inline-end:auto}
+.brand b{font-family:var(--f-display);font-size:1.6rem;font-weight:700;line-height:1.2}
+.brand span{font-family:var(--f-latin);font-size:.8rem;color:var(--muted);letter-spacing:.12em;direction:ltr}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+nav.tabs button{font:500 .95rem var(--f-ui);background:none;border:0;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer}
+nav.tabs button[aria-current="page"]{background:var(--ink);color:var(--paper)}
+nav.tabs button:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--lapis);outline-offset:2px}
+main{padding-block:24px 64px}
+h1,h2,h3{text-wrap:balance;margin:0}
+h1{font-family:var(--f-display);font-size:2rem;font-weight:700;line-height:1.3}
+h2{font-family:var(--f-display);font-size:1.5rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{font:600 .95rem var(--f-ui);border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:9px 18px;border-radius:var(--r);cursor:pointer;line-height:1.4}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn.small{padding:5px 12px;font-size:.85rem}
+.btn:disabled{opacity:.45;cursor:default}
+select{font:500 .95rem var(--f-ui);padding:8px 12px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.en,.latin,.word,.px,.root-t{unicode-bidi:isolate}
+.en{font-family:var(--f-en);font-weight:500;direction:ltr}
+.word{font-family:var(--f-en);font-weight:600;letter-spacing:.03em;color:var(--lapis);direction:ltr;background:none;border:0;padding:0;font-size:inherit;cursor:pointer;border-bottom:1px dotted currentColor}
+.px{font-family:var(--f-en);font-weight:600;color:var(--verd);background:var(--verd-soft);padding:0 6px;border-radius:4px;direction:ltr;font-size:.92em}
+.root-t{font-family:var(--f-latin);font-weight:700;letter-spacing:.06em;color:var(--ochre);direction:ltr}
+.latin{font-family:var(--f-en);font-style:italic;color:var(--muted);direction:ltr}
+
+/* Today */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:end;padding-block:8px 24px;border-bottom:1px solid var(--line)}
+.hero p.lead{font-family:var(--f-body);font-size:1.1rem;color:var(--muted);max-width:60ch;margin-top:8px}
+.due{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.due .n{font:600 2.6rem/1 var(--f-ui);font-variant-numeric:tabular-nums}
+.due .n small{font-size:1rem;color:var(--muted);font-weight:500;margin-inline-start:6px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-block:20px}
+.stat{padding:12px 0;border-top:2px solid var(--ink)}
+.stat b{display:block;font:600 1.5rem/1.2 var(--f-ui);font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem;color:var(--muted)}
+.fam-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.fam{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fam .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.fam .t .root-t{font-size:1.05rem}
+.fam .t .core{font-family:var(--f-display);font-size:1.15rem}
+.boxes{display:flex;gap:3px;direction:ltr}
+.boxes i{flex:1;height:7px;border-radius:2px;background:var(--line)}
+.boxes i[data-b="1"]{background:var(--bad)} .boxes i[data-b="2"]{background:var(--ochre)} .boxes i[data-b="3"]{background:#c9a43a}
+.boxes i[data-b="4"]{background:var(--verd)} .boxes i[data-b="5"]{background:var(--good)}
+.fam .acts{display:flex;gap:6px;margin-top:2px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:7px;border-radius:2px;margin-inline-end:5px;vertical-align:middle;background:var(--line)}
+
+/* Stories */
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:600 .82rem var(--f-latin);letter-spacing:.05em;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:5px 10px;border-radius:999px;cursor:pointer;direction:ltr}
+.chip[aria-pressed="true"]{background:var(--ochre-soft);border-color:var(--ochre);color:var(--ochre)}
+.entry-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-block:20px 8px;border-bottom:1px solid var(--line)}
+.entry-head .big{font-family:var(--f-latin);font-size:clamp(2rem,6vw,3.2rem);font-weight:700;letter-spacing:.08em;color:var(--ochre);direction:ltr;line-height:1}
+.entry-head .core{font-family:var(--f-display);font-size:1.8rem}
+.entry-head .lat{font-family:var(--f-en);font-style:italic;color:var(--muted);direction:ltr}
+.story{font-family:var(--f-body);font-size:1.12rem;line-height:2.05}
+.story .intro{padding-block:16px;max-width:68ch}
+.lex{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 24px;border-top:1px solid var(--line)}
+.lex>div{padding-block:14px;border-bottom:1px solid var(--line);min-width:0}
+.lex .hw{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.lex .hw .word{font-size:1.05rem;border:0}
+.lex .hw .pxm{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.story .closing{padding-block:16px;font-style:normal;color:var(--ink);max-width:68ch;border-bottom:1px solid var(--line)}
+.sumhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+.sum{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:12px}
+.sum .it{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.sum .it .m{font-size:.92rem;color:var(--muted);font-family:var(--f-body)}
+.sum .it .a{font-weight:600;transition:filter .2s}
+.hide-ar .sum .it .a{filter:blur(6px);cursor:pointer;user-select:none}
+.sum .it .a.show{filter:none}
+.extra{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
+.panel h3{margin-bottom:8px}
+.branches{display:flex;flex-direction:column;gap:6px;font-size:.95rem}
+.branches div{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.examline{font-family:var(--f-en);direction:ltr;text-align:left;font-size:1.02rem;line-height:1.6}
+.note{background:var(--ochre-soft);border-radius:12px;padding:14px 18px;margin-top:16px;font-family:var(--f-body)}
+.note b{color:var(--ochre)}
+.speak{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;width:28px;height:28px;display:inline-grid;place-items:center;cursor:pointer;flex:none;padding:0}
+.speak:hover{color:var(--lapis);border-color:var(--lapis)}
+.speak svg{width:14px;height:14px}
+
+/* Quiz */
+.quiz{max-width:680px;margin:0 auto}
+.qbar{display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.qbar .track{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.qbar .track i{display:block;height:100%;background:var(--ink);transition:width .3s}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:14px;display:flex;flex-direction:column;gap:16px}
+.qkind{font-size:.8rem;letter-spacing:.02em;color:var(--verd);font-weight:600}
+.qprompt{font-family:var(--f-body);font-size:1.25rem;line-height:1.9}
+.qprompt .big{font-family:var(--f-en);font-weight:600;font-size:1.7rem;letter-spacing:.04em;color:var(--lapis);direction:ltr;unicode-bidi:isolate}
+.qprompt .sent{display:block;font-family:var(--f-en);direction:ltr;text-align:left;font-size:1.15rem;line-height:1.7;margin-top:6px}
+.qprompt .sent u{text-decoration:none;border-bottom:2px solid var(--ink);display:inline-block;min-width:70px}
+.opts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.opt{font:500 1.02rem var(--f-ui);text-align:start;background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:12px 14px;border-radius:12px;cursor:pointer;min-height:52px;line-height:1.5}
+.opt.en-opt{font-family:var(--f-en);font-weight:600;letter-spacing:.03em;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.right{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.opt:disabled{cursor:default}
+.fb{border-radius:12px;padding:14px 16px;font-family:var(--f-body);display:flex;flex-direction:column;gap:6px}
+.fb.ok{background:var(--good-soft)} .fb.no{background:var(--bad-soft)}
+.fb .v{font-family:var(--f-ui);font-weight:600}
+.fb.ok .v{color:var(--good)} .fb.no .v{color:var(--bad)}
+.fb details summary{cursor:pointer;color:var(--muted);font-family:var(--f-ui);font-size:.9rem}
+.fb details p{margin-top:6px;line-height:1.95}
+.qnav{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.keys{font-size:.78rem;color:var(--muted)}
+.result{display:flex;flex-direction:column;gap:18px}
+.score{font:600 3.2rem/1 var(--f-ui);font-variant-numeric:tabular-nums}
+.bykind{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.bykind div{border-top:2px solid var(--line);padding-top:8px;font-size:.9rem}
+.bykind b{display:block;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.mist{display:flex;flex-direction:column;gap:10px}
+.mist .it{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.mist .it p{font-family:var(--f-body);line-height:1.95;margin-top:6px}
+
+/* Flashcards */
+.flash{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.card3d{background:var(--card);border:1px solid var(--line);border-radius:18px;min-height:250px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;cursor:pointer}
+.card3d .w{font-family:var(--f-en);font-weight:600;font-size:2.1rem;letter-spacing:.05em;color:var(--lapis);direction:ltr}
+.card3d .m{font-family:var(--f-body);font-size:1.15rem}
+.card3d .a{font-size:1.4rem;font-weight:600}
+.card3d .hint{font-size:.8rem;color:var(--muted)}
+
+/* Prefix table */
+.ptable{width:100%;border-collapse:collapse;font-size:.95rem}
+.ptable th,.ptable td{text-align:start;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.ptable th{font-size:.8rem;color:var(--muted);font-weight:500}
+.tblwrap{overflow-x:auto}
+.ptable td .word{border:0;font-size:.9rem;margin-inline-end:8px}
+
+footer.foot{border-top:1px solid var(--line);padding-block:14px;font-size:.82rem;color:var(--muted)}
+footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-inline-end:6px}
+.dot.on{background:var(--good)}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lex{grid-template-columns:1fr}
+  .lex .hw{flex-direction:row;align-items:center;padding-bottom:0;border-bottom:0!important}
+  .lex>div.para{padding-top:4px}
+  .extra{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  h1{font-size:1.6rem}
+  nav.tabs{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none}
+  nav.tabs button{white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="top"><div class="wrap">
+  <div class="brand"><b>حكايات العائلات</b><span>RADICES LATINAE</span></div>
+  <nav class="tabs" aria-label="الأقسام">
+    <button data-tab="today">اليوم</button>
+    <button data-tab="stories">الحكايات</button>
+    <button data-tab="practice">التدريب</button>
+    <button data-tab="exam">الاختبار الشامل</button>
+    <button data-tab="prefixes">السوابق</button>
+  </nav>
+</div></header>
+<main class="wrap" id="view" aria-live="polite"></main>
+<footer class="foot"><div class="wrap">
+  <span id="sync"><i class="dot"></i>تقدّمك محفوظ في هذا المتصفح</span>
+  <label class="row" style="gap:6px">النطق:
+    <select id="voiceSel" aria-label="مصدر النطق" style="padding:3px 8px;font-size:.82rem">
+      <option value="browser">صوت المتصفح الأمريكي</option>
+      <option value="file">تسجيل أمريكي جاهز</option>
+    </select></label>
+  <span>16 عائلة · 75 كلمة · الصياغة الرابعة</span>
+</div></footer>
+
+<script>
+const FAMILIES = [{"id": "port", "root": "PORT", "latin": "Portare", "core": "الحمل", "batch": 1, "intro": "يُحكى أن PORT عند القوم تدور حول الحمل، وأصلها Portare. ثم ننظر: إلى أين كان هذا الحمل، وما المحمول؟", "words": [{"w": "IMPORT", "px": "IN → IM", "pxm": "إلى الداخل", "p": "فإذا حمل البضاعة إلى داخل بلده — IN، التي تظهر هنا بصورة IM — فقد استوردها: IMPORT.", "m": "تحمل البضاعة إلى داخل بلدك", "ar": "تستوردها"}, {"w": "EXPORT", "px": "EX", "pxm": "إلى الخارج", "p": "فإن حملها إلى خارج بلده — EX — فقد صدّرها: EXPORT.", "m": "تحمل البضاعة إلى خارج بلدك", "ar": "تصدّرها"}, {"w": "DEPORT", "px": "DE", "pxm": "بعيدًا", "p": "وإن كان المحمول إنسانًا، حُمل بعيدًا — DE — عن البلد رغمًا عنه، فقد رُحِّل: DEPORT.", "m": "يُحمل الإنسان بعيدًا عن البلد رغمًا عنه", "ar": "يُرحَّل / تُرحِّله"}, {"w": "TRANSPORT", "px": "TRANS", "pxm": "عبر", "p": "ثم إذا حمل الشيء عابرًا به — TRANS — من موضعٍ إلى موضع، فقد نقله: TRANSPORT؛ والنقل في العربية: حملُ الشيء من موضع إلى موضع.", "m": "تحمل الشيء عابرًا به من موضع إلى موضع", "ar": "تنقله"}, {"w": "SUPPORT", "px": "SUB → SUP", "pxm": "من تحت", "p": "فإذا حمل الشيء من تحته — SUB، التي تظهر هنا بصورة SUP — فرفعه لئلّا يسقط، فقد دعمه وصار له سندًا: SUPPORT. وكذلك يُحمل الإنسانُ والرأيُ من تحتهما، فيقال: دعمه وسانده.", "m": "تحمل الشيء أو الإنسان أو الرأي من تحته فلا يسقط", "ar": "تدعمه وتسانده"}, {"w": "REPORT", "px": "RE", "pxm": "إلى الخلف / راجعًا", "p": "أما إذا كان المحمول خبرًا، فرجع يحمله — RE — إلى من بعثه، فقد بلّغه إيّاه: REPORT؛ والخبر الذي حمله تقرير: a report.", "m": "تحمل الخبر راجعًا إلى من بعثك", "ar": "تُبلِّغ به / تكتب عنه تقريرًا"}], "closing": "وهكذا اختلفت أغراض الحمل: حمل البضاعة إلى الداخل فاستوردها، وإلى الخارج فصدّرها، وحُمل الإنسان بعيدًا رغمًا عنه فرُحِّل، وحمل الشيء عابرًا به فنقله، وحمله من تحته فدعمه، وحمل الخبر راجعًا فبلّغه.", "branches": [["PORTABLE", "قابل للحمل والنقل"], ["TRANSPORTATION", "نقل / مواصلات"], ["SUPPORTED", "مدعوم؛ supported languages: اللغات المدعومة"], ["REPORTING", "إعداد التقارير"], ["IMPORTED / EXPORTED", "مستورَد / مصدَّر"]], "exam": {"en": "The platform supports importing data from spreadsheets and exporting reports.", "ar": "تدعم المنصّة استيراد البيانات من جداول البيانات وتصدير التقارير."}, "note": "SUPPORT في سياق التقنية تعني غالبًا «يدعم / يتوافق مع»: the model supports 40 languages، أي: يعمل بأربعين لغة، لا أنه «يساعدها».", "outsiders": [], "cloze": [{"s": "Many countries ___ oil to other countries.", "a": "export", "o": ["export", "import", "deport", "report"], "ar": "كثير من الدول تصدّر النفط إلى دول أخرى."}, {"s": "The new model ___ more than 40 languages.", "a": "supports", "o": ["supports", "reports", "transports", "imports"], "ar": "النموذج الجديد يدعم أكثر من 40 لغة."}]}, {"id": "spect", "root": "SPECT", "latin": "Specere", "core": "النظر", "batch": 1, "intro": "يُحكى أن SPECT عند القوم تدور حول النظر، وأصلها Specere، ومنها Spectare: إدامة النظر. ثم ننظر: إلى أين كان هذا النظر؟", "words": [{"w": "INSPECT", "px": "IN", "pxm": "إلى الداخل", "p": "فإذا نظر إلى داخل الشيء — IN — ولم يكتفِ بظاهره، فقد فحصه: INSPECT.", "m": "تنظر إلى داخل الشيء، لا إلى ظاهره فقط", "ar": "تفحصه"}, {"w": "RESPECT", "px": "RE", "pxm": "إلى الخلف / راجعًا", "p": "ثم إذا مرّ بإنسان فتوقّف، وعاد إلى الخلف — RE — من أجل أن ينظر إليه، ولم يتجاهله ويمضِ، فقد احترمه: RESPECT.", "m": "تتوقّف وتعود إلى الخلف لتنظر إلى الشخص، فلا تتجاهله", "ar": "تحترمه وتقدّره"}, {"w": "EXPECT", "px": "EX", "pxm": "إلى الخارج", "p": "فإذا لم يحصر نظره فيما أمامه من مشاهدات، بل خرج بفكره — EX، وقد ذابت فيها سين SPECT — يتأمّل مصير الأشياء وما ستؤول إليه، فقد توقّعها: EXPECT. وخروج الفكر هنا جزء من حكايتنا للتذكّر.", "m": "تخرج بفكرك عمّا أمامك إلى مصير الأشياء", "ar": "تتوقّعها"}, {"w": "SUSPECT", "px": "SUB → SU", "pxm": "من تحت", "p": "وإن نظر إليه من تحت — SUB، التي تظهر هنا بصورة SU — نظرةَ من لا يثق به، خِلسةً من تحت حاجبيه، فقد اشتبه فيه: SUSPECT. والنظرة الخفيّة هنا جزء من حكايتنا للتذكّر.", "m": "تنظر من تحت حاجبيك خِلسةً، بلا ثقة", "ar": "تشتبه فيه"}, {"w": "PROSPECT", "px": "PRO", "pxm": "إلى الأمام", "p": "أما إذا نظر إلى الأمام — PRO — بعيدًا حتى الأفق، فما يلوح له هناك من فرص هو آفاقه: PROSPECT؛ ومنه his prospects are good: آفاقه واعدة.", "m": "تنظر إلى الأمام بعيدًا حتى الأفق", "ar": "آفاق / فرص متوقَّعة"}], "closing": "وهكذا اختلفت أغراض النظر: نظر إلى داخل الشيء ففحصه، وعاد إلى الخلف لينظر إليه فاحترمه، وخرج بفكره إلى ما سيأتي فتوقّع، ونظر من تحت خِلسةً فاشتبه، ونظر إلى الأمام حتى الأفق فرأى آفاقه.", "branches": [["INSPECTION", "فحص"], ["EXPECTED", "متوقَّع؛ expected output: المخرَج المتوقَّع"], ["EXPECTATION", "توقّع"], ["SUSPICIOUS", "مريب / مشبوه"], ["PROSPECTIVE", "مرتقَب؛ prospective customers: عملاء محتملون"], ["RESPECTIVELY", "على الترتيب"]], "exam": {"en": "Compare the model's output with the expected output to spot suspicious results.", "ar": "قارن مخرَج النموذج بالمخرَج المتوقَّع لتلحظ النتائج المريبة."}, "note": "RESPECTIVELY من هذه العائلة، لكن معناها في الاستعمال «على الترتيب» لا «باحترام»: A and B cost $5 and $10, respectively، أي: الأول بخمسة والثاني بعشرة.", "outsiders": [], "cloze": [{"s": "We ___ the model to answer in less than one second.", "a": "expect", "o": ["expect", "inspect", "suspect", "respect"], "ar": "نتوقّع أن يجيب النموذج في أقل من ثانية."}, {"s": "Engineers ___ the training data for errors before using it.", "a": "inspect", "o": ["inspect", "expect", "respect", "prospect"], "ar": "يفحص المهندسون بيانات التدريب بحثًا عن الأخطاء قبل استخدامها."}]}, {"id": "duce", "root": "DUCE / DUCT", "latin": "Ducere", "core": "القيادة", "batch": 1, "intro": "يُحكى أن DUCE عند القوم تدور حول القيادة، وأصلها Ducere، وتأتي بصورتين: DUCE وDUCT، والمعنى واحد. ثم ننظر: إلى أين كانت هذه القيادة؟", "words": [{"w": "PRODUCE", "px": "PRO", "pxm": "إلى الأمام", "p": "فإذا قاد الشيء إلى الأمام — PRO — حتى أخرجه إلى الوجود وظهر، فقد أنتجه: PRODUCE.", "m": "تقود الشيء إلى الأمام حتى يخرج ويظهر", "ar": "تُنتجه"}, {"w": "REDUCE", "px": "RE", "pxm": "إلى الخلف / راجعًا", "p": "فإن قاده إلى الخلف — RE — فردّه عمّا بلغه إلى ما هو أصغر وأقلّ، فقد قلّله: REDUCE.", "m": "تقود الشيء إلى الخلف، إلى ما هو أصغر وأقلّ", "ar": "تُقلّله"}, {"w": "INTRODUCE", "px": "INTRO", "pxm": "إلى الداخل", "p": "أما إذا قاد الإنسان نفسه إلى الداخل — INTRO — فدخل إلى أعماقها حتى عرفها كما هي، ثم خرج يقدّمها للناس، فقد عرّف بنفسه وقدّمها: INTRODUCE. ومنه قولهم: introduce yourself، أي: عرّف بنفسك. والرحلة إلى داخل النفس هنا جزء من حكايتنا للتذكّر.", "m": "تقود نفسك إلى الداخل فتعرفها، ثم تُخرجها للناس", "ar": "تُعرّف بنفسك وتُقدّمها"}, {"w": "CONDUCT", "px": "CON", "pxm": "معًا", "p": "ثم إذا قاد الناس معًا — CON، والقيادة هنا بصورة DUCT — على طريق واحد حتى يتمّ العمل، فقد أداره وأجراه: CONDUCT. ومنه conduct a study: أجرى دراسة؛ وقائد الفرقة الموسيقية: conductor.", "m": "تقود الناس معًا على طريق واحد حتى يتمّ العمل", "ar": "تُديره / تُجريه"}, {"w": "EDUCATE", "px": "EX → E", "pxm": "إلى الخارج", "p": "فإذا قاد الطفل إلى الخارج — EX، التي تظهر هنا بصورة E — فأخرجه من الجهل إلى المعرفة، فقد علّمه وربّاه: EDUCATE. وأصلها اللاتيني Educare: ربّى ونشّأ، وهي قريبة النسب من Educere: قاد إلى الخارج؛ والخروج من الجهل إلى المعرفة هنا جزء من حكايتنا للتذكّر.", "m": "تقود الطفل إلى الخارج، من الجهل إلى المعرفة", "ar": "تُعلّمه وتُربّيه"}], "closing": "وهكذا اختلفت أغراض القيادة: قاد الشيء إلى الأمام فأنتجه، وإلى الخلف فقلّله، وقاد نفسه إلى الداخل فعرفها وقدّمها، وقاد الناس معًا فأدار العمل وأجراه، وقاد الطفل إلى الخارج فعلّمه وربّاه.", "branches": [["PRODUCT", "مُنتَج"], ["PRODUCTION", "إنتاج؛ in production: يعمل فعليًّا مع المستخدمين"], ["PRODUCTIVITY", "إنتاجية"], ["REDUCTION", "تخفيض / تقليل"], ["INTRODUCTION", "مقدّمة / تقديم"], ["CONDUCTOR", "قائد الفرقة / موصِل"]], "exam": {"en": "Generative AI can boost employee productivity and reduce operational costs.", "ar": "يستطيع الذكاء الاصطناعي التوليدي أن يرفع إنتاجية الموظفين ويخفّض تكاليف التشغيل."}, "note": "in production في سياق التقنية تعني أن النظام يعمل فعلًا مع المستخدمين الحقيقيين، لا أنه «قيد الإنتاج».", "outsiders": [], "cloze": [{"s": "Using a smaller model can ___ costs.", "a": "reduce", "o": ["reduce", "produce", "introduce", "conduct"], "ar": "استخدام نموذج أصغر يمكن أن يخفّض التكاليف."}, {"s": "The team will ___ a study to measure user satisfaction.", "a": "conduct", "o": ["conduct", "reduce", "educate", "introduce"], "ar": "سيُجري الفريق دراسة لقياس رضا المستخدمين."}]}, {"id": "strain", "root": "STRAIN / STRICT", "latin": "Stringere", "core": "الشدّ", "batch": 2, "intro": "يُحكى أن STRAIN عند القوم تدور حول الشدّ، وأصلها Stringere. ثم ننظر: فيمَ كان هذا الشدّ؟", "words": [{"w": "STRAIN", "px": null, "pxm": null, "p": "فإذا كان الشدّ في الجسم، يعمل ويعمل حتى تشتدّ عضلاته وتتعب، فقد أجهد نفسه: STRAIN. ولذلك يقولون eye strain: شدّ العين، أي إجهادها.", "m": "شدّ الجسم بالعمل حتى يتعب", "ar": "يُجهِد / إجهاد"}, {"w": "STRICT", "px": null, "pxm": null, "p": "فإن كان الشدّ في صفات الناس والإدارة، فهو ضدّ الرخاوة، لا يتساهل ولا يتراخى، فهو صارم: STRICT.", "m": "الشدّ في صفات الناس، ضدّ الرخاوة", "ar": "صارم"}, {"w": "STRINGENT", "px": null, "pxm": null, "p": "وإن وُصف بالشدّة الأمرُ نفسه، صار مشدَّدًا: STRINGENT، كالشروط المشدّدة.", "m": "الشدّة حين يوصف بها الأمر", "ar": "مشدَّد (شروط مشدّدة)"}, {"w": "CONSTRAIN", "px": "CON", "pxm": "معًا", "p": "فإذا جمعت الأشياء — CON — وشددتها كلها معًا، كما تجمع أقلامًا وتشدّها، فقد قيّدتها: CONSTRAIN.", "m": "تجمع الأشياء وتشدّها معًا", "ar": "تقيّدها"}, {"w": "RESTRICT", "px": "RE", "pxm": "إلى الخلف / راجعًا", "p": "ثم الشدّ قد يكون شدًّا إلى الشيء، وقد يكون شدًّا عنه. فإذا شددته إلى الخلف — RE — كلّما همّ أن يتجاوز حدّه، فقد حددت حركته وقصرتها على نطاق معيّن، وقد يبلغ ذلك المنع والحظر: RESTRICT.", "m": "تشدّ الشيء إلى الخلف عند حدّه", "ar": "تحدّ منه وتقصره على نطاق معيّن"}], "closing": "وهكذا اختلفت أغراض الشدّ: شدٌّ في الجسم فأجهد، وفي صفات الناس فكان صرامة، وفي الأمر فكان تشديدًا، وفي الأشياء المجموعة فقيّد، وشدٌّ عن الشيء إلى الخلف فحدّ وقصر.", "branches": [["CONSTRAINT", "قيد"], ["RESTRICTION", "تقييد / قيد"], ["RESTRICTED", "مقيَّد / محظور؛ restricted area"], ["STRICTLY", "بصرامة / حصرًا"], ["STRAINED", "مُجهَد / متوتّر"]], "exam": {"en": "Budget constraints and strict privacy rules restrict which data the model can use.", "ar": "قيود الميزانية وقواعد الخصوصية الصارمة تحدّ من البيانات التي يستطيع النموذج استخدامها."}, "note": "STRING (كما في text string: سلسلة نصية) ليست من هذه العائلة رغم شبهها بـ STRINGENT؛ أصلها جرماني لا لاتيني.", "outsiders": [{"w": "STRING", "why": "أصلها جرماني (الإنجليزية القديمة streng)، لا من Stringere."}], "cloze": [{"s": "The company has ___ rules about who can access customer data.", "a": "strict", "o": ["strict", "strain", "restrict", "constrain"], "ar": "لدى الشركة قواعد صارمة بشأن من يصل إلى بيانات العملاء."}, {"s": "Access to this folder is ___ to administrators only.", "a": "restricted", "o": ["restricted", "strained", "strict", "stringent"], "ar": "الوصول إلى هذا المجلد مقصور على المسؤولين فقط."}]}, {"id": "struct", "root": "STRUCT", "latin": "Struere", "core": "البناء", "batch": 2, "intro": "يُحكى أن STRUCT عند القوم تدور حول البناء، وأصلها Struere: أن ترصّ الأجزاء بعضها إلى بعض حتى يقوم الشيء. ثم ننظر: كيف كان هذا البناء، وأين وقع؟", "words": [{"w": "STRUCTURE", "px": null, "pxm": null, "p": "فإذا نظرتَ إلى البناء بعد أن قام، كلّ جزء في مكانه وكلّ جزء يحمل ما فوقه، فتلك بنيته — والبِنية من البناء — وهيكله: STRUCTURE.", "m": "البناء بعد أن قام، كل جزء في مكانه", "ar": "بنية / هيكل"}, {"w": "CONSTRUCT", "px": "CON", "pxm": "معًا", "p": "وإن نظرتَ إليه وهو يُبنى، تضمّ أجزاءه معًا — CON — جزءًا إلى جزء حتى يقوم، فقد شيّدته وأنشأته: CONSTRUCT. ومنه under construction: قيد الإنشاء.", "m": "تضمّ الأجزاء معًا وهو يُبنى حتى يقوم", "ar": "تشيّده / تُنشئه"}, {"w": "RESTRUCTURE", "px": "RE", "pxm": "مرة أخرى", "p": "ثم إذا عدت إلى البنية فبنيتها مرة أخرى — RE — بأجزائها نفسها في ترتيب جديد، فقد أعدت هيكلتها: RESTRUCTURE.", "m": "تبني الأجزاء نفسها مرة أخرى في ترتيب جديد", "ar": "تعيد هيكلته"}, {"w": "INFRASTRUCTURE", "px": "INFRA", "pxm": "تحت", "p": "وإن كان البناء في الأسفل — INFRA، أي: تحت — لا يراه الناس، وكلّ ما فوقه قائم عليه، فهو البنية التحتية: INFRASTRUCTURE.", "m": "البناء في الأسفل، الذي يقوم عليه كل ما فوقه", "ar": "البنية التحتية"}, {"w": "INSTRUCT", "px": "IN", "pxm": "إلى الداخل", "p": "والبناء في الأصل خارجٌ ظاهر؛ فإن كان بناءً في الداخل — IN — فأين يكون؟ يكون في التعليمات المكتوبة أو المحفوظة: بناءٌ كامنٌ بين الحروف، يخرج للعيان إذا نفّذه صاحبه. فمن رصّ لك هذا البناء فقد وجّهك وعلّمك: INSTRUCT؛ ومنه instructions: التعليمات. والبناء الكامن هنا جزء من حكايتنا للتذكّر.", "m": "بناءٌ في الداخل، كامنٌ في الكلمات حتى يُنفَّذ", "ar": "توجّهه وتعلّمه / تعليمات"}], "closing": "وهكذا اختلفت أغراض البناء: بناءٌ قام فكان بنية، وبناءٌ يضمّ الأجزاء وهو يُقام فشيّد، وبناءٌ يُعاد بالأجزاء نفسها فأعاد الهيكلة، وبناءٌ في الأسفل فكان بنية تحتية، وبناءٌ في الداخل كامنٌ بين الحروف فكان تعليمات.", "branches": [["STRUCTURED", "منظَّم في بنية محدّدة"], ["UNSTRUCTURED", "غير منظَّم بنيويًّا"], ["STRUCTURAL", "بنيوي"], ["CONSTRUCTION", "بناء / إنشاء"], ["INSTRUCTION", "تعليمة / تعليم"], ["INSTRUCTOR", "مدرّب / معلّم"]], "exam": {"en": "The model follows clear instructions to extract structured fields from unstructured documents.", "ar": "يتّبع النموذج تعليمات واضحة لاستخراج حقول منظَّمة من مستندات غير منظَّمة."}, "note": "UNSTRUCTURED لا تعني «فوضوي»، بل: بيانات بلا جدول ثابت من صفوف وأعمدة، كالنصوص والصور والصوت. وUN سابقة إنجليزية للنفي.", "outsiders": [], "cloze": [{"s": "Emails, images, and videos are examples of ___ data.", "a": "unstructured", "o": ["unstructured", "structured", "constructed", "instructed"], "ar": "الرسائل والصور والفيديوهات أمثلة على البيانات غير المنظَّمة."}, {"s": "Follow the ___ carefully when you set up the account.", "a": "instructions", "o": ["instructions", "infrastructures", "constructions", "structures"], "ar": "اتّبع التعليمات بعناية عند إعداد الحساب."}]}, {"id": "form", "root": "FORM", "latin": "Forma", "core": "التشكيل", "batch": 2, "intro": "يُحكى أن FORM عند القوم تدور حول الشكل والتشكيل، وأصلها Forma، ومنها الفعل Formare: يشكّل. ثم ننظر: فيمَ وقع هذا التشكيل، وإلى أين مضى؟", "words": [{"w": "FORM", "px": null, "pxm": null, "p": "فإذا وقع التشكيل في الشيء نفسه، فصارت له هيئة يُعرف بها، فذلك شكله: FORM. ومنه a form: استمارة شُكّلت خاناتها سلفًا.", "m": "التشكيل في الشيء نفسه فتصير له هيئة", "ar": "شكل / يشكّل / استمارة"}, {"w": "FORMAT", "px": null, "pxm": null, "p": "فإن كان الشكل قالبًا ثابتًا مقدَّرًا سلفًا، تأخذه الأشياء كلّها بمقاس واحد وترتيب واحد، فتلك صيغتها: FORMAT. ومنه صيغة الملف: PDF أو CSV أو JSON.", "m": "الشكل في قالب ثابت تأخذه الأشياء كلها", "ar": "صيغة / تنسيق"}, {"w": "TRANSFORM", "px": "TRANS", "pxm": "عبر", "p": "ثم إذا عبرتَ بالشيء — TRANS — من شكلٍ إلى شكلٍ آخر، فقد حوّلته من حال إلى حال: TRANSFORM.", "m": "تعبر بالشيء من شكل إلى شكل آخر", "ar": "تحوّله"}, {"w": "INFORM", "px": "IN", "pxm": "إلى الداخل", "p": "وإن شكّلتَ في عقل إنسان — IN — صورةَ أمرٍ لم يكن يعرفه، فقد أعلمته وأخبرته: INFORM؛ كما يقال: كوّن عنه صورة.", "m": "تشكّل في العقل صورة الأمر", "ar": "تُعلِمه / تخبره"}, {"w": "PLATFORM", "px": "PLAT", "pxm": "مسطّح", "p": "أما إذا كان الشكل مسطّحًا — PLAT — مرتفعًا يقوم عليه غيره، فهو منصّة: PLATFORM؛ والمِنصّة في العربية من نَصَّ الشيءَ: رفعه، ومنه مِنصّة العروس: ما تُرفع عليه لتُرى. ومنه منصّات اليوم: الأساس الذي تقوم عليه الخدمات والتطبيقات.", "m": "الشكل المسطّح المرتفع الذي يقوم عليه غيره", "ar": "منصّة"}], "closing": "وهكذا اختلفت أغراض التشكيل: تشكيلٌ في الشيء نفسه فكان شكلًا، وتشكيلٌ في قالب ثابت فكان صيغة، وتشكيلٌ يعبر من شكل إلى شكل فحوّل، وتشكيلٌ في العقل فأعلم وأخبر، وتشكيلٌ مسطّح مرتفع يقوم عليه غيره فكان منصّة.", "branches": [["FORMATION", "تكوين / تشكّل"], ["FORMATTED", "منسَّق"], ["TRANSFORMATION", "تحوّل"], ["TRANSFORMER", "محوِّل؛ واسم المعمارية التي تقوم عليها النماذج اللغوية الكبيرة"], ["INFORMATION", "معلومات"], ["INFORMED", "مطّلع / مبنيّ على معرفة"]], "exam": {"en": "A Transformer model can transform unstructured information into a structured format.", "ar": "يستطيع نموذج من نوع Transformer أن يحوّل المعلومات غير المنظَّمة إلى صيغة منظَّمة."}, "note": "PERFORM / PERFORMANCE ليست من هذه العائلة رغم أن فيها FORM؛ أصلها الفرنسية القديمة parfornir «يُنجز»، وتأثّر رسمها فقط بكلمة forme. فـ model performance = أداء النموذج، لا «شكله».", "outsiders": [{"w": "PERFORM", "why": "من الفرنسية القديمة parfornir «يُنجز»؛ تأثّر رسمها بكلمة forme فقط."}], "cloze": [{"s": "Please save the report in PDF ___.", "a": "format", "o": ["format", "form", "platform", "transform"], "ar": "احفظ التقرير بصيغة PDF من فضلك."}, {"s": "The model can ___ a long document into a short summary.", "a": "transform", "o": ["transform", "inform", "perform", "form"], "ar": "يستطيع النموذج أن يحوّل مستندًا طويلًا إلى ملخّص قصير."}]}, {"id": "gen", "root": "GEN", "latin": "Generare", "core": "التوليد", "batch": 2, "intro": "يُحكى أن GEN عند القوم تدور حول التوليد، وأصلها Generare. وسوابقها قليلة، فستقودنا أواخر الكلمات. ثم ننظر: أكان التوليد فعلًا، أم صفةً، أم اسمًا، أم عاد مرة أخرى؟", "words": [{"w": "GENERATE", "px": null, "pxm": null, "p": "فإذا وقع التوليد فعلًا تفعله، فأخرجتَ شيئًا جديدًا إلى الوجود بعد أن لم يكن، فقد ولّدته وأنتجته: GENERATE.", "m": "التوليد فعلًا، فيخرج الجديد إلى الوجود", "ar": "تولّده / تُنتجه"}, {"w": "GENERATIVE", "px": "‑IVE", "pxm": "صفة وشأن", "p": "أما إذا صار التوليد صفةً في الشيء — ‑IVE — وشأنًا له، لا يكفّ عن إخراج الجديد، فهو ولّاد توليديّ: GENERATIVE. كما يقال: ذهنٌ ولّاد.", "m": "التوليد صفةٌ وشأنٌ لا يكفّ", "ar": "توليديّ"}, {"w": "GENERATION", "px": "‑ION", "pxm": "اسم", "p": "فإن صار التوليد اسمًا — ‑ION — فهو التوليد نفسه؛ وإذا تتابع طبقةً بعد طبقة، فكلّ طبقة وُلدت في زمن واحد جيل: GENERATION.", "m": "التوليد اسمًا، ومَن وُلدوا في طبقة واحدة", "ar": "توليد / جيل"}, {"w": "REGENERATE", "px": "RE", "pxm": "مرة أخرى", "p": "ثم إذا عدتَ إلى التوليد مرة أخرى — RE — لأن الأول ذهب أو لم يُرضِك، فقد أعدت توليده: REGENERATE. ومنه زرّ Regenerate: يولّد الجواب من جديد.", "m": "تعود إلى التوليد مرة أخرى بعد أن ذهب الأول", "ar": "تُعيد توليده"}], "closing": "وهكذا اختلفت أغراض التوليد: توليدٌ فعلًا فأنتج، وتوليدٌ صار صفةً وشأنًا فكان توليديًّا، وتوليدٌ صار اسمًا وتتابع فكان توليدًا وجيلًا، وتوليدٌ عاد مرة أخرى فأعاد التوليد.", "branches": [["GENERATOR", "مولِّد، كالمولّد الكهربائي"], ["GENERATED", "مُولَّد"], ["REGENERATION", "إعادة التوليد / التجدّد"], ["GENERATIONAL", "متعلّق بالأجيال"]], "exam": {"en": "A generative AI model can generate text, images, and code.", "ar": "يستطيع نموذج الذكاء الاصطناعي التوليدي أن يولّد نصوصًا وصورًا وشيفرات برمجية."}, "note": "GENERATION تعني «التوليد» في text generation، وتعني «الجيل» في next-generation models؛ والسياق يفصل بينهما.", "outsiders": [], "cloze": [{"s": "A ___ AI model creates new content.", "a": "generative", "o": ["generative", "generation", "generate", "regenerate"], "ar": "نموذج الذكاء الاصطناعي التوليدي يُنشئ محتوى جديدًا."}, {"s": "If you do not like the answer, click ___ to get a new one.", "a": "Regenerate", "o": ["Regenerate", "Generation", "Generative", "Generator"], "ar": "إن لم يعجبك الجواب، اضغط «أعِد التوليد» لتحصل على جواب جديد."}]}, {"id": "dict", "root": "DICT", "latin": "Dicere", "core": "القول", "batch": 2, "intro": "يُحكى أن DICT عند القوم تدور حول القول، وأصلها Dicere. ثم ننظر: لماذا قيل هذا القول، ومتى، وأين جُمع؟", "words": [{"w": "DICTATE", "px": null, "pxm": null, "p": "فإذا قلتَ القول ليُكتب كما قيل، أو ليُنفَّذ كما قيل، فقد أمليتَ: DICTATE. والعربي يقول: أملى عليه شروطه، أي: فرضها.", "m": "القول ليُكتب أو يُنفَّذ كما قيل", "ar": "تُملي / تفرض وتحدّد"}, {"w": "PREDICT", "px": "PRE", "pxm": "قبل", "p": "فإن قلتَ بالنتيجة قبل — PRE — أن تُعرف، فقد تنبّأتَ بها: PREDICT.", "m": "القول بالنتيجة قبل أن تُعرف", "ar": "تتنبّأ بها"}, {"w": "CONTRADICT", "px": "CONTRA", "pxm": "ضدّ", "p": "وإن كان القول ضدّ — CONTRA — قولٍ آخر، فقد ناقضتَه: CONTRADICT. وقد يناقض الإنسان نفسه، إذا قال ضدّ ما قاله من قبل.", "m": "القول ضدّ قولٍ آخر", "ar": "تناقضه"}, {"w": "VERDICT", "px": "VER", "pxm": "صادق", "p": "أما إذا كان القول صادقًا — VER — يُفصل به في الأمر آخرَ المطاف، فهو القول الفصل، أي الحكم: VERDICT.", "m": "القول الصادق الذي يُفصل به في الأمر", "ar": "حكم / قرار نهائي"}, {"w": "DICTIONARY", "px": null, "pxm": null, "p": "ثم إذا جُمعت الأقوال كلمةً كلمة في كتاب واحد، مرتّبةً مشروحة، فذلك المعجم: DICTIONARY.", "m": "الأقوال مجموعةً كلمةً كلمة، مرتّبةً مشروحة", "ar": "معجم / قاموس"}], "closing": "وهكذا اختلفت أغراض القول: قولٌ يُكتب ويُنفَّذ كما قيل فكان إملاءً وفرضًا، وقولٌ بالنتيجة قبل أن تُعرف فكان تنبّؤًا، وقولٌ ضدّ قول فكان مناقضة، وقولٌ صادق فاصل فكان حكمًا، وأقوالٌ جُمعت ورُتّبت فكانت معجمًا.", "branches": [["PREDICTION", "تنبّؤ"], ["PREDICTIVE", "تنبّؤيّ"], ["PREDICTABLE", "قابل للتنبّؤ"], ["UNPREDICTABLE", "لا يمكن التنبّؤ به"], ["CONTRADICTION", "تناقض"], ["CONTRADICTORY", "متناقض"], ["DICTATION", "إملاء"]], "exam": {"en": "The model predicts whether an incoming email is spam.", "ar": "يتنبّأ النموذج بما إذا كانت الرسالة الواردة بريدًا مزعجًا."}, "note": "PREDICTION في تعلّم الآلة قد تكون قيمة أو فئة مجهولة الآن (كتصنيف هذه الرسالة)، لا حدثًا في المستقبل فقط.", "outsiders": [], "cloze": [{"s": "The model ___ next month's sales from past data.", "a": "predicts", "o": ["predicts", "dictates", "contradicts", "verdicts"], "ar": "يتنبّأ النموذج بمبيعات الشهر القادم من البيانات السابقة."}, {"s": "The two reports ___ each other: one says sales went up, the other says they went down.", "a": "contradict", "o": ["contradict", "predict", "dictate", "verdict"], "ar": "التقريران يناقض أحدهما الآخر: أحدهما يقول ارتفعت المبيعات، والآخر يقول انخفضت."}]}, {"id": "val", "root": "VAL / VAIL", "latin": "Valere", "core": "القيمة", "batch": 2, "intro": "يُحكى أن VAL عند القوم تدور حول القيمة الكامنة في الشيء، وأصلها Valere: أن يقوى الشيء فيكون له قدرٌ ووزن. ثم ننظر: أين ظهرت هذه القيمة؟ وهل وُجدت أم عُدمت؟", "words": [{"w": "VALUE", "px": null, "pxm": null, "p": "فإذا كانت القيمة في الشيء نفسه، كامنةً فيه يقوم بها ثمنه، فتلك قيمته: VALUE.", "m": "القيمة الكامنة في الشيء نفسه", "ar": "قيمة / يُقدّر"}, {"w": "EVALUATE", "px": "EX → E", "pxm": "إلى الخارج", "p": "ثم إذا استخرجت — EX، التي تظهر هنا بصورة E — قيمة الشيء من داخله حتى بانت لك، فقد قيّمته: EVALUATE.", "m": "تستخرج قيمة الشيء من داخله حتى تبين", "ar": "تُقيّمه"}, {"w": "VALID", "px": null, "pxm": null, "p": "فإن كانت القيمة في الحجّة أو العقد، قيمةً يُعتدّ بها، فهو صحيح معتبر: VALID.", "m": "قيمةٌ يُعتدّ بها في الحجّة أو العقد", "ar": "صحيح / معتبر"}, {"w": "VALIDATE", "px": null, "pxm": null, "p": "فإذا فحصته حتى ثبت أن له قيمة يُعتدّ بها، فقد تحقّقت من صحّته: VALIDATE. وهو ما يسمّيه المحدّثون: التصحيح.", "m": "تفحصه حتى يثبت أن له قيمة يُعتدّ بها", "ar": "تتحقّق من صحّته"}, {"w": "INVALID", "px": "IN", "pxm": "لا (نفي)", "p": "أما إذا كان بلا قيمة — IN، وهي هنا بمعنى «لا» — فهو باطل غير معتبر ولا معتدّ به: INVALID. كما نقول: لا قيمة له.", "m": "بلا قيمة، لا يُعتدّ به", "ar": "باطل / غير صالح"}, {"w": "AVAILABLE", "px": "AD → A", "pxm": "إلى (نحو)", "p": "ثم إذا كانت القيمة إليك — AD، التي تظهر هنا بصورة A، ويظهر الجذر بصورة VAIL — حاضرةً يمكنك — ‑ABLE — أن تنتفع بها، فهو متاح: AVAILABLE.", "m": "قيمةٌ حاضرة لك يمكنك أن تنتفع بها", "ar": "متاح / متوافر"}], "closing": "وهكذا اختلفت أغراض القيمة: قيمةٌ كامنة في الشيء فكانت قيمته، وقيمةٌ استُخرجت فكان تقييمًا، وقيمةٌ يُعتدّ بها فكان صحيحًا معتبرًا، وقيمةٌ فُحصت فثبتت فكان تحقّقًا، وقيمةٌ عُدمت فكان بطلانًا، وقيمةٌ حاضرة لك تنتفع بها فكانت إتاحة.", "branches": [["VALUABLE", "ثمين"], ["EVALUATION", "تقييم"], ["VALIDATION", "تحقّق من الصحّة"], ["VALIDITY", "صحّة / صلاحية"], ["AVAILABILITY", "إتاحة / توافر؛ high availability: إتاحة عالية"], ["UNAVAILABLE", "غير متاح"]], "exam": {"en": "Use a validation set to tune the model, then evaluate it on a test set before deployment.", "ar": "استخدم مجموعة التحقّق لضبط النموذج، ثم قيّمه على مجموعة الاختبار قبل نشره."}, "note": "مجموعة التحقّق (validation set) لضبط النموذج أثناء بنائه، ومجموعة الاختبار (test set) لتقييمه النهائي.", "outsiders": [], "cloze": [{"s": "The service has high ___, so it rarely goes down.", "a": "availability", "o": ["availability", "validity", "evaluation", "value"], "ar": "الخدمة ذات إتاحة عالية، فنادرًا ما تتوقّف."}, {"s": "This password is ___; please try again.", "a": "invalid", "o": ["invalid", "valid", "available", "valuable"], "ar": "كلمة المرور هذه غير صالحة؛ حاول مرة أخرى."}]}, {"id": "train", "root": "TRAIN", "latin": "Trainer ← Trahere", "core": "السحب", "batch": 2, "intro": "يُحكى أن TRAIN عند القوم تدور حول السحب، وأصلها الفرنسية القديمة Trainer، أي: يسحب ويجرّ، من اللاتينية Trahere. ولذلك سُمّي القطار TRAIN: عرباتٌ متّصلة تُسحب خلف القاطرة. ثم ننظر: متى وقع هذا السحب؟ وهل يقبله الشيء؟", "words": [{"w": "TRAIN", "px": null, "pxm": null, "p": "فإذا سحبت الشيء برفق، مرة بعد مرة، إلى الشكل المطلوب حتى يألفه ويستقيم عليه، فقد درّبته: TRAIN. كما يُسحب الغصن اللّيّن إلى حيث يُراد نموّه، وفيه قيلت الكلمة قبل أن تُقال في تعليم الناس بنحو قرن. والعربية تسمّي ذلك تمرينًا: من المرونة، وهي اللين الذي يقبل الشكل.", "m": "تسحب الشيء برفق مرة بعد مرة حتى يأخذ الشكل المطلوب", "ar": "تُدرّبه"}, {"w": "PRETRAINED", "px": "PRE", "pxm": "قبل", "p": "فإن وقع السحب سابقًا — PRE — فجاءك الشيء وقد أخذ الشكل العامّ، لا تبدأ معه من الصفر، فهو مدرَّب مسبقًا: PRETRAINED.", "m": "وقع السحب إلى الشكل العام قبل أن يصل إليك", "ar": "مدرَّب مسبقًا"}, {"w": "RETRAIN", "px": "RE", "pxm": "مرة أخرى", "p": "ثم إذا عدت فسحبته مرة أخرى — RE — إلى شكلٍ جديد لم يكن عليه، فقد أعدت تدريبه: RETRAIN.", "m": "تسحبه مرة أخرى إلى شكل جديد", "ar": "تُعيد تدريبه"}, {"w": "TRAINABLE", "px": "‑ABLE", "pxm": "قابل لـ", "p": "أما إذا كان الشيء يلين للسحب ويقبل الشكل — ‑ABLE — فهو قابل للتدريب: TRAINABLE. فاللّيّن يُسحب، واليابس ينكسر.", "m": "يلين للسحب ويقبل الشكل", "ar": "قابل للتدريب"}], "closing": "وهكذا اختلفت أغراض السحب: سحبٌ إلى الشكل مرة بعد مرة فكان تدريبًا، وسحبٌ وقع سابقًا فكان تدريبًا مسبقًا، وسحبٌ عاد مرة أخرى فكان إعادة تدريب، وشيءٌ يلين للسحب فكان قابلًا للتدريب.", "branches": [["TRAINING", "تدريب؛ training data: بيانات التدريب"], ["TRAINED", "مدرَّب"], ["UNTRAINED", "غير مدرَّب"], ["PRETRAINING", "التدريب المسبق"], ["RETRAINING", "إعادة التدريب"]], "exam": {"en": "A pretrained model can be used for inference without retraining it.", "ar": "يمكن استعمال النموذج المدرَّب مسبقًا في الاستدلال دون إعادة تدريبه."}, "note": "التدريب (training) يُعلّم النموذج من البيانات ويعدّل معلَماته؛ أما الاستدلال (inference) فهو استعمال النموذج المدرَّب لإنتاج إجابة، ولا يغيّر معلَماته.", "outsiders": [], "cloze": [{"s": "We used a ___ model, so we did not train it from zero.", "a": "pretrained", "o": ["pretrained", "retrained", "trainable", "untrained"], "ar": "استعملنا نموذجًا مدرَّبًا مسبقًا، فلم ندرّبه من الصفر."}, {"s": "A model that has not been trained yet is ___.", "a": "untrained", "o": ["untrained", "pretrained", "retrained", "trainable"], "ar": "النموذج الذي لم يُدرَّب بعدُ غير مدرَّب."}]}, {"id": "vid", "root": "VID / VIS", "latin": "Videre", "core": "الرؤية", "batch": 2, "intro": "يُحكى أن VID عند القوم تدور حول الرؤية، وأصلها Videre، وتأتي بصورتين: VID وVIS، والمعنى واحد؛ ومنها VIDEO، أي: «أنا أرى». ثم ننظر: أين وقعت الرؤية؟ وفي أيّ اتجاه؟", "words": [{"w": "VISION", "px": null, "pxm": null, "p": "فإذا بقيت الرؤية في العين نفسها، فهي البصر: VISION؛ ومنه vision model: نموذج يرى الصور. فإن امتدّت إلى ما سيكون، فهي رؤية للمستقبل، كما نقول «رؤية 2030»: Vision 2030.", "m": "الرؤية في العين نفسها، ثم الرؤية لما سيكون", "ar": "بصر / رؤية للمستقبل"}, {"w": "PROVIDE", "px": "PRO", "pxm": "إلى الأمام", "p": "ثم إذا كانت الرؤية إلى الأمام — PRO — فلم تقف عند النظر، بل رأيت حاجة الغد قبل أن تأتي وأعددت لها ما يسدّها، فقد وفّرت ما يُحتاج إليه: PROVIDE. والرؤية إلى الأمام هي ما نسمّيه في العربية: بُعد النظر.", "m": "ترى إلى الأمام حاجةً قبل أن تأتي، فتُعدّ لها", "ar": "توفّر ما يُحتاج إليه / تزوّد به"}, {"w": "SUPERVISE", "px": "SUPER", "pxm": "من فوق", "p": "فإن كانت الرؤية من فوق — SUPER — على عملٍ يجري تحتك، تتابعه وتوجّهه، فقد أشرفتَ عليه: SUPERVISE. والعربية تقول «أشرف على الشيء»: اطّلع عليه من مكان عالٍ.", "m": "ترى العمل من فوق وتتابعه", "ar": "تُشرف عليه"}, {"w": "REVISE", "px": "RE", "pxm": "مرة أخرى", "p": "ثم إذا عادت الرؤية مرة أخرى — RE — إلى ما كُتب، فأصلحت ما فيه، فقد راجعته ونقّحته: REVISE. كما نقول: أعاد النظر فيه.", "m": "ترى ما كُتب مرة أخرى لتصلحه", "ar": "تراجعه وتنقّحه"}, {"w": "VISUALIZE", "px": "‑IZE", "pxm": "جعل الشيء كذا", "p": "أما إذا كان الشيء لا يُرى، كالفكرة وما تخفيه الأرقام، فجعلت له صورةً — ‑IZE، أي: جعل الشيء كذا — تقع عليها الرؤية، في الذهن أو أمام العين، فقد صوّرته ومثّلته بصريًّا: VISUALIZE.", "m": "تجعل لما لا يُرى صورةً تقع عليها الرؤية", "ar": "تُصوّره / تُمثّله بصريًّا"}], "closing": "وهكذا اختلفت أغراض الرؤية: رؤيةٌ في العين فكانت بصرًا، وامتدّت لما سيكون فكانت رؤية، ورؤيةٌ إلى الأمام أعدّت فوفّرت، ورؤيةٌ من فوق فأشرفت، ورؤيةٌ مرة أخرى فراجعت، ورؤيةٌ جُعلت لما لا يُرى فصوّرت.", "branches": [["VISUAL", "بصري"], ["VISUALIZATION", "تمثيل بصري"], ["SUPERVISOR", "مشرف"], ["SUPERVISED", "خاضع للإشراف"], ["UNSUPERVISED", "غير خاضع للإشراف"], ["REVISION", "مراجعة / نسخة منقّحة"], ["PROVIDER", "مزوّد؛ cloud provider: مزوّد الخدمات السحابية"], ["PROVISION", "توفير وتجهيز؛ provisioning: تجهيز الموارد السحابية"]], "exam": {"en": "In supervised learning, a vision model is trained on labeled images.", "ar": "في التعلّم الخاضع للإشراف، يُدرَّب نموذج الرؤية على صور موسومة (labeled)."}, "note": "«الإشراف» هنا يعني أن بيانات التدريب تحمل الإجابات الصحيحة (labels)، لا أن إنسانًا يراقب كل تنبؤ يصدره النموذج.", "outsiders": [], "cloze": [{"s": "In ___ learning, the training data includes the correct answers (labels).", "a": "supervised", "o": ["supervised", "unsupervised", "revised", "provided"], "ar": "في التعلّم الخاضع للإشراف تتضمّن بيانات التدريب الإجابات الصحيحة."}, {"s": "Google Cloud is a cloud ___.", "a": "provider", "o": ["provider", "supervisor", "vision", "revision"], "ar": "Google Cloud مزوّد خدمات سحابية."}]}, {"id": "tect", "root": "TECT", "latin": "Tegere", "core": "التغطية", "batch": 2, "intro": "يُحكى أن TECT عند القوم تدور حول التغطية، وأصلها Tegere. ثم ننظر: في أيّ جهة وقع الغطاء؟ أبقي أم نُزع؟", "words": [{"w": "PROTECT", "px": "PRO", "pxm": "أمام", "p": "فإذا جعلت الغطاء أمام الشيء — PRO — بينه وبين ما يصيبه، فوقع الخطر على الغطاء ولم يصل إليه، فقد حميته: PROTECT. والوقاية في العربية: حفظ الشيء ممّا يؤذيه ويضرّه؛ ومنه التقوى: أن تجعل بينك وبين ما تخافه وقاية.", "m": "يقع الغطاء أمام الشيء، بينه وبين الخطر", "ar": "تحميه"}, {"w": "DETECT", "px": "DE", "pxm": "نزع وإزالة", "p": "ثم إذا نزعت الغطاء — DE — عن شيء مستور، فظهر ما لم يكن يُرى، فقد اكتشفته ورصدته: DETECT. وهو في العربية «الكشف» نفسه: رفع الغطاء عمّا تحته.", "m": "تنزع الغطاء عن المستور، فيظهر ما لم يكن يُرى", "ar": "تكتشفه / ترصده"}, {"w": "UNDETECTED", "px": "UN", "pxm": "لا (نفي)", "p": "أما إذا لم يُنزع الغطاء — UN، وهي سابقة إنجليزية للنفي — فظلّ المستور خفيًّا لا يراه أحد، فهو غير مكتشَف: UNDETECTED.", "m": "يبقى الغطاء على المستور فلا يراه أحد", "ar": "غير مكتشَف"}], "closing": "وهكذا اختلفت أغراض التغطية: غطاءٌ جُعل من الأمام فحمى، وغطاءٌ نُزع فكشف، وغطاءٌ بقي فلم يُكتشف ما تحته.", "branches": [["PROTECTION", "حماية"], ["PROTECTIVE", "وقائي"], ["PROTECTOR", "واقٍ؛ screen protector"], ["DETECTION", "اكتشاف / رصد؛ anomaly detection: رصد الحالات الشاذّة"], ["DETECTOR", "كاشف؛ smoke detector"], ["DETECTIVE", "محقّق"]], "exam": {"en": "Use security controls to protect sensitive data and detect threats early.", "ar": "استخدم ضوابط أمنية تحمي البيانات الحسّاسة وترصد التهديدات مبكرًا."}, "note": "PROTECT يمنع الخطر قبل أن يصل (غطاء من أمام)، وDETECT يكشف الخطر الذي وصل أو يحاول الوصول (نزع الغطاء)؛ فهما مرحلتان متكاملتان، لا مترادفتان.", "outsiders": [], "cloze": [{"s": "The system can ___ unusual activity and send an alert.", "a": "detect", "o": ["detect", "protect", "undetected", "protection"], "ar": "يستطيع النظام أن يرصد النشاط غير المعتاد ويرسل تنبيهًا."}, {"s": "Encryption helps ___ sensitive data.", "a": "protect", "o": ["protect", "detect", "detective", "detector"], "ar": "التشفير يساعد على حماية البيانات الحسّاسة."}]}, {"id": "trieve", "root": "TRIEVE / TROVE", "latin": "Trover", "core": "العثور", "batch": 2, "intro": "يُحكى أن TRIEVE عند القوم تدور حول العثور، وأصلها الفرنسية القديمة Trover: يجد، وتأتي بصور: TROVE وTRIEVE وTRIVE. ثم ننظر: هل كان العثور أول مرة، أم مرة أخرى، أم على شيء مبعثر أو صعب؟", "words": [{"w": "TROVE", "px": null, "pxm": null, "p": "فإذا عثرت على كنزٍ مدفون لا يُعرف صاحبه، فذلك ما يسمّيه الفقهاء الرِّكاز: TROVE؛ ومنه treasure trove، أي: الكنز المعثور عليه، ثم قيل: a trove of data: ذخيرة من البيانات.", "m": "تعثر على كنزٍ ثمين لم يكن لأحد به علم", "ar": "كنز / ذخيرة"}, {"w": "RETRIEVE", "px": "RE", "pxm": "مرة أخرى", "p": "فإن عثرت عليه مرة أخرى — RE، والعثور هنا بصورة TRIEVE — بعد أن حُفظ وغاب، فأحضرته إلى حيث يُطلب، فقد استرجعته: RETRIEVE. والعربية تقول: استرجعتُ منه الشيء، إذا أخذتُ منه ما دفعتُه إليه.", "m": "تعثر مرة أخرى على المحفوظ وتُحضره", "ar": "تسترجعه"}, {"w": "CONTRIVE", "px": "CON", "pxm": "معًا", "p": "أما إذا كان ما تطلبه مبعثرًا فجمعته — CON، والعثور هنا بصورة TRIVE — أو صعبًا فاحتلت له حتى وجدت إليه سبيلًا، فقد دبّرته: CONTRIVE؛ ومنه he contrived to escape: دبّر أمره حتى أفلت. ولذلك قد تحمل معنى التكلّف: a contrived example، أي: مثالٌ متكلَّف. والجمع هنا جزء من حكايتنا للتذكّر.", "m": "تعثر على سبيل إلى المبعثر فتجمعه، أو إلى الصعب فتحتال له", "ar": "تدبّره / تتمكّن منه بحيلة"}], "closing": "وهكذا اختلفت أغراض العثور: عثورٌ أول على ثمين فكان كنزًا، وعثورٌ مرة أخرى على المحفوظ فكان استرجاعًا، وعثورٌ على المبعثر بالجمع وعلى الصعب بالحيلة فكان تدبيرًا.", "branches": [["RETRIEVAL", "استرجاع"], ["RETRIEVER", "المسترجِع؛ ومنه كلب الصيد Golden Retriever"], ["RETRIEVABLE", "قابل للاسترجاع"], ["IRRETRIEVABLE", "لا يمكن استرجاعه؛ وIN هنا للنفي بصورة IR"], ["RETRIEVAL-AUGMENTED", "مُعزَّز بالاسترجاع"], ["CONTRIVED", "متكلَّف / مصطنع"]], "exam": {"en": "In RAG, the system retrieves relevant documents, and the model generates an answer from them.", "ar": "في RAG يسترجع النظام المستندات ذات الصلة، ثم يولّد النموذج إجابة منها."}, "note": "الاسترجاع (retrieval) يُحضر معلومة موجودة فعلًا في مصدر ولا يُنشئ شيئًا، والتوليد (generation) يُنشئ؛ وRAG = Retrieval-Augmented Generation: توليد مُعزَّز بالاسترجاع.", "outsiders": [], "cloze": [{"s": "In RAG, the system first ___ relevant documents.", "a": "retrieves", "o": ["retrieves", "contrives", "generates", "augments"], "ar": "في RAG يسترجع النظام أولًا المستندات ذات الصلة."}, {"s": "The old library is a treasure ___ of rare manuscripts.", "a": "trove", "o": ["trove", "retrieval", "retriever", "contrive"], "ar": "المكتبة القديمة كنزٌ من المخطوطات النادرة."}]}, {"id": "aug", "root": "AUG / AUTH", "latin": "Augere", "core": "الإنماء", "batch": 2, "intro": "يُحكى أن AUG عند القوم تدور حول الإنماء، وأصلها Augere: أن تزيد الشيء وتجعله يكبر. ثم ننظر: ماذا أنمى؟ ومن أنماه أولًا؟ وماذا صار له فيه؟", "words": [{"w": "AUGMENT", "px": "‑MENT", "pxm": "اسم في الأصل", "p": "فإذا أنمى الشيء الذي عنده، فزاده وأضاف إليه حتى صار أكبر وأقوى، فقد عزّزه: AUGMENT. و‑MENT في أصلها تصنع الاسم: Augmentum «الزيادة، الشيء المُنمّى»، ثم صيغ منه الفعل، فشاع استعمال AUGMENT فعلًا.", "m": "تُنمي ما عندك وتضيف إليه حتى يقوى", "ar": "تعزّزه وتزيده"}, {"w": "AUTHOR", "px": null, "pxm": null, "p": "ثم إذا كان هو أوّل من أنمى الشيء حتى قام — والإنماء هنا في صورة AUCTOR اللاتينية «الذي يُنمي»، ومنها AUTHOR — فهو منشئه وصاحبه: AUTHOR، ومنه مؤلّف الكتاب.", "m": "أوّل من أنمى الشيء حتى قام وظهر", "ar": "منشئه / مؤلّفه"}, {"w": "AUTHORITY", "px": null, "pxm": null, "p": "فإن صارت لمن أنماه الكلمةُ فيه، يأمر وينهى، ويرجع الناس إليه في شأنه، فتلك سلطته ومرجعيته: AUTHORITY؛ كما يُرجع في معنى الكتاب إلى مؤلّفه.", "m": "لك الكلمة فيما أنميته، والناس يرجعون إليك فيه", "ar": "سلطة ومرجعية / جهة مختصّة"}, {"w": "AUTHORIZE", "px": "‑IZE", "pxm": "جعل الشيء كذا", "p": "ثم إذا أعطى غيرَه شيئًا من سلطته على ما أنماه — ‑IZE، أي: جعله ذا سلطة — فقد أذن له وفوّضه: AUTHORIZE. فالسلطة باقية له، وإنما منح منها إذنًا.", "m": "تجعل غيرك ذا سلطة فيما أنميته", "ar": "تأذن له وتفوّضه"}, {"w": "UNAUTHORIZED", "px": "UN", "pxm": "لا (نفي)", "p": "أما إذا لم يأذن صاحب الشيء — UN، وهي سابقة إنجليزية للنفي — فمن دخل عليه بلا إذن فهو غير مصرَّح له: UNAUTHORIZED.", "m": "لم يأذن له صاحب الشيء، فدخل بلا إذن", "ar": "غير مصرَّح له"}], "closing": "وهكذا اختلفت أغراض الإنماء: أنمى ما عنده فعزّزه، وأنماه أولًا فكان منشئه، وصارت له الكلمة فيما أنماه فكانت سلطة، وأعطى غيره منها فأذن له، ولم يأذن فكان من دخل غيرَ مصرَّح له.", "branches": [["AUGMENTED", "مُعزَّز؛ وفي Retrieval-Augmented Generation يُعزَّز مُدخل النموذج بما يُسترجع قبل التوليد"], ["AUGMENTATION", "تعزيز / زيادة؛ data augmentation: توسيع بيانات التدريب بنسخ معدّلة منها"], ["AUTHORITATIVE", "موثوق / صادر عن جهة مختصّة"], ["AUTHORIZATION", "تفويض / منح الصلاحية"], ["AUTHORIZED", "مصرَّح له"]], "exam": {"en": "Only authorized users can access the dataset; unauthorized requests are blocked.", "ar": "لا يصل إلى البيانات إلا المستخدمون المصرَّح لهم، وتُحجب الطلبات غير المصرَّح بها."}, "note": "AUTHENTICATE / AUTHENTICATION ليست من هذه العائلة (أصلها يوناني). Authentication تُثبت هويتك (من أنت؟)، وAuthorization تحدّد ما يُسمح لك به (ماذا تفعل؟). ومن الطريف أن TH في AUTHOR دخيلة: كانت AUCTOR ثم AUTOR، فكُتبت بـ TH ظنًّا أنها يونانية مثل AUTHENTIC.", "outsiders": [{"w": "AUTHENTIC", "why": "يونانية الأصل (authentikos)، لا من Augere."}], "cloze": [{"s": "Only ___ users can see the payroll data.", "a": "authorized", "o": ["authorized", "unauthorized", "authentic", "augmented"], "ar": "لا يرى بيانات الرواتب إلا المستخدمون المصرَّح لهم."}, {"s": "Retrieval-___ Generation adds retrieved documents to the prompt.", "a": "Augmented", "o": ["Augmented", "Authorized", "Authored", "Authentic"], "ar": "التوليد المُعزَّز بالاسترجاع يضيف المستندات المسترجَعة إلى المُدخل."}]}, {"id": "priv", "root": "PRIV", "latin": "Privus", "core": "الإفراد", "batch": 2, "intro": "يُحكى أن PRIV عند القوم تدور حول الإفراد، وأصلها Privus: المنفرد عن غيره. ثم ننظر: ماذا أُفرد؟ ولمن أُفرد، أو عمّ أُفرد؟", "words": [{"w": "PRIVATE", "px": null, "pxm": null, "p": "فإذا أفرد الشيء لنفسه، وفصله عن العامّة، فلم يعد للناس فيه نصيب، فقد جعله خاصًّا: PRIVATE. والعربية تقول: خصّه بالشيء، أي أفرده به؛ ومنه الخاصّ.", "m": "تُفرد الشيء لنفسك وتفصله عن العامّة", "ar": "خاصّ"}, {"w": "PRIVACY", "px": null, "pxm": null, "p": "فإن كان الإفراد في النفس وشؤونها، أفردها عن عيون الناس فلا يطّلع عليها إلا من أذن له، فتلك خصوصيته: PRIVACY.", "m": "الإفراد في النفس وشؤونها عن عيون الناس", "ar": "خصوصية"}, {"w": "PRIVILEGE", "px": "LEGE", "pxm": "قانون", "p": "أما إذا أُفرد لإنسانٍ واحدٍ قانون — LEGE، من LEX: القانون — يعطيه ما لا يُعطى لغيره، فذلك امتياز: PRIVILEGE. كما يقول الفقهاء: هذا من خصائصه، أي حكمٌ أُفرد به وحده.", "m": "يُفرَد لواحدٍ قانون يعطيه ما لا يُعطى لغيره", "ar": "امتياز / صلاحية"}, {"w": "DEPRIVE", "px": "DE", "pxm": "تمامًا", "p": "ثم إذا أفرد الإنسانَ عمّا يحتاجه — DE، وهي هنا بمعنى «تمامًا» — فعزله عنه حتى لم يبقَ له منه شيء، فقد جرّده منه وحرمه: DEPRIVE.", "m": "تُفرد الإنسان عمّا يحتاجه تمامًا", "ar": "تجرّده منه وتحرمه"}], "closing": "وهكذا اختلفت أغراض الإفراد: أفرد الشيء عن العامّة فجعله خاصًّا، وأفرد النفس وشؤونها فكانت خصوصية، وأفرد لواحدٍ قانونًا فكان امتيازًا، وأفرد الإنسان عمّا يحتاجه فحرمه.", "branches": [["PRIVILEGED", "ذو صلاحيات أعلى؛ privileged access: وصول بصلاحيات مرتفعة"], ["PRIVILEGES", "امتيازات؛ وفي الأنظمة: صلاحيات الوصول"], ["PRIVATELY", "على انفراد / سرًّا"], ["DEPRIVATION", "حرمان"]], "exam": {"en": "Protect user privacy, and grant each account only the privileges it needs.", "ar": "احمِ خصوصية المستخدمين، وامنح كل حساب الصلاحيات التي يحتاجها فقط."}, "note": "PRIVACY تتعلق بالبيانات الخاصة ومن يحقّ له الاطلاع عليها، أما PRIVILEGE فصلاحية تحدّد ما يُسمح للمستخدم بفعله؛ ومنه مبدأ least privilege: أقلّ صلاحية تكفي لأداء العمل.", "outsiders": [], "cloze": [{"s": "Give each user only the ___ they need.", "a": "privileges", "o": ["privileges", "privacy", "private", "deprivation"], "ar": "امنح كل مستخدم الصلاحيات التي يحتاجها فقط."}, {"s": "Users want their personal data to stay ___.", "a": "private", "o": ["private", "privilege", "privacy", "deprived"], "ar": "يريد المستخدمون أن تبقى بياناتهم الشخصية خاصّة."}]}, {"id": "ground", "root": "GROUND", "latin": "Grund", "core": "الأرض والأساس", "batch": 2, "intro": "يُحكى أن GROUND عند القوم تدور حول الأرض، وأصلها إنجليزي قديم: Grund، أي: القاع وسطح الأرض والأساس. ثم ننظر: ما الذي وُضع على الأرض؟ وما الذي بقي بلا أرض؟ وما الذي كان وراء غيره عليها؟", "words": [{"w": "GROUND", "px": null, "pxm": null, "p": "فإذا وضعتَ الشيء على الأرض الصلبة وجعلتها أساسه، فقد أسّسته عليها: GROUND.", "m": "تضع الشيء على أرضٍ صلبة تكون أساسه", "ar": "تؤسّسه / تُسنده"}, {"w": "GROUNDED", "px": "‑ED", "pxm": "الحال بعد الفعل", "p": "فإن كان الوضع على الأرض في الإنسان نفسه — ‑ED — وقدماه عليها لا تطير به الأوهام، فهو واقعيّ متّزن: GROUNDED. ونحن نقول: على أرض الواقع.", "m": "الوضع على الأرض في الإنسان نفسه", "ar": "واقعيّ متّزن / مُسنَد إلى مصادر"}, {"w": "GROUNDING", "px": "‑ING", "pxm": "الفعل جاريًا", "p": "وإن كان الوضع في الكلام، فكلّ قولٍ يُوضع على أرضٍ من المصادر — ‑ING — فذلك الإسناد: GROUNDING. كما قال ابن المبارك: الإسناد من الدين، ولولا الإسناد لقال من شاء ما شاء.", "m": "تضع كل قولٍ على أرضٍ من المصادر", "ar": "إسناد (إلى مصادر)"}, {"w": "UNGROUNDED", "px": "UN", "pxm": "لا (نفي)", "p": "أما إذا نُفي ذلك — UN، وهي سابقة إنجليزية للنفي — فبقي الكلام معلّقًا لا أرض تحته، فهو بلا أساس: UNGROUNDED. وهو ما نسمّيه: كلامٌ في الهواء.", "m": "كلام معلّق لا أرض تحته", "ar": "بلا أساس / غير مُسنَد"}, {"w": "BACKGROUND", "px": "BACK", "pxm": "وراء", "p": "ثم إذا كانت الأرض وراء ما في المقدّمة — BACK — فهي الخلفية: BACKGROUND. ومنه خلفية الإنسان: ما وقف عليه من تعليمٍ وخبرة.", "m": "الأرض التي وراء ما في المقدّمة", "ar": "خلفية"}], "closing": "وهكذا اختلفت أغراض الأرض: وُضع الشيء عليها فتأسّس، ووقف عليها الإنسان فكان واقعيًّا متّزنًا، ووُضع عليها القول فكان إسنادًا، ونُفيت عنه فكان كلامًا في الهواء، وكانت وراء ما في المقدّمة فكانت خلفية.", "branches": [["GROUNDS", "أسباب ومسوّغات؛ on the grounds that: بحجّة أن"], ["GROUNDLESS", "لا أساس له"], ["GROUNDWORK", "العمل التمهيدي الذي يضع الأساس"], ["GROUND TRUTH", "الحقيقة المرجعية: ما حدث فعلًا، ويُقارَن به ناتج النموذج"]], "exam": {"en": "Grounding the model's responses in company documents reduces hallucinations.", "ar": "إسناد إجابات النموذج إلى مستندات الشركة يقلّل الهلوسة."}, "note": "grounding تربط مخرجات النموذج بمصادر قابلة للتحقق، فتقلّل الهلوسة (hallucination) — تقلّلها ولا تضمن انعدامها.", "outsiders": [], "cloze": [{"s": "___ the answers in company documents reduces hallucinations.", "a": "Grounding", "o": ["Grounding", "Background", "Groundless", "Groundwork"], "ar": "إسناد الإجابات إلى مستندات الشركة يقلّل الهلوسة."}, {"s": "The claim is ___; there is no evidence for it.", "a": "ungrounded", "o": ["ungrounded", "grounded", "background", "grounding"], "ar": "الادّعاء بلا أساس؛ لا دليل عليه."}]}];
+(function(){
+"use strict";
+const $ = (s, r=document) => r.querySelector(s);
+const view = $("#view");
+const DAY = 86400000;
+const INTERVALS = [0, 0, 1, 3, 7, 16]; // days for box 0..5
+const ALL = [];
+FAMILIES.forEach((f, fi) => f.words.forEach((w, wi) => ALL.push({f, w, key: w.w, fi, wi})));
+const BY = Object.fromEntries(ALL.map(x => [x.key, x]));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pick = (a, n) => shuffle(a).slice(0, n);
+
+/* ---------- progress store ---------- */
+const LS = "ew-progress-v1";
+let P = { cards: {}, exams: [], updatedAt: 0 };
+try { const raw = localStorage.getItem(LS); if (raw) P = Object.assign(P, JSON.parse(raw)); } catch (e) {}
+let remote = null, writing = false, pending = false, timer = null;
+function card(k){ return P.cards[k] || { b: 0, d: 0, r: 0, x: 0 }; }
+function saveLocal(){ try { localStorage.setItem(LS, JSON.stringify(P)); } catch (e) {} }
+function save(){
+  P.updatedAt = Date.now(); saveLocal();
+  if (!remote) return;
+  clearTimeout(timer); timer = setTimeout(flush, 1200);
+}
+async function flush(){
+  if (!remote) return;
+  if (writing) { pending = true; return; }
+  writing = true;
+  try { await remote.ref.set(JSON.parse(JSON.stringify(P))); setSync(true); }
+  catch (e) { if (e && (e.code === "invalid_argument" || e.code === "not_granted" || e.code === "revoked")) { remote = null; setSync(false); } }
+  writing = false;
+  if (pending) { pending = false; flush(); }
+}
+function setSync(on){
+  $("#sync").innerHTML = on ? '<i class="dot on"></i>تقدّمك محفوظ في حسابك، ويظهر على كل أجهزتك' : '<i class="dot"></i>تقدّمك محفوظ في هذا المتصفح';
+}
+(async function connect(){
+  try {
+    if (!window.claude || !window.claude.use) return;
+    const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    if (!db || !user) return;
+    const uid = await user.id(); if (!uid) return;
+    const ref = db.doc("progress/" + uid);
+    const snap = await ref.get();
+    remote = { ref };
+    if (snap.exists) {
+      const d = snap.data();
+      if ((d.updatedAt || 0) > (P.updatedAt || 0)) { P = Object.assign({ cards: {}, exams: [] }, JSON.parse(JSON.stringify(d))); saveLocal(); rerender(); }
+      else if ((P.updatedAt || 0) > (d.updatedAt || 0)) flush();
+    } else if (P.updatedAt) flush();
+    setSync(true);
+  } catch (e) { remote = null; }
+})();
+
+function grade(k, ok){
+  const c = Object.assign({}, card(k));
+  if (ok) { c.b = Math.min(5, (c.b || 0) + 1); c.r++; }
+  else { c.b = 1; c.x++; }
+  c.d = Date.now() + INTERVALS[c.b] * DAY - (c.b <= 1 ? 0 : 3600000);
+  P.cards[k] = c; save();
+}
+function dueList(){ const now = Date.now(); return ALL.filter(x => { const c = card(x.key); return c.b > 0 && c.d <= now; }).sort((a, b) => card(a.key).d - card(b.key).d); }
+function newList(){ return ALL.filter(x => card(x.key).b === 0); }
+
+/* ---------- speech: the browser's American English voice first, recorded American audio as fallback ---------- */
+const AUDIO = {"import":"import","export":"export","deport":"deport","transport":"transport","support":"support","report":"report","portable":"portable","transportation":"transportation","supported":"supported","reporting":"reporting","imported":"imported","exported":"exported","the platform supports importing data from spreadsheets and exporting reports.":"the-platform-supports-im-12571c","many countries export oil to other countries.":"many-countries-export-oi-2f5298","the new model supports more than 40 languages.":"the-new-model-supports-m-c63208","inspect":"inspect","respect":"respect","expect":"expect","suspect":"suspect","prospect":"prospect","inspection":"inspection","expected":"expected","expectation":"expectation","suspicious":"suspicious","prospective":"prospective","respectively":"respectively","compare the model's output with the expected output to spot suspicious results.":"compare-the-model-s-outp-34cfda","we expect the model to answer in less than one second.":"we-expect-the-model-to-a-8089de","engineers inspect the training data for errors before using it.":"engineers-inspect-the-tr-9981b5","produce":"produce","reduce":"reduce","introduce":"introduce","conduct":"conduct","educate":"educate","product":"product","production":"production","productivity":"productivity","reduction":"reduction","introduction":"introduction","conductor":"conductor","generative ai can boost employee productivity and reduce operational costs.":"generative-ai-can-boost--3b2245","using a smaller model can reduce costs.":"using-a-smaller-model-ca-4ab522","the team will conduct a study to measure user satisfaction.":"the-team-will-conduct-a--546ff8","strain":"strain","strict":"strict","stringent":"stringent","constrain":"constrain","restrict":"restrict","constraint":"constraint","restriction":"restriction","restricted":"restricted","strictly":"strictly","strained":"strained","budget constraints and strict privacy rules restrict which data the model can use.":"budget-constraints-and-s-a375d2","the company has strict rules about who can access customer data.":"the-company-has-strict-r-0ae34b","access to this folder is restricted to administrators only.":"access-to-this-folder-is-51b291","string":"string","structure":"structure","construct":"construct","restructure":"restructure","infrastructure":"infrastructure","instruct":"instruct","structured":"structured","unstructured":"unstructured","structural":"structural","construction":"construction","instruction":"instruction","instructor":"instructor","the model follows clear instructions to extract structured fields from unstructured documents.":"the-model-follows-clear--c2be57","emails, images, and videos are examples of unstructured data.":"emails-images-and-videos-6ed9ca","follow the instructions carefully when you set up the account.":"follow-the-instructions--61df67","form":"form","format":"format","transform":"transform","inform":"inform","platform":"platform","formation":"formation","formatted":"formatted","transformation":"transformation","transformer":"transformer","information":"information","informed":"informed","a transformer model can transform unstructured information into a structured format.":"a-transformer-model-can--13aa0c","please save the report in pdf format.":"please-save-the-report-i-3db97e","the model can transform a long document into a short summary.":"the-model-can-transform--93e958","perform":"perform","generate":"generate","generative":"generative","generation":"generation","regenerate":"regenerate","generator":"generator","generated":"generated","regeneration":"regeneration","generational":"generational","a generative ai model can generate text, images, and code.":"a-generative-ai-model-ca-fee44b","a generative ai model creates new content.":"a-generative-ai-model-cr-a93377","if you do not like the answer, click regenerate to get a new one.":"if-you-do-not-like-the-a-755502","dictate":"dictate","predict":"predict","contradict":"contradict","verdict":"verdict","dictionary":"dictionary","prediction":"prediction","predictive":"predictive","predictable":"predictable","unpredictable":"unpredictable","contradiction":"contradiction","contradictory":"contradictory","dictation":"dictation","the model predicts whether an incoming email is spam.":"the-model-predicts-wheth-c33694","the model predicts next month's sales from past data.":"the-model-predicts-next--2afef5","the two reports contradict each other: one says sales went up, the other says they went down.":"the-two-reports-contradi-11f06d","value":"value","evaluate":"evaluate","valid":"valid","validate":"validate","invalid":"invalid","available":"available","valuable":"valuable","evaluation":"evaluation","validation":"validation","validity":"validity","availability":"availability","unavailable":"unavailable","use a validation set to tune the model, then evaluate it on a test set before deployment.":"use-a-validation-set-to--bf77f7","the service has high availability, so it rarely goes down.":"the-service-has-high-ava-5b4c21","this password is invalid; please try again.":"this-password-is-invalid-4f6ff7","train":"train","pretrained":"pretrained","retrain":"retrain","trainable":"trainable","training":"training","trained":"trained","untrained":"untrained","pretraining":"pretraining","retraining":"retraining","a pretrained model can be used for inference without retraining it.":"a-pretrained-model-can-b-4e8913","we used a pretrained model, so we did not train it from zero.":"we-used-a-pretrained-mod-d635d3","a model that has not been trained yet is untrained.":"a-model-that-has-not-bee-781c33","vision":"vision","provide":"provide","supervise":"supervise","revise":"revise","visualize":"visualize","visual":"visual","visualization":"visualization","supervisor":"supervisor","supervised":"supervised","unsupervised":"unsupervised","revision":"revision","provider":"provider","provision":"provision","in supervised learning, a vision model is trained on labeled images.":"in-supervised-learning-a-7d12c9","in supervised learning, the training data includes the correct answers (labels).":"in-supervised-learning-t-15b2d6","google cloud is a cloud provider.":"google-cloud-is-a-cloud--c81dbc","protect":"protect","detect":"detect","undetected":"undetected","protection":"protection","protective":"protective","protector":"protector","detection":"detection","detector":"detector","detective":"detective","use security controls to protect sensitive data and detect threats early.":"use-security-controls-to-87b6f4","the system can detect unusual activity and send an alert.":"the-system-can-detect-un-44e162","encryption helps protect sensitive data.":"encryption-helps-protect-6d384c","trove":"trove","retrieve":"retrieve","contrive":"contrive","retrieval":"retrieval","retriever":"retriever","retrievable":"retrievable","irretrievable":"irretrievable","retrieval-augmented":"retrieval-augmented","contrived":"contrived","in rag, the system retrieves relevant documents, and the model generates an answer from them.":"in-rag-the-system-retrie-b09e49","in rag, the system first retrieves relevant documents.":"in-rag-the-system-first--81af55","the old library is a treasure trove of rare manuscripts.":"the-old-library-is-a-tre-4a7e26","augment":"augment","author":"author","authority":"authority","authorize":"authorize","unauthorized":"unauthorized","augmented":"augmented","augmentation":"augmentation","authoritative":"authoritative","authorization":"authorization","authorized":"authorized","only authorized users can access the dataset; unauthorized requests are blocked.":"only-authorized-users-ca-90735a","only authorized users can see the payroll data.":"only-authorized-users-ca-36cbfb","retrieval-augmented generation adds retrieved documents to the prompt.":"retrieval-augmented-gene-2c6b0c","authentic":"authentic","private":"private","privacy":"privacy","privilege":"privilege","deprive":"deprive","privileged":"privileged","privileges":"privileges","privately":"privately","deprivation":"deprivation","protect user privacy, and grant each account only the privileges it needs.":"protect-user-privacy-and-e8f915","give each user only the privileges they need.":"give-each-user-only-the--fd4bf1","users want their personal data to stay private.":"users-want-their-persona-a826f6","ground":"ground","grounded":"grounded","grounding":"grounding","ungrounded":"ungrounded","background":"background","grounds":"grounds","groundless":"groundless","groundwork":"groundwork","ground truth":"ground-truth","grounding the model's responses in company documents reduces hallucinations.":"grounding-the-model-s-re-ed63d5","grounding the answers in company documents reduces hallucinations.":"grounding-the-answers-in-1daa5f","the claim is ungrounded; there is no evidence for it.":"the-claim-is-ungrounded--b9c8d3"};
+const normKey = s => String(s).trim().replace(/\s+/g, " ").toLowerCase();
+let voice = null, mode = "browser";
+try { mode = localStorage.getItem("ew-voice") || "browser"; } catch (e) {}
+const VOICE_PREF = [/Samantha/i, /Google US English/i, /Aria.*Natural|Jenny.*Natural|Ava.*Natural|Andrew.*Natural|Guy.*Natural/i, /Ava|Allison|Susan|Zoe|Alex/i, /Microsoft (Zira|David|Mark)/i];
+function loadVoice(){
+  try {
+    const us = speechSynthesis.getVoices().filter(v => /^en[-_]US$/i.test(v.lang) || /^en[-_]US[-_]/i.test(v.lang));
+    voice = null;
+    for (const re of VOICE_PREF) { voice = us.find(v => re.test(v.name)); if (voice) break; }
+    if (!voice) voice = us.find(v => v.localService) || us[0] || null;
+  } catch (e) { voice = null; }
+}
+const hasTTS = (() => { try { return "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function"; } catch (e) { return false; } })();
+if (hasTTS) { loadVoice(); try { speechSynthesis.addEventListener("voiceschanged", loadVoice); } catch (e) { speechSynthesis.onvoiceschanged = loadVoice; } }
+let player = null;
+function playFile(t){
+  const id = AUDIO[normKey(t)]; if (!id) return false;
+  try { if (player) player.pause(); player = new Audio("a/" + id + ".mp3"); player.play().catch(() => {}); return true; } catch (e) { return false; }
+}
+function speakBrowser(t, onFail){
+  if (!hasTTS) return onFail();
+  try {
+    const text = /^[A-Z0-9 ‑\-]+$/.test(t) ? t.toLowerCase() : t;
+    if (speechSynthesis.speaking || speechSynthesis.pending) speechSynthesis.cancel();
+    if (!voice) loadVoice();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US"; if (voice) u.voice = voice; u.rate = .88;
+    let started = false, failed = false;
+    const fail = () => { if (!failed && !started) { failed = true; onFail(); } };
+    u.onstart = () => { started = true; };
+    u.onerror = e => { if (e.error !== "interrupted" && e.error !== "canceled") fail(); };
+    speechSynthesis.resume();
+    speechSynthesis.speak(u);
+    setTimeout(() => { if (!started && !speechSynthesis.speaking) { try { speechSynthesis.cancel(); } catch (x) {} fail(); } }, 1400);
+  } catch (e) { onFail(); }
+}
+function say(t){
+  if (player) try { player.pause(); } catch (e) {}
+  if (mode === "file") { if (!playFile(t)) speakBrowser(t, () => {}); return; }
+  speakBrowser(t, () => playFile(t));
+}
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>';
+const spk = (t, label) => `<button class="speak" data-say="${esc(t)}" aria-label="${esc(label || "انطق " + t)}" title="انطق">${SPK}</button>`;
+document.addEventListener("click", e => {
+  const s = e.target.closest("[data-say]"); if (s) { say(s.dataset.say); return; }
+  const a = e.target.closest(".hide-ar .sum .a"); if (a) a.classList.toggle("show");
+});
+
+/* ---------- rich text: wrap Latin runs ---------- */
+const PX = new Set(["IN","IM","EX","E","DE","TRANS","SUB","SUP","SU","RE","PRO","CON","INTRO","INFRA","PLAT","PRE","CONTRA","VER","AD","A","SUPER","UN","BACK","LEGE","LEX","IR","‑IVE","‑ION","‑ABLE","‑IZE","‑ED","‑ING","‑MENT","MAIN","OB"]);
+const ROOTS = new Set(["PORT","SPECT","DUCE","DUCT","STRAIN","STRICT","STRINGENT","STRUCT","FORM","GEN","DICT","VAL","VAIL","TRAIN","VID","VIS","TECT","TRIEVE","TROVE","TRIVE","AUG","AUTH","AUCTOR","AUTOR","PRIV","GROUND","VIDEO"]);
+function rich(text, fam){
+  const fw = new Set(fam ? fam.words.map(w => w.w) : []);
+  return esc(text).replace(/[A-Za-z‑][A-Za-z0-9‑'’\-]*(?:[ .][A-Za-z0-9$][A-Za-z0-9‑'’\-]*)*/g, run => {
+    if (fw.has(run) || BY[run]) return `<button class="word" data-say="${run}" title="انطق">${run}</button>`;
+    if (PX.has(run)) return `<bdi class="px" dir="ltr">${run}</bdi>`;
+    if (ROOTS.has(run)) return `<span class="root-t">${run}</span>`;
+    if (/^[A-Z][a-z]+$/.test(run) && fam && (run === fam.latin || /^(Portare|Spectare|Specere|Ducere|Educare|Educere|Stringere|Struere|Forma|Formare|Generare|Dicere|Valere|Trainer|Trahere|Videre|Tegere|Trover|Augere|Augmentum|Privus|Grund)$/.test(run))) return `<span class="latin">${run}</span>`;
+    return `<bdi class="en">${run}</bdi>`;
+  });
+}
+
+/* ---------- views ---------- */
+let tab = "today";
+function go(t, arg){ tab = t; document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-current", b.dataset.tab === t ? "page" : "false")); render(t, arg); window.scrollTo({ top: 0 }); }
+document.querySelectorAll("nav.tabs button").forEach(b => b.addEventListener("click", () => go(b.dataset.tab)));
+let lastArg = null;
+function render(t, arg){ lastArg = arg; ({ today: vToday, stories: vStories, practice: vPractice, exam: vExam, prefixes: vPrefixes }[t])(arg); }
+function rerender(){ if (!quizActive) render(tab, lastArg); }
+
+function boxesHTML(f){ return `<div class="boxes" aria-hidden="true">${f.words.map(w => `<i data-b="${card(w.w).b}" title="${w.w}"></i>`).join("")}</div>`; }
+function famMastery(f){ return f.words.filter(w => card(w.w).b >= 4).length; }
+
+function vToday(){
+  const due = dueList(), fresh = newList();
+  const seen = ALL.filter(x => card(x.key).b > 0).length;
+  const mastered = ALL.filter(x => card(x.key).b >= 4).length;
+  let r = 0, x = 0; ALL.forEach(a => { const c = card(a.key); r += c.r; x += c.x; });
+  const acc = r + x ? Math.round(100 * r / (r + x)) + "٪" : "—";
+  const last = P.exams.length ? P.exams[P.exams.length - 1] : null;
+  const sessN = Math.min(20, due.length) + Math.min(6, fresh.length);
+  view.innerHTML = `
+  <section class="hero">
+    <div>
+      <h1>كل كلمة تحمل حكاية جذرها</h1>
+      <p class="lead">اقرأ الحكاية، ثم استرجعها بالأسئلة. والمراجعة اليومية تعيد عليك الكلمة قبل أن تنساها: ما أخطأت فيه يعود غدًا، وما أتقنته يتباعد أسبوعًا فأكثر.</p>
+    </div>
+    <div class="due">
+      <div class="n">${sessN}<small>سؤالًا في مراجعة اليوم</small></div>
+      <p class="muted">${due.length} كلمة حان موعدها${fresh.length ? ` · ${Math.min(6, fresh.length)} كلمات جديدة` : ""}</p>
+      <div class="row"><button class="btn" id="startDaily" ${sessN ? "" : "disabled"}>ابدأ المراجعة</button>
+      <button class="btn ghost" data-go="stories">اقرأ الحكايات</button></div>
+    </div>
+  </section>
+  <div class="stats">
+    <div class="stat"><b>${seen} <small style="font-size:.9rem;color:var(--muted);font-weight:500">من 75</small></b><span>كلمة بدأت تعلّمها</span></div>
+    <div class="stat"><b>${mastered}</b><span>كلمة أتقنتها (الدرجة 4 فأعلى)</span></div>
+    <div class="stat"><b>${acc}</b><span>دقّة إجاباتك</span></div>
+    <div class="stat"><b>${last ? last.s + " من " + last.n : "—"}</b><span>آخر اختبار شامل</span></div>
+  </div>
+  <div class="row" style="justify-content:space-between;margin-bottom:12px">
+    <h2>العائلات</h2>
+    <div class="legend"><span><i></i>لم تبدأ</span><span><i style="background:var(--bad)"></i>أُخطئت</span><span><i style="background:var(--ochre)"></i>في الطريق</span><span><i style="background:var(--good)"></i>أُتقنت</span></div>
+  </div>
+  <div class="fam-grid">${FAMILIES.map(f => `
+    <div class="fam">
+      <div class="t"><span class="root-t">${f.root}</span><span class="core">${f.core}</span></div>
+      ${boxesHTML(f)}
+      <span class="muted" style="font-size:.82rem">${famMastery(f)} من ${f.words.length} متقَنة</span>
+      <div class="acts"><button class="btn ghost small" data-read="${f.id}">اقرأ</button><button class="btn ghost small" data-quiz="${f.id}">اختبر</button><button class="btn ghost small" data-flash="${f.id}">بطاقات</button></div>
+    </div>`).join("")}</div>`;
+  $("#startDaily").onclick = startDaily;
+  bindCommon();
+}
+function bindCommon(){
+  view.querySelectorAll("[data-go]").forEach(b => b.onclick = () => go(b.dataset.go));
+  view.querySelectorAll("[data-read]").forEach(b => b.onclick = () => go("stories", b.dataset.read));
+  view.querySelectorAll("[data-quiz]").forEach(b => b.onclick = () => startFamily(b.dataset.quiz));
+  view.querySelectorAll("[data-flash]").forEach(b => b.onclick = () => startFlash(b.dataset.flash));
+}
+
+let hideAr = false;
+try { hideAr = localStorage.getItem("ew-hide") === "1"; } catch (e) {}
+function vStories(id){
+  const f = FAMILIES.find(x => x.id === id) || FAMILIES[0];
+  view.innerHTML = `
+  <div class="chips" role="group" aria-label="العائلات">${FAMILIES.map(x => `<button class="chip" data-fam="${x.id}" aria-pressed="${x.id === f.id}">${x.root}</button>`).join("")}</div>
+  <article class="${hideAr ? "hide-ar" : ""}" id="art">
+    <div class="entry-head"><span class="big">${f.root}</span><span class="core">${f.core}</span><span class="lat">${esc(f.latin)}</span></div>
+    <div class="story">
+      <p class="intro">${rich(f.intro, f)}</p>
+      <div class="lex">${f.words.map(w => `
+        <div class="hw"><div class="row" style="gap:8px"><button class="word" data-say="${w.w}">${w.w}</button>${spk(w.w)}</div>${w.px ? `<span class="pxm"><bdi class="px" dir="ltr">${w.px}</bdi> ${w.pxm}</span>` : ""}</div>
+        <div class="para">${rich(w.p, f)}</div>`).join("")}
+      </div>
+      <p class="closing">${rich(f.closing, f)}</p>
+    </div>
+    <div class="sumhead"><h2>الخلاصة</h2>
+      <label class="row" style="gap:8px;font-size:.9rem;cursor:pointer"><input type="checkbox" id="hideAr" ${hideAr ? "checked" : ""}> أخفِ المعاني لأختبر نفسي</label></div>
+    <div class="sum">${f.words.map(w => `<div class="it"><div class="row" style="gap:8px;justify-content:space-between"><button class="word" data-say="${w.w}">${w.w}</button>${spk(w.w)}</div><span class="m">${esc(w.m)}</span><span class="a">← ${esc(w.ar)}</span></div>`).join("")}</div>
+    <div class="extra">
+      <div class="panel"><h3>فروع للقراءة</h3><div class="branches">${f.branches.map(([a, b]) => `<div><button class="word" data-say="${esc(a)}">${esc(a)}</button><span>${rich(b, f)}</span></div>`).join("")}</div></div>
+      <div class="panel"><h3 class="row" style="justify-content:space-between">في الاختبار ${spk(f.exam.en, "انطق الجملة")}</h3><p class="examline">${esc(f.exam.en)}</p><p style="margin-top:8px;font-family:var(--f-body)">${esc(f.exam.ar)}</p></div>
+    </div>
+    <div class="note"><b>تنبيه: </b>${rich(f.note, f)}</div>
+    <div class="row" style="margin-top:20px"><button class="btn" data-quiz="${f.id}">اختبر هذه العائلة</button><button class="btn ghost" data-flash="${f.id}">بطاقات العائلة</button></div>
+  </article>`;
+  view.querySelectorAll("[data-fam]").forEach(b => b.onclick = () => go("stories", b.dataset.fam));
+  $("#hideAr").onchange = e => { hideAr = e.target.checked; try { localStorage.setItem("ew-hide", hideAr ? "1" : "0"); } catch (x) {} $("#art").classList.toggle("hide-ar", hideAr); };
+  bindCommon();
+}
+
+function vPractice(){
+  const due = dueList();
+  view.innerHTML = `
+  <div class="stack" style="max-width:720px">
+    <h1>التدريب</h1>
+    <div class="panel stack">
+      <h3>مراجعة اليوم</h3>
+      <p class="muted">الكلمات التي حان موعدها (${due.length})، ومعها كلمات جديدة بترتيب العائلات. كل خطأ يعيد الكلمة إلى أول السلّم.</p>
+      <div><button class="btn" id="d">ابدأ</button></div>
+    </div>
+    <div class="panel stack">
+      <h3>عائلة واحدة</h3>
+      <p class="muted">أسئلة متنوّعة على عائلة تختارها: المعنى والصورة والسابقة والسياق، والدخيل إن كان لها دخيل.</p>
+      <div class="row"><select id="fs" aria-label="اختر العائلة">${FAMILIES.map(f => `<option value="${f.id}">${f.root} · ${f.core}</option>`).join("")}</select>
+      <button class="btn" id="fq">اختبار</button><button class="btn ghost" id="ff">بطاقات</button></div>
+    </div>
+    <div class="panel stack">
+      <h3>جمل السياق</h3>
+      <p class="muted">الجمل الاثنتان والثلاثون كلها: تقرأ الجملة الإنجليزية فتختار الكلمة التي تكمّلها. وهذا أقرب الأنواع إلى أسئلة اختبار Generative AI Leader.</p>
+      <div><button class="btn" id="cz">ابدأ</button></div>
+    </div>
+  </div>`;
+  $("#d").onclick = startDaily;
+  $("#fq").onclick = () => startFamily($("#fs").value);
+  $("#ff").onclick = () => startFlash($("#fs").value);
+  $("#cz").onclick = () => runQuiz(shuffle(FAMILIES.flatMap(f => f.cloze.map(c => qCloze(f, c)))), { title: "جمل السياق" });
+}
+
+function vExam(){
+  const hist = P.exams.slice(-8).reverse();
+  view.innerHTML = `
+  <div class="stack" style="max-width:720px">
+    <h1>الاختبار الشامل</h1>
+    <p class="muted" style="font-family:var(--f-body);font-size:1.05rem">ثلاثون سؤالًا من العائلات كلها، بأنواع الأسئلة الستة. لا تظهر الإجابة الصحيحة بعد كل سؤال، بل في النتيجة مع الفقرة التي تعالج كل خطأ.</p>
+    <div class="row"><button class="btn" id="go30">ابدأ الاختبار (30 سؤالًا)</button><button class="btn ghost" id="go50">اختبار طويل (50 سؤالًا)</button></div>
+    ${hist.length ? `<div class="panel"><h3>اختباراتك السابقة</h3><div class="branches">${hist.map(h => `<div><b style="font-variant-numeric:tabular-nums">${h.s} من ${h.n}</b><span class="muted">${new Date(h.t).toLocaleDateString("ar-SA-u-ca-gregory", { day: "numeric", month: "long" })}</span></div>`).join("")}</div></div>` : ""}
+  </div>`;
+  $("#go30").onclick = () => startExam(30);
+  $("#go50").onclick = () => startExam(50);
+}
+
+function vPrefixes(){
+  const map = new Map();
+  ALL.forEach(({ w }) => { if (!w.px) return; const k = w.px.split(" ")[0] + "|" + w.pxm; if (!map.has(k)) map.set(k, []); map.get(k).push(w); });
+  const rows = [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+  view.innerHTML = `
+  <div class="stack">
+    <h1>السوابق واللواحق</h1>
+    <p class="muted" style="font-family:var(--f-body);font-size:1.05rem;max-width:65ch">السابقة تحدّد «غرض» الفعل الأصلي. هذا الجدول يجمع ما ورد منها في الحكايات، مع كلماته. والسابقة الواحدة قد تحمل معنيين، مثل RE: «إلى الخلف» في REPORT و«مرة أخرى» في RETRAIN، ومثل IN: «إلى الداخل» في IMPORT و«لا» في INVALID.</p>
+    <div><button class="btn" id="pq">تدرّب على السوابق</button></div>
+    <div class="tblwrap"><table class="ptable"><thead><tr><th>الصورة</th><th>المعنى</th><th>الكلمات</th></tr></thead><tbody>
+    ${rows.map(([k, ws]) => { const [p, m] = k.split("|"); return `<tr><td><bdi class="px" dir="ltr">${p}</bdi></td><td>${m}</td><td>${ws.map(w => `<button class="word" data-say="${w.w}">${w.w}</button>`).join("")}</td></tr>`; }).join("")}
+    </tbody></table></div>
+  </div>`;
+  $("#pq").onclick = () => runQuiz(shuffle(ALL.filter(x => x.w.px && !x.w.px.startsWith("‑")).map(x => qPrefix(x))).slice(0, 15), { title: "السوابق", srs: true });
+}
+
+/* ---------- question builders ---------- */
+const PXPOOL = ["إلى الداخل","إلى الخارج","إلى الخلف / راجعًا","مرة أخرى","إلى الأمام","أمام","معًا","من تحت","تحت","من فوق","عبر","قبل","ضدّ","بعيدًا","نزع وإزالة","تمامًا","لا (نفي)","إلى (نحو)","صادق","مسطّح","قانون","وراء"];
+const SIBS = [["إلى الخلف / راجعًا","مرة أخرى"],["إلى الأمام","أمام"],["من تحت","تحت"],["بعيدًا","نزع وإزالة","تمامًا"],["من فوق","فوق"]];
+const sibOf = m => (SIBS.find(g => g.includes(m)) || [m]);
+function others(x, n, field){
+  const same = shuffle(x.f.words.filter(w => w.w !== x.w.w));
+  const rest = shuffle(ALL.filter(a => a.f !== x.f).map(a => a.w));
+  const out = [], seen = new Set([x.w[field]]);
+  for (const w of same.concat(rest)) { if (out.length >= n) break; if (seen.has(w[field])) continue; seen.add(w[field]); out.push(w); }
+  return out;
+}
+function qMeaning(x){ const o = others(x, 3, "ar"); return { kind: "المعنى", key: x.key, f: x.f, prompt: `ما معنى <span class="big">${x.w.w}</span>؟`, say: x.w.w, opts: shuffle([x.w.ar, ...o.map(w => w.ar)]), a: x.w.ar, en: false }; }
+function qReverse(x){ const o = others(x, 3, "w"); return { kind: "الكلمة", key: x.key, f: x.f, prompt: `أيّ كلمة معناها: «${esc(x.w.ar)}»؟`, opts: shuffle([x.w.w, ...o.map(w => w.w)]), a: x.w.w, en: true }; }
+function qImage(x){ const o = others(x, 3, "w"); return { kind: "الصورة", key: x.key, f: x.f, prompt: `أيّ كلمة ترسم هذه الصورة؟<br>«${esc(x.w.m)}»`, opts: shuffle([x.w.w, ...o.map(w => w.w)]), a: x.w.w, en: true }; }
+function qPrefix(x){
+  const p = x.w.px.split(" ").pop(), ex = new Set(sibOf(x.w.pxm));
+  const d = pick(PXPOOL.filter(m => !ex.has(m)), 3);
+  return { kind: "السابقة", key: x.key, f: x.f, prompt: `ما معنى <bdi class="px" dir="ltr">${p}</bdi> في <span class="big">${x.w.w}</span>؟`, say: x.w.w, opts: shuffle([x.w.pxm, ...d]), a: x.w.pxm, en: false };
+}
+function qCore(x){
+  const d = pick(FAMILIES.filter(f => f !== x.f).map(f => f.core), 3);
+  return { kind: "العائلة", key: x.key, f: x.f, prompt: `<span class="big">${x.w.w}</span> من عائلة تدور حول:`, say: x.w.w, opts: shuffle([x.f.core, ...d]), a: x.f.core, en: false };
+}
+function qCloze(f, c){ return { kind: "السياق", key: null, f, prompt: `اختر الكلمة التي تكمل الجملة:<span class="sent">${esc(c.s).replace("___", "<u>&nbsp;</u>")}</span>`, opts: shuffle(c.o), a: c.a, en: true, after: { en: c.s.replace("___", c.a), ar: c.ar } }; }
+function qOutsider(f, o){
+  const m = pick(f.words.map(w => w.w).filter(w => w !== o.w), 3);
+  return { kind: "الدخيل", key: null, f, prompt: `أيّ هذه الكلمات ليست من عائلة <span class="root-t">${f.root.split(" ")[0]}</span>؟`, opts: shuffle([o.w, ...m]), a: o.w, en: true, why: o.why };
+}
+function wordQ(x){
+  const b = card(x.key).b;
+  const types = b <= 1 ? [qMeaning, qImage, qMeaning] : b <= 3 ? [qMeaning, qImage, qReverse, qCore] : [qReverse, qImage, qCore];
+  if (x.w.px && !x.w.px.startsWith("‑") && b >= 1) types.push(qPrefix);
+  return pick(types, 1)[0](x);
+}
+
+/* ---------- sessions ---------- */
+function startDaily(){
+  const due = dueList().slice(0, 20), fresh = newList().slice(0, 6);
+  const items = shuffle(due).concat(fresh).map(wordQ);
+  if (!items.length) return;
+  runQuiz(items, { title: "مراجعة اليوم", srs: true, requeue: true });
+}
+function famQuestions(f){
+  const xs = ALL.filter(a => a.f === f);
+  let qs = xs.map(qMeaning).concat(xs.map(qImage));
+  qs = pick(qs, Math.min(qs.length, 7));
+  const pxs = xs.filter(x => x.w.px && !x.w.px.startsWith("‑"));
+  qs = qs.concat(pick(pxs, 2).map(qPrefix), pick(xs, 1).map(qReverse), f.cloze.map(c => qCloze(f, c)), f.outsiders.map(o => qOutsider(f, o)));
+  return shuffle(qs);
+}
+function startFamily(id){ const f = FAMILIES.find(x => x.id === id); runQuiz(famQuestions(f), { title: "عائلة " + f.root, srs: true, fam: f }); }
+function startExam(n){
+  const builders = [qMeaning, qReverse, qImage, qCore];
+  let qs = pick(ALL, Math.round(n * .6)).map(x => pick(builders, 1)[0](x));
+  qs = qs.concat(pick(ALL.filter(x => x.w.px && !x.w.px.startsWith("‑")), Math.round(n * .15)).map(qPrefix));
+  qs = qs.concat(pick(FAMILIES.flatMap(f => f.cloze.map(c => qCloze(f, c))), Math.round(n * .2)));
+  qs = qs.concat(FAMILIES.flatMap(f => f.outsiders.map(o => qOutsider(f, o))));
+  runQuiz(shuffle(qs).slice(0, n), { title: "الاختبار الشامل", srs: true, exam: true });
+}
+
+let quizActive = false;
+function runQuiz(items, opt){
+  quizActive = true;
+  let i = 0, score = 0; const log = [], requeued = new Set();
+  const total = () => items.length;
+  function show(){
+    const q = items[i];
+    view.innerHTML = `
+    <div class="quiz">
+      <div class="qbar"><button class="btn ghost small" id="quit">إنهاء</button><span>${esc(opt.title)}</span><div class="track"><i style="width:${100 * i / total()}%"></i></div><span>${i + 1} من ${total()}</span></div>
+      <div class="qcard">
+        <div class="row" style="justify-content:space-between"><span class="qkind">${q.kind}</span>${q.say ? spk(q.say) : ""}</div>
+        <div class="qprompt">${q.prompt}</div>
+        <div class="opts">${q.opts.map((o, k) => `<button class="opt ${q.en ? "en-opt" : ""}" data-k="${k}">${esc(o)}</button>`).join("")}</div>
+        <div id="fb"></div>
+        <div class="qnav"><span class="keys">اختصار: الأرقام 1–4 للاختيار، وEnter للتالي</span><button class="btn" id="next" hidden>التالي</button></div>
+      </div>
+    </div>`;
+    $("#quit").onclick = finish;
+    view.querySelectorAll(".opt").forEach(b => b.onclick = () => answer(+b.dataset.k));
+  }
+  function answer(k){
+    const q = items[i]; if (q.done) return; q.done = true;
+    const chosen = q.opts[k], ok = chosen === q.a;
+    if (ok) score++;
+    log.push({ q, chosen, ok });
+    if (opt.srs && q.key) grade(q.key, ok);
+    if (!ok && opt.requeue && q.key && !requeued.has(q.key)) {
+      requeued.add(q.key);
+      const again = wordQ(BY[q.key]); again.retry = true;
+      items.splice(Math.min(items.length, i + 4), 0, again);
+    }
+    view.querySelectorAll(".opt").forEach((b, j) => { b.disabled = true; if (q.opts[j] === q.a) b.classList.add("right"); else if (j === k) b.classList.add("wrong"); });
+    if (!opt.exam) $("#fb").innerHTML = feedback(q, ok);
+    else { view.querySelectorAll(".opt").forEach(b => b.classList.remove("right", "wrong")); view.querySelectorAll(".opt")[k].style.borderColor = "var(--ink)"; }
+    const n = $("#next"); n.hidden = false; n.textContent = i + 1 < total() ? "التالي" : "النتيجة"; n.onclick = next; n.focus();
+  }
+  function next(){ i++; if (i < total()) show(); else finish(); }
+  function onKey(e){
+    if (!quizActive) return;
+    if (/^[1-4]$/.test(e.key)) { const b = view.querySelectorAll(".opt")[+e.key - 1]; if (b && !b.disabled) b.click(); }
+    else if (e.key === "Enter") { const n = $("#next"); if (n && !n.hidden) { e.preventDefault(); n.click(); } }
+  }
+  document.addEventListener("keydown", onKey);
+  function finish(){
+    document.removeEventListener("keydown", onKey);
+    quizActive = false;
+    const done = log.length;
+    if (opt.exam && done) { P.exams.push({ t: Date.now(), s: score, n: done }); if (P.exams.length > 60) P.exams = P.exams.slice(-60); save(); }
+    const kinds = {};
+    log.forEach(l => { const k = l.q.kind; kinds[k] = kinds[k] || [0, 0]; kinds[k][1]++; if (l.ok) kinds[k][0]++; });
+    const wrong = log.filter(l => !l.ok);
+    const pct = done ? Math.round(100 * score / done) : 0;
+    view.innerHTML = `
+    <div class="quiz result">
+      <span class="qkind">${esc(opt.title)}</span>
+      <div class="row" style="align-items:baseline;gap:14px"><span class="score">${score} <small style="font-size:1.4rem;color:var(--muted)">من ${done}</small></span><span class="muted">${pct}٪ ${verdict(pct, done)}</span></div>
+      ${done ? `<div class="bykind">${Object.entries(kinds).map(([k, v]) => `<div>${k}<b>${v[0]} من ${v[1]}</b></div>`).join("")}</div>` : ""}
+      ${wrong.length ? `<h2>راجع هذه</h2><div class="mist">${wrong.map(l => mistake(l)).join("")}</div>` : (done ? `<p style="font-family:var(--f-body);font-size:1.1rem">لا أخطاء. ستعود هذه الكلمات إليك بعد أيام لتثبت.</p>` : "")}
+      <div class="row"><button class="btn" id="home">إلى اليوم</button>${opt.fam ? `<button class="btn ghost" data-read="${opt.fam.id}">اقرأ الحكاية</button><button class="btn ghost" data-quiz="${opt.fam.id}">أعد الاختبار</button>` : ""}</div>
+    </div>`;
+    $("#home").onclick = () => go("today");
+    bindCommon();
+    window.scrollTo({ top: 0 });
+  }
+  show();
+}
+function verdict(p, n){ if (!n) return ""; if (p >= 90) return "· ممتاز"; if (p >= 75) return "· جيّد جدًّا"; if (p >= 60) return "· جيّد، وراجع ما أخطأت فيه"; return "· عُد إلى الحكايات ثم أعد المحاولة"; }
+function explain(q){
+  if (q.key) { const x = BY[q.key]; return `<span><button class="word" data-say="${x.w.w}">${x.w.w}</button>: ${esc(x.w.m)} ← <b>${esc(x.w.ar)}</b></span><details><summary>فقرتها من الحكاية</summary><p>${rich(x.w.p, x.f)}</p></details>`; }
+  if (q.after) return `<span class="row" style="gap:8px;direction:ltr;justify-content:flex-start">${spk(q.after.en, "انطق الجملة")}<span class="examline">${esc(q.after.en)}</span></span><span>${esc(q.after.ar)}</span>`;
+  if (q.why) return `<span><b class="en">${q.a}</b>: ${esc(q.why)}</span>`;
+  return "";
+}
+function feedback(q, ok){ return `<div class="fb ${ok ? "ok" : "no"}"><span class="v">${ok ? "صحيح" : "الصواب: " + `<bdi>${esc(q.a)}</bdi>`}</span>${explain(q)}</div>`; }
+function mistake(l){ const q = l.q; return `<div class="it"><div class="row" style="justify-content:space-between"><span class="qkind">${q.kind}</span><span class="muted" style="font-size:.85rem">اخترت: <bdi>${esc(l.chosen)}</bdi> · الصواب: <bdi><b>${esc(q.a)}</b></bdi></span></div><div class="qprompt" style="font-size:1.05rem">${q.prompt}</div><div class="fb no" style="margin-top:8px">${explain(q)}</div></div>`; }
+
+/* ---------- flashcards ---------- */
+function startFlash(id){
+  const f = FAMILIES.find(x => x.id === id);
+  let deck = shuffle(f.words), i = 0, flipped = false, known = 0;
+  quizActive = true;
+  function show(){
+    if (i >= deck.length) { quizActive = false; view.innerHTML = `<div class="flash"><h2>انتهت بطاقات ${f.root}</h2><p class="muted">تذكّرت ${known} من ${deck.length}.</p><div class="row"><button class="btn" data-quiz="${f.id}">اختبر العائلة</button><button class="btn ghost" data-flash="${f.id}">أعد البطاقات</button><button class="btn ghost" id="home">إلى اليوم</button></div></div>`; $("#home").onclick = () => go("today"); bindCommon(); return; }
+    const w = deck[i];
+    view.innerHTML = `
+    <div class="flash">
+      <div class="qbar"><button class="btn ghost small" id="quit">إنهاء</button><span>بطاقات ${f.root}</span><div class="track"><i style="width:${100 * i / deck.length}%"></i></div><span>${i + 1} من ${deck.length}</span></div>
+      <div class="card3d" id="fc" role="button" tabindex="0" aria-label="اقلب البطاقة">
+        <span class="w">${w.w}</span>${w.px ? `<bdi class="px" dir="ltr">${w.px}</bdi>` : ""}
+        ${flipped ? `<span class="m">${esc(w.m)}</span><span class="a">${esc(w.ar)}</span>` : `<span class="hint">تذكّر الصورة والمعنى، ثم اضغط لتقلب البطاقة</span>`}
+      </div>
+      <div class="row" style="justify-content:center">${spk(w.w)}${flipped ? `<button class="btn ghost" id="no">لم أتذكّر</button><button class="btn" id="yes">تذكّرت</button>` : `<button class="btn" id="flip">اقلب</button>`}</div>
+      ${flipped ? `<details class="panel"><summary class="muted" style="cursor:pointer">فقرتها من الحكاية</summary><p style="font-family:var(--f-body);line-height:2;margin-top:8px">${rich(w.p, f)}</p></details>` : ""}
+    </div>`;
+    $("#quit").onclick = () => { quizActive = false; go("today"); };
+    const flip = () => { flipped = true; show(); };
+    $("#fc").onclick = () => { if (!flipped) flip(); };
+    $("#fc").onkeydown = e => { if ((e.key === "Enter" || e.key === " ") && !flipped) { e.preventDefault(); flip(); } };
+    if (!flipped) $("#flip").onclick = flip;
+    else { $("#yes").onclick = () => { grade(w.w, true); known++; i++; flipped = false; show(); }; $("#no").onclick = () => { grade(w.w, false); i++; flipped = false; show(); }; }
+  }
+  show();
+}
+
+try { const vs = $("#voiceSel"); vs.value = mode; vs.onchange = () => { mode = vs.value; try { localStorage.setItem("ew-voice", mode); } catch (e) {} say("respect"); }; } catch (e) {}
+const h = (location.hash || "").slice(1);
+if (FAMILIES.some(f => f.id === h)) go("stories", h); else if (["stories","practice","exam","prefixes"].includes(h)) go(h); else go("today");
+})();
+</script>
+
+</body>
+</html>
