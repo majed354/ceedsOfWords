@@ -35,6 +35,9 @@ header.top .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding
 .brand b{font-family:var(--f-display);font-size:1.6rem;font-weight:700;line-height:1.2}
 .brand span{font-family:var(--f-latin);font-size:.8rem;color:var(--muted);letter-spacing:.12em;direction:ltr}
 nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.secs{display:flex;border:1px solid var(--line);border-radius:999px;padding:2px;gap:2px;background:var(--card)}
+.secs button{font:600 .85rem var(--f-ui);background:none;border:0;color:var(--muted);padding:4px 12px;border-radius:999px;cursor:pointer;min-width:44px}
+.secs button[aria-pressed="true"]{background:var(--ochre-soft);color:var(--ochre)}
 nav.tabs button{font:500 .95rem var(--f-ui);background:none;border:0;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer}
 nav.tabs button[aria-current="page"]{background:var(--ink);color:var(--paper)}
 nav.tabs button:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--lapis);outline-offset:2px}
@@ -190,6 +193,9 @@ footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:
 
 <header class="top"><div class="wrap">
   <div class="brand"><b>حكايات العائلات</b><span>RADICES LATINAE</span></div>
+  <div class="secs" role="group" aria-label="المستوى">
+    <button data-sec="a2">A2</button><button data-sec="b1">B1</button><button data-sec="tech">التقني</button>
+  </div>
   <nav class="tabs" aria-label="الأقسام">
     <button data-tab="today">اليوم</button>
     <button data-tab="stories">الحكايات</button>
@@ -206,7 +212,7 @@ footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:
       <option value="file">تسجيل أمريكي (فوري)</option>
       <option value="browser">صوت المتصفح الأمريكي</option>
     </select></label>
-  <span>16 عائلة · 75 كلمة · الصياغة الرابعة</span>
+  <span id="secInfo"></span>
 </div></footer>
 
 <script>
@@ -220,6 +226,18 @@ const INTERVALS = [0, 0, 1, 3, 7, 16]; // days for box 0..5
 const ALL = [];
 FAMILIES.forEach((f, fi) => f.words.forEach((w, wi) => ALL.push({f, w, key: w.w, fi, wi})));
 const BY = Object.fromEntries(ALL.map(x => [x.key, x]));
+const SECTIONS = { a2: { name: "A2", long: "مستوى A2", usage: "في الاستعمال" }, b1: { name: "B1", long: "مستوى B1", usage: "في الاستعمال" }, tech: { name: "التقني", long: "القسم التقني", usage: "في الاختبار" } };
+let sec = "tech", FAMS = [], SALL = [];
+try { const s = localStorage.getItem("ew-sec"); if (SECTIONS[s]) sec = s; } catch (e) {}
+function setSec(s){
+  if (!SECTIONS[s]) return;
+  sec = s; FAMS = FAMILIES.filter(f => f.section === s); SALL = ALL.filter(x => x.f.section === s);
+  try { localStorage.setItem("ew-sec", s); } catch (e) {}
+  document.querySelectorAll(".secs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.sec === s ? "true" : "false"));
+  const si = document.getElementById("secInfo"); if (si) si.textContent = `${SECTIONS[s].long} · ${FAMS.length} عائلة · ${SALL.length} كلمة`;
+}
+setSec(sec);
+const secExams = () => P.exams.filter(e => (e.sec || "tech") === sec);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const pick = (a, n) => shuffle(a).slice(0, n);
@@ -273,8 +291,8 @@ function grade(k, ok){
   c.d = Date.now() + INTERVALS[c.b] * DAY - (c.b <= 1 ? 0 : 3600000);
   P.cards[k] = c; save();
 }
-function dueList(){ const now = Date.now(); return ALL.filter(x => { const c = card(x.key); return c.b > 0 && c.d <= now; }).sort((a, b) => card(a.key).d - card(b.key).d); }
-function newList(){ return ALL.filter(x => card(x.key).b === 0); }
+function dueList(){ const now = Date.now(); return SALL.filter(x => { const c = card(x.key); return c.b > 0 && c.d <= now; }).sort((a, b) => card(a.key).d - card(b.key).d); }
+function newList(){ return SALL.filter(x => card(x.key).b === 0); }
 
 /* ---------- speech: the browser's American English voice first, recorded American audio as fallback ---------- */
 const AUDIO = /*__AUDIO__*/;
@@ -328,15 +346,15 @@ document.addEventListener("click", e => {
 });
 
 /* ---------- rich text: wrap Latin runs ---------- */
-const PX = new Set(["IN","IM","EX","E","DE","TRANS","SUB","SUP","SU","RE","PRO","CON","INTRO","INFRA","PLAT","PRE","CONTRA","VER","AD","A","SUPER","UN","BACK","LEGE","LEX","IR","‑IVE","‑ION","‑ABLE","‑IZE","‑ED","‑ING","‑MENT","MAIN","OB"]);
-const ROOTS = new Set(["PORT","SPECT","DUCE","DUCT","STRAIN","STRICT","STRINGENT","STRUCT","FORM","GEN","DICT","VAL","VAIL","TRAIN","VID","VIS","TECT","TRIEVE","TROVE","TRIVE","AUG","AUTH","AUCTOR","AUTOR","PRIV","GROUND","VIDEO"]);
+const PX = new Set(["IN","IM","EX","E","DE","TRANS","SUB","SUP","SU","RE","PRO","CON","INTRO","INFRA","PLAT","PRE","CONTRA","VER","AD","A","SUPER","UN","BACK","LEGE","LEX","IR","‑IVE","‑ION","‑ABLE","‑IZE","‑ED","‑ING","‑MENT","MAIN","OB","OF","PER","DIS","DIF","SUF","SUS","SUC","AC","AT","AS","AP","COM","MULTI","INTER","DES","S","‑CY","‑ITY","‑ATE","‑URE","‑ARY","‑AL","‑ANT","‑ICE","‑IST"]);
+const ROOTS = new Set(["PORT","SPECT","DUCE","DUCT","STRAIN","STRICT","STRINGENT","STRUCT","FORM","GEN","DICT","VAL","VAIL","TRAIN","VID","VIS","TECT","TRIEVE","TROVE","TRIVE","AUG","AUTH","AUCTOR","AUTOR","PRIV","GROUND","VIDEO","TAIN","FER","MIT","MISS","VEN","VENT","CAP","CEPT","CEIVE","PEND","PENS","TEND","TENS","CEED","CESS","SIST","STA","PLY","PLIC","MOV","MOT","PART","NAT","FIN","CHIEF","CIRC","SERV","MEMOR","SIGN","REG","RECT","JOUR"]);
 function rich(text, fam){
   const fw = new Set(fam ? fam.words.map(w => w.w) : []);
   return esc(text).replace(/[A-Za-z‑][A-Za-z0-9‑'’\-]*(?:[ .][A-Za-z0-9$][A-Za-z0-9‑'’\-]*)*/g, run => {
     if (fw.has(run) || BY[run]) return `<button class="word" data-say="${run}" title="انطق">${run}</button>`;
     if (PX.has(run)) return `<bdi class="px" dir="ltr">${run}</bdi>`;
     if (ROOTS.has(run)) return `<span class="root-t">${run}</span>`;
-    if (/^[A-Z][a-z]+$/.test(run) && fam && (run === fam.latin || /^(Portare|Spectare|Specere|Ducere|Educare|Educere|Stringere|Struere|Forma|Formare|Generare|Dicere|Valere|Trainer|Trahere|Videre|Tegere|Trover|Augere|Augmentum|Privus|Grund)$/.test(run))) return `<span class="latin">${run}</span>`;
+    if (/^[A-Z][a-z]+$/.test(run) && fam && (run === fam.latin || /^(Portare|Spectare|Specere|Ducere|Educare|Educere|Stringere|Struere|Forma|Formare|Generare|Dicere|Valere|Trainer|Trahere|Videre|Tegere|Trover|Augere|Augmentum|Privus|Grund|Tenere|Ferre|Mittere|Venire|Capere|Premere|Pendere|Tendere|Cedere|Sistere|Stare|Plicare|Movere|Pars|Nasci|Finis|Caput|Circus|Cerchier|Servire|Servare|Memor|Signum|Designare|Regere|Diurnus|Jour|Mons|Certus|Vendere|Prae|Esse|Sedere|Mens)$/.test(run))) return `<span class="latin">${run}</span>`;
     return `<bdi class="en">${run}</bdi>`;
   });
 }
@@ -354,11 +372,11 @@ function famMastery(f){ return f.words.filter(w => card(w.w).b >= 4).length; }
 
 function vToday(){
   const due = dueList(), fresh = newList();
-  const seen = ALL.filter(x => card(x.key).b > 0).length;
-  const mastered = ALL.filter(x => card(x.key).b >= 4).length;
-  let r = 0, x = 0; ALL.forEach(a => { const c = card(a.key); r += c.r; x += c.x; });
+  const seen = SALL.filter(x => card(x.key).b > 0).length;
+  const mastered = SALL.filter(x => card(x.key).b >= 4).length;
+  let r = 0, x = 0; SALL.forEach(a => { const c = card(a.key); r += c.r; x += c.x; });
   const acc = r + x ? Math.round(100 * r / (r + x)) + "٪" : "—";
-  const last = P.exams.length ? P.exams[P.exams.length - 1] : null;
+  const ex = secExams(); const last = ex.length ? ex[ex.length - 1] : null;
   const sessN = Math.min(20, due.length) + Math.min(6, fresh.length);
   view.innerHTML = `
   <section class="hero">
@@ -374,7 +392,7 @@ function vToday(){
     </div>
   </section>
   <div class="stats">
-    <div class="stat"><b>${seen} <small style="font-size:.9rem;color:var(--muted);font-weight:500">من 75</small></b><span>كلمة بدأت تعلّمها</span></div>
+    <div class="stat"><b>${seen} <small style="font-size:.9rem;color:var(--muted);font-weight:500">من ${SALL.length}</small></b><span>كلمة بدأت تعلّمها</span></div>
     <div class="stat"><b>${mastered}</b><span>كلمة أتقنتها (الدرجة 4 فأعلى)</span></div>
     <div class="stat"><b>${acc}</b><span>دقّة إجاباتك</span></div>
     <div class="stat"><b>${last ? last.s + " من " + last.n : "—"}</b><span>آخر اختبار شامل</span></div>
@@ -383,7 +401,7 @@ function vToday(){
     <h2>العائلات</h2>
     <div class="legend"><span><i></i>لم تبدأ</span><span><i style="background:var(--bad)"></i>أُخطئت</span><span><i style="background:var(--ochre)"></i>في الطريق</span><span><i style="background:var(--good)"></i>أُتقنت</span></div>
   </div>
-  <div class="fam-grid">${FAMILIES.map(f => `
+  <div class="fam-grid">${FAMS.map(f => `
     <div class="fam">
       <div class="t"><span class="root-t">${f.root}</span><span class="core">${f.core}</span></div>
       ${boxesHTML(f)}
@@ -403,9 +421,11 @@ function bindCommon(){
 let hideAr = false;
 try { hideAr = localStorage.getItem("ew-hide") === "1"; } catch (e) {}
 function vStories(id){
-  const f = FAMILIES.find(x => x.id === id) || FAMILIES[0];
+  let f = FAMILIES.find(x => x.id === id);
+  if (f && f.section !== sec) setSec(f.section);
+  if (!f) f = FAMS[0];
   view.innerHTML = `
-  <div class="chips" role="group" aria-label="العائلات">${FAMILIES.map(x => `<button class="chip" data-fam="${x.id}" aria-pressed="${x.id === f.id}">${x.root}</button>`).join("")}</div>
+  <div class="chips" role="group" aria-label="العائلات">${FAMS.map(x => `<button class="chip" data-fam="${x.id}" aria-pressed="${x.id === f.id}">${x.root}</button>`).join("")}</div>
   <article class="${hideAr ? "hide-ar" : ""}" id="art">
     <div class="entry-head"><span class="big">${f.root}</span><span class="core">${f.core}</span><span class="lat">${esc(f.latin)}</span></div>
     <div class="story">
@@ -421,7 +441,7 @@ function vStories(id){
     <div class="sum">${f.words.map(w => `<div class="it"><div class="row" style="gap:8px;justify-content:space-between"><button class="word" data-say="${w.w}">${w.w}</button>${spk(w.w)}</div><span class="m">${esc(w.m)}</span><span class="a">← ${esc(w.ar)}</span></div>`).join("")}</div>
     <div class="extra">
       <div class="panel"><h3>فروع للقراءة</h3><div class="branches">${f.branches.map(([a, b]) => `<div><button class="word" data-say="${esc(a)}">${esc(a)}</button><span>${rich(b, f)}</span></div>`).join("")}</div></div>
-      <div class="panel"><h3 class="row" style="justify-content:space-between">في الاختبار ${spk(f.exam.en, "انطق الجملة")}</h3><p class="examline">${esc(f.exam.en)}</p><p style="margin-top:8px;font-family:var(--f-body)">${esc(f.exam.ar)}</p></div>
+      <div class="panel"><h3 class="row" style="justify-content:space-between">${SECTIONS[f.section].usage} ${spk(f.exam.en, "انطق الجملة")}</h3><p class="examline">${esc(f.exam.en)}</p><p style="margin-top:8px;font-family:var(--f-body)">${esc(f.exam.ar)}</p></div>
     </div>
     <div class="note"><b>تنبيه: </b>${rich(f.note, f)}</div>
     <div class="row" style="margin-top:20px"><button class="btn" data-quiz="${f.id}">اختبر هذه العائلة</button><button class="btn ghost" data-flash="${f.id}">بطاقات العائلة</button></div>
@@ -444,23 +464,23 @@ function vPractice(){
     <div class="panel stack">
       <h3>عائلة واحدة</h3>
       <p class="muted">أسئلة متنوّعة على عائلة تختارها: المعنى والصورة والسابقة والسياق، والدخيل إن كان لها دخيل.</p>
-      <div class="row"><select id="fs" aria-label="اختر العائلة">${FAMILIES.map(f => `<option value="${f.id}">${f.root} · ${f.core}</option>`).join("")}</select>
+      <div class="row"><select id="fs" aria-label="اختر العائلة">${FAMS.map(f => `<option value="${f.id}">${f.root} · ${f.core}</option>`).join("")}</select>
       <button class="btn" id="fq">اختبار</button><button class="btn ghost" id="ff">بطاقات</button></div>
     </div>
     <div class="panel stack">
       <h3>جمل السياق</h3>
-      <p class="muted">الجمل الاثنتان والثلاثون كلها: تقرأ الجملة الإنجليزية فتختار الكلمة التي تكمّلها. وهذا أقرب الأنواع إلى أسئلة اختبار Generative AI Leader.</p>
+      <p class="muted">جمل هذا القسم كلها (${FAMS.reduce((n, f) => n + f.cloze.length, 0)} جملة): تقرأ الجملة الإنجليزية فتختار الكلمة التي تكمّلها.${sec === "tech" ? " وهذا أقرب الأنواع إلى أسئلة اختبار Generative AI Leader." : ""}</p>
       <div><button class="btn" id="cz">ابدأ</button></div>
     </div>
   </div>`;
   $("#d").onclick = startDaily;
   $("#fq").onclick = () => startFamily($("#fs").value);
   $("#ff").onclick = () => startFlash($("#fs").value);
-  $("#cz").onclick = () => runQuiz(shuffle(FAMILIES.flatMap(f => f.cloze.map(c => qCloze(f, c)))), { title: "جمل السياق" });
+  $("#cz").onclick = () => runQuiz(shuffle(FAMS.flatMap(f => f.cloze.map(c => qCloze(f, c)))), { title: "جمل السياق · " + SECTIONS[sec].name });
 }
 
 function vExam(){
-  const hist = P.exams.slice(-8).reverse();
+  const hist = secExams().slice(-8).reverse();
   view.innerHTML = `
   <div class="stack" style="max-width:720px">
     <h1>الاختبار الشامل</h1>
@@ -474,7 +494,7 @@ function vExam(){
 
 function vPrefixes(){
   const map = new Map();
-  ALL.forEach(({ w }) => { if (!w.px) return; const k = w.px.split(" ")[0] + "|" + w.pxm; if (!map.has(k)) map.set(k, []); map.get(k).push(w); });
+  SALL.forEach(({ w }) => { if (!w.px) return; const k = w.px.split(" ")[0] + "|" + w.pxm; if (!map.has(k)) map.set(k, []); map.get(k).push(w); });
   const rows = [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   view.innerHTML = `
   <div class="stack">
@@ -485,16 +505,16 @@ function vPrefixes(){
     ${rows.map(([k, ws]) => { const [p, m] = k.split("|"); return `<tr><td><bdi class="px" dir="ltr">${p}</bdi></td><td>${m}</td><td>${ws.map(w => `<button class="word" data-say="${w.w}">${w.w}</button>`).join("")}</td></tr>`; }).join("")}
     </tbody></table></div>
   </div>`;
-  $("#pq").onclick = () => runQuiz(shuffle(ALL.filter(x => x.w.px && !x.w.px.startsWith("‑")).map(x => qPrefix(x))).slice(0, 15), { title: "السوابق", srs: true });
+  $("#pq").onclick = () => runQuiz(shuffle(SALL.filter(x => x.w.px && !x.w.px.startsWith("‑")).map(x => qPrefix(x))).slice(0, 15), { title: "السوابق · " + SECTIONS[sec].name, srs: true });
 }
 
 /* ---------- question builders ---------- */
-const PXPOOL = ["إلى الداخل","إلى الخارج","إلى الخلف / راجعًا","مرة أخرى","إلى الأمام","أمام","معًا","من تحت","تحت","من فوق","عبر","قبل","ضدّ","بعيدًا","نزع وإزالة","تمامًا","لا (نفي)","إلى (نحو)","صادق","مسطّح","قانون","وراء"];
-const SIBS = [["إلى الخلف / راجعًا","مرة أخرى"],["إلى الأمام","أمام"],["من تحت","تحت"],["بعيدًا","نزع وإزالة","تمامًا"],["من فوق","فوق"]];
-const sibOf = m => (SIBS.find(g => g.includes(m)) || [m]);
+const PXPOOL = ["إلى الداخل","إلى الخارج","إلى الخلف / راجعًا","مرة أخرى","إلى الأمام","أمام","معًا","من تحت","تحت","من فوق","عبر","قبل","ضدّ","بعيدًا","نزع وإزالة","تمامًا","لا (نفي)","إلى (نحو)","صادق","مسطّح","قانون","وراء","اليد","تفرّق وانفصال","من أعلى إلى أسفل","على","كثير","بين","تقوية"];
+const SIBS = [["إلى الخلف / راجعًا","مرة أخرى","تقوية"],["إلى الأمام","أمام","إلى (نحو)"],["من تحت","تحت"],["بعيدًا","نزع وإزالة","تمامًا","من أعلى إلى أسفل","تفرّق وانفصال"],["من فوق","فوق"],["إلى الداخل","على"]];
+const sibOf = m => { const s = new Set([m]); SIBS.forEach(g => { if (g.includes(m)) g.forEach(x => s.add(x)); }); return [...s]; };
 function others(x, n, field){
   const same = shuffle(x.f.words.filter(w => w.w !== x.w.w));
-  const rest = shuffle(ALL.filter(a => a.f !== x.f).map(a => a.w));
+  const rest = shuffle(SALL.filter(a => a.f !== x.f).map(a => a.w));
   const out = [], seen = new Set([x.w[field]]);
   for (const w of same.concat(rest)) { if (out.length >= n) break; if (seen.has(w[field])) continue; seen.add(w[field]); out.push(w); }
   return out;
@@ -508,7 +528,7 @@ function qPrefix(x){
   return { kind: "السابقة", key: x.key, f: x.f, prompt: `ما معنى <bdi class="px" dir="ltr">${p}</bdi> في <span class="big">${x.w.w}</span>؟`, say: x.w.w, opts: shuffle([x.w.pxm, ...d]), a: x.w.pxm, en: false };
 }
 function qCore(x){
-  const d = pick(FAMILIES.filter(f => f !== x.f).map(f => f.core), 3);
+  const d = pick([...new Set(FAMS.filter(f => f !== x.f && f.core !== x.f.core).map(f => f.core))], 3);
   return { kind: "العائلة", key: x.key, f: x.f, prompt: `<span class="big">${x.w.w}</span> من عائلة تدور حول:`, say: x.w.w, opts: shuffle([x.f.core, ...d]), a: x.f.core, en: false };
 }
 function qCloze(f, c){ return { kind: "السياق", key: null, f, prompt: `اختر الكلمة التي تكمل الجملة:<span class="sent">${esc(c.s).replace("___", "<u>&nbsp;</u>")}</span>`, opts: shuffle(c.o), a: c.a, en: true, after: { en: c.s.replace("___", c.a), ar: c.ar } }; }
@@ -541,11 +561,11 @@ function famQuestions(f){
 function startFamily(id){ const f = FAMILIES.find(x => x.id === id); runQuiz(famQuestions(f), { title: "عائلة " + f.root, srs: true, fam: f }); }
 function startExam(n){
   const builders = [qMeaning, qReverse, qImage, qCore];
-  let qs = pick(ALL, Math.round(n * .6)).map(x => pick(builders, 1)[0](x));
-  qs = qs.concat(pick(ALL.filter(x => x.w.px && !x.w.px.startsWith("‑")), Math.round(n * .15)).map(qPrefix));
-  qs = qs.concat(pick(FAMILIES.flatMap(f => f.cloze.map(c => qCloze(f, c))), Math.round(n * .2)));
-  qs = qs.concat(FAMILIES.flatMap(f => f.outsiders.map(o => qOutsider(f, o))));
-  runQuiz(shuffle(qs).slice(0, n), { title: "الاختبار الشامل", srs: true, exam: true });
+  let qs = pick(SALL, Math.round(n * .6)).map(x => pick(builders, 1)[0](x));
+  qs = qs.concat(pick(SALL.filter(x => x.w.px && !x.w.px.startsWith("‑")), Math.round(n * .15)).map(qPrefix));
+  qs = qs.concat(pick(FAMS.flatMap(f => f.cloze.map(c => qCloze(f, c))), Math.round(n * .2)));
+  qs = qs.concat(pick(FAMS.flatMap(f => f.outsiders.map(o => qOutsider(f, o))), Math.max(2, Math.round(n * .1))));
+  runQuiz(shuffle(qs).slice(0, n), { title: "الاختبار الشامل · " + SECTIONS[sec].name, srs: true, exam: true });
 }
 
 let quizActive = false;
@@ -596,7 +616,7 @@ function runQuiz(items, opt){
     document.removeEventListener("keydown", onKey);
     quizActive = false;
     const done = log.length;
-    if (opt.exam && done) { P.exams.push({ t: Date.now(), s: score, n: done }); if (P.exams.length > 60) P.exams = P.exams.slice(-60); save(); }
+    if (opt.exam && done) { P.exams.push({ t: Date.now(), s: score, n: done, sec }); if (P.exams.length > 60) P.exams = P.exams.slice(-60); save(); }
     const kinds = {};
     log.forEach(l => { const k = l.q.kind; kinds[k] = kinds[k] || [0, 0]; kinds[k][1]++; if (l.ok) kinds[k][0]++; });
     const wrong = log.filter(l => !l.ok);
@@ -654,6 +674,8 @@ function startFlash(id){
 }
 
 try { const vs = $("#voiceSel"); vs.value = mode; vs.onchange = () => { mode = vs.value; try { localStorage.setItem("ew-voice2", mode); } catch (e) {} say("respect"); }; } catch (e) {}
+document.querySelectorAll(".secs button").forEach(b => b.addEventListener("click", () => { if (quizActive) return; setSec(b.dataset.sec); render(tab, null); }));
+window.addEventListener("hashchange", () => { const k = (location.hash || "").slice(1); if (!quizActive && FAMILIES.some(f => f.id === k)) go("stories", k); });
 const h = (location.hash || "").slice(1);
 if (FAMILIES.some(f => f.id === h)) go("stories", h); else if (["stories","practice","exam","prefixes"].includes(h)) go(h); else go("today");
 })();
