@@ -2545,7 +2545,39 @@
     "ar": "يجب أن تحصل على تأشيرة قبل أن تسافر."
    }
   ],
-  "image": "يدٌ تمسك الشيء: تحصل عليه، أو تُبقيه عندها، أو تتعهّده، أو تضمّه داخل حدودها، أو تسنده من تحته."
+  "image": "يدٌ تمسك الشيء: تحصل عليه، أو تُبقيه عندها، أو تتعهّده، أو تضمّه داخل حدودها، أو تسنده من تحته.",
+  "more": [
+   {
+    "w": "CONTINENT",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "قارّة",
+    "how": "من اللاتينية الوسيطة terra continens (أرضٌ متّصلة)، من continere (ضمَّ): com + tenere (أمسك). فالقارّةُ أرضٌ يمسك بعضُها بعضًا بلا انقطاع.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/continent"
+   },
+   {
+    "w": "CONTINUE",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "يستمر / يواصل",
+    "how": "من الفرنسية القديمة continuer، من اللاتينية continuare، من continuus (متّصل)، من continere (تماسك): com + tenere (أمسك). فالاستمرار أن يُمسك الأمرُ بعضُه ببعض بلا انقطاع.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/continue",
+    "kin": [
+     "CONTINUOUS"
+    ]
+   },
+   {
+    "w": "CONTENT",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "مُحتوى؛ راضٍ",
+    "how": "من اللاتينية contentus (محتوًى؛ راضٍ)، اسم مفعول continere (ضمَّ): com + tenere (أمسك). فالمحتوى ما أمسكه الشيء في داخله، والراضي من أُمسكت رغباتُه عند ما عنده.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/content"
+   }
+  ]
  },
  {
   "id": "fer",
@@ -2720,7 +2752,27 @@
     "ar": "كثير من الناس يعانون من آلام الظهر."
    }
   ],
-  "image": "يدٌ تحمل الشيء: نحو غيرك، أو قبل غيره، أو راجعة، أو عابرة، أو متفرّقة، أو من تحت الثقل."
+  "image": "يدٌ تحمل الشيء: نحو غيرك، أو قبل غيره، أو راجعة، أو عابرة، أو متفرّقة، أو من تحت الثقل.",
+  "more": [
+   {
+    "w": "CONFERENCE",
+    "kind": "visible",
+    "lvl": "A2",
+    "ar": "مؤتمر",
+    "how": "من اللاتينية الوسيطة conferentia، من conferre (جمع، تداول): com (معًا) + ferre (حمل). فالمؤتمرُ مجلسٌ يحمل فيه كلٌّ رأيه إلى الآخرين.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/conference"
+   },
+   {
+    "w": "INFER",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يستنتج؛ يستنبط",
+    "how": "من اللاتينية inferre (أدخلَ، استنتجَ): in- + ferre (حمل). فالاستنتاج أن تحمل النتيجة وتُدخلها خاتمةً للاستدلال.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/infer"
+   }
+  ]
  },
  {
   "id": "mit",
@@ -2979,7 +3031,27 @@
     "ar": "التدخين غير مسموح به في هذا المبنى."
    }
   ],
-  "image": "يدٌ تمسك شيئًا ثم ترخي قبضتها وتتركه ينطلق: إلى غاية، أو إلى الخارج، أو عبر المسافة، أو إلى الداخل، أو يسقط جانبًا."
+  "image": "يدٌ تمسك شيئًا ثم ترخي قبضتها وتتركه ينطلق: إلى غاية، أو إلى الخارج، أو عبر المسافة، أو إلى الداخل، أو يسقط جانبًا.",
+  "more": [
+   {
+    "w": "MESS",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "فوضى / خليط",
+    "how": "من الفرنسية القديمة mes (حصّة طعام)، من اللاتينية المتأخرة missus (الوضع على المائدة)، من mittere. فهي ما يُرسَل إلى المائدة، ثم الطعام المخلوط، ثم الفوضى.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/mess"
+   },
+   {
+    "w": "COMMISSION",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "لجنة / عمولة / تكليف",
+    "how": "من اللاتينية commissionem، من committere (جمع، عهد)، من com (معًا) + mittere (أطلق، أرسل). فالتكليف إرسالُ المرء بسلطةٍ يُعهد بها إليه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/commission"
+   }
+  ]
  },
  {
   "id": "ven",
@@ -3137,7 +3209,27 @@
     "ar": "هل الساعة الخامسة مناسبة لك؟"
    }
   ],
-  "image": "قادمٌ يجيء: يخرج إلى الوجود، أو يسبق غيره، أو يقع على شيء، أو يأتيك ما لا تدري، أو تجتمع الأمور له."
+  "image": "قادمٌ يجيء: يخرج إلى الوجود، أو يسبق غيره، أو يقع على شيء، أو يأتيك ما لا تدري، أو تجتمع الأمور له.",
+  "more": [
+   {
+    "w": "REVENUE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "إيرادات / دخل",
+    "how": "من الفرنسية القديمة revenue (عودة)، من revenir، من revenire، من re- (رجوعًا) + venire (جاء). فالإيراد مالٌ يجيء راجعًا إلى صاحبه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/revenue"
+   },
+   {
+    "w": "VENUE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "مكان انعقاد الحدث",
+    "how": "من الفرنسية القديمة venue (مجيء)، اسم مفعول venir، من اللاتينية venire (جاء). فالمكان سُمّي بمجيء الناس إليه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/venue"
+   }
+  ]
  },
  {
   "id": "cap",
@@ -3312,7 +3404,132 @@
     "ar": "كل المحلّات مفتوحة ما عدا المخبز."
    }
   ],
-  "image": "يدٌ تأخذ الشيء وتمسكه: تتّسع له، أو تقبله، أو تستلمه، أو تُخرجه من جماعته، أو تحمله في الداخل، أو تأخذ الإنسان بعيدًا."
+  "image": "يدٌ تأخذ الشيء وتمسكه: تتّسع له، أو تقبله، أو تستلمه، أو تُخرجه من جماعته، أو تحمله في الداخل، أو تأخذ الإنسان بعيدًا.",
+  "more": [
+   {
+    "w": "CASH",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "نقد / مال سائل",
+    "how": "من الفرنسية caisse (صندوق المال)، من اللاتينية capsa (صندوق)، من capere (أخذ وأمسك). كان اسمًا للصندوق، ثم صار اسمًا للمال الذي يمسكه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/cash"
+   },
+   {
+    "w": "RECIPE",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "وصفة طبخ",
+    "how": "من اللاتينية recipe (خُذْ!)، صيغة الأمر من recipere: re- + capere (أخذ). وكان الأطباء يصدّرون بها وصفاتهم، فالوصفة تبدأ بـ«خُذْ كذا».",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/recipe"
+   },
+   {
+    "w": "PRINCE",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "أمير",
+    "how": "من اللاتينية princeps (الذي يأخذ الأوّل): primus (أوّل) + جذر capere (أخذ). فالأمير من أخذ المقام الأوّل.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/prince",
+    "kin": [
+     "PRINCESS"
+    ]
+   },
+   {
+    "w": "ANTICIPATE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يتوقّع / يستبق",
+    "how": "من اللاتينية anticipare: anti (صيغة قديمة من ante: قبل) + capere (أخذ). فالتوقّع أخذُ الأمر قبل أوانه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/anticipate"
+   },
+   {
+    "w": "CABLE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "سلك / حبل غليظ",
+    "how": "من الفرنسية الشمالية القديمة cable، من اللاتينية الوسيطة capulum (أنشوطة، حبل)، من capere (أخذ وقبض). فالحبل ما يُمسَك به الشيء ويُؤخَذ.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/cable"
+   },
+   {
+    "w": "CHASE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يطارد / مطاردة",
+    "how": "من الفرنسية القديمة chacier، من اللاتينية العامية captiare (حاول الإمساك)، من captare، مكرَّر capere (أخذ وأمسك). فالمطاردةُ سعيٌ متكرّر للإمساك بالطريدة.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/chase"
+   },
+   {
+    "w": "OCCUPATION",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "مهنة / احتلال",
+    "how": "من اللاتينية occupationem «أخذُ الحيازة؛ شُغل»، من occupare: ob + capere (أخذ). فالمهنة شُغلٌ يأخذ وقتَ صاحبه ويستولي عليه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/occupation"
+   },
+   {
+    "w": "OCCUPY",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يحتلّ / يشغل",
+    "how": "من اللاتينية occupare: ob (فوق) + صيغة مكثّفة من capere (أخذ وقبض). فالاحتلال أخذُ المكان والاستيلاء عليه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/occupy"
+   },
+   {
+    "w": "PRINCIPAL",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "رئيسي / مدير مدرسة",
+    "how": "من اللاتينية principalis، من princeps، من primus (أوّل) + جذر capere (أخذ). فالرئيسيّ ما أخذ المرتبة الأولى في الأهمية.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/principal"
+   },
+   {
+    "w": "PRINCIPLE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "مبدأ",
+    "how": "من اللاتينية principium (بداية، أصل)، من princeps: primus (أوّل) + جذر capere (أخذ). فالمبدأ أصلٌ يُؤخذ أوّلًا ويُبنى عليه غيره.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/principle"
+   },
+   {
+    "w": "PURCHASE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يشتري / شراء",
+    "how": "من الفرنسية القديمة porchacier: pur- (إلى الأمام) + chacier (يطارد)، من captiare، من captare، مكرَّر capere (أخذ). فالشراء أخذُك ما سعيتَ خلفه وطلبته.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/purchase"
+   },
+   {
+    "w": "CAPTURE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يأسر / يلتقط؛ أَسْر",
+    "how": "من الفرنسية capture، من اللاتينية captura (أخذ)، من capere (أخذ وأمسك). فالأسرُ أخذُ الشيء والقبضُ عليه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/capture"
+   },
+   {
+    "w": "PERCEIVE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يُدرك / يلاحظ",
+    "how": "من الفرنسية الشمالية القديمة perceivre، من percipere، من per (تمامًا) + capere (أخذ). فالإدراك أخذُ الشيء بالحسّ أخذًا تامًّا.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/perceive",
+    "kin": [
+     "PERCEPTION"
+    ]
+   }
+  ]
  },
  {
   "id": "press",
@@ -3470,7 +3687,22 @@
     "ar": "ضغط العمل الزائد قد يُمرض الناس."
    }
   ],
-  "image": "يدٌ تضغط بثقلها: فيستجيب الشيء، أو يقع عليه الضغط، أو يخرج ما في داخله، أو يبقى الأثر، أو ينخفض."
+  "image": "يدٌ تضغط بثقلها: فيستجيب الشيء، أو يقع عليه الضغط، أو يخرج ما في داخله، أو يبقى الأثر، أو ينخفض.",
+  "more": [
+   {
+    "w": "PRINT",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "يطبع / طباعة",
+    "how": "من الفرنسية القديمة preinte (أثر الضغط)، من preindre (يضغط)، المحرّفة عن prembre، من اللاتينية premere (ضغط). فالطبعة أثرٌ يتركه الضغط على السطح.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/print",
+    "kin": [
+     "PRINTER",
+     "PRINTING"
+    ]
+   }
+  ]
  },
  {
   "id": "pend",
@@ -3623,7 +3855,18 @@
     "ar": "كان الفندق غاليًا جدًّا علينا."
    }
   ],
-  "image": "شيءٌ معلّق يتدلّى من ميزان: يتعلّق بغيره، أو يقوم بنفسه، أو يُوقف معلّقًا، أو يُوزن فيُدفع."
+  "image": "شيءٌ معلّق يتدلّى من ميزان: يتعلّق بغيره، أو يقوم بنفسه، أو يُوقف معلّقًا، أو يُوزن فيُدفع.",
+  "more": [
+   {
+    "w": "PENSION",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "معاش تقاعدي",
+    "how": "من اللاتينية pensionem (دفعة، أجرة)، من pendere (علّق؛ وزن؛ دفع). فالمعاش مالٌ يُدفع، وكان الدفع وزنًا، والوزن تعليقٌ في الميزان.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/pension"
+   }
+  ]
  },
  {
   "id": "tend",
@@ -3776,7 +4019,18 @@
     "ar": "تظاهر بالمرض، لكنه كان بخير."
    }
   ],
-  "image": "يدٌ تمدّ الشيء نحو جهة: فيميل إليها، أو يمتدّ الذهن والنفس إليها، أو تُمدّ الدعوى أمامك، أو يطول."
+  "image": "يدٌ تمدّ الشيء نحو جهة: فيميل إليها، أو يمتدّ الذهن والنفس إليها، أو تُمدّ الدعوى أمامك، أو يطول.",
+  "more": [
+   {
+    "w": "TENT",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "خيمة",
+    "how": "من الفرنسية القديمة tente، من اللاتينية الوسيطة tenta (شيء ممدود)، من tentus اسم مفعول tendere (مدّ). فالخيمة جلودٌ أو قماشٌ ممدودٌ على هيكل.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/tent"
+   }
+  ]
  },
  {
   "id": "ceed",
@@ -3925,7 +4179,50 @@
     "ar": "تفضّل بالتوجّه إلى البوابة 12."
    }
   ],
-  "image": "سائرٌ يمضي: إلى الأمام، أو خطوةً بعد خطوة، أو إلى الشيء حتى يبلغه، أو خارج الحدّ، أو بعد غيره."
+  "image": "سائرٌ يمضي: إلى الأمام، أو خطوةً بعد خطوة، أو إلى الشيء حتى يبلغه، أو خارج الحدّ، أو بعد غيره.",
+  "more": [
+   {
+    "w": "NECESSARY",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "ضروري / لازم",
+    "how": "من اللاتينية necessarius، من necesse (لا بدّ منه)، وأصلها «لا تراجع»: ne- (لا) + cedere (انصرف، تنحّى). فالضروريّ ما لا تستطيع أن تمضي عنه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/necessary",
+    "kin": [
+     "NECESSARILY",
+     "UNNECESSARY",
+     "NECESSITY"
+    ]
+   },
+   {
+    "w": "ANCESTOR",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "جَدّ / سَلَف",
+    "how": "من الفرنسية القديمة ancestre، من اللاتينية المتأخرة antecessor (السابق)، من antecedere (سبق): ante (قبل) + cedere (مضى). فالسلفُ من مضى قبلك.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/ancestor"
+   },
+   {
+    "w": "PRECEDE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يسبق",
+    "how": "من اللاتينية praecedere (سبق): prae (قبل) + cedere (مضى). فالسبق مضيٌّ قبل الآخرين.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/precede"
+   },
+   {
+    "w": "RECESSION",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "ركود اقتصادي",
+    "how": "من اللاتينية recessionem (التراجع)، من recedere (رجع، انسحب): re- (إلى الوراء) + cedere (مضى). فالركود تراجعُ الاقتصاد ومضيُّه إلى الوراء.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/recession"
+   }
+  ]
  },
  {
   "id": "sist",
@@ -4091,7 +4388,18 @@
     "ar": "لم تعد الديناصورات موجودة."
    }
   ],
-  "image": "إنسانٌ يقف: في مكانه ثابتًا، أو إلى جانب غيره، أو على رأيه، أو في وجه ما يدفعه، أو ظاهرًا، أو مع غيره."
+  "image": "إنسانٌ يقف: في مكانه ثابتًا، أو إلى جانب غيره، أو على رأيه، أو في وجه ما يدفعه، أو ظاهرًا، أو مع غيره.",
+  "more": [
+   {
+    "w": "ESTABLISH",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يؤسّس / يُرسي؛ من stabilis، أخت STABLE",
+    "how": "من الفرنسية القديمة establir (أوقفَ، أقامَ)، من اللاتينية stabilire (جعله ثابتًا)، من stabilis (الثابت)، ومنها STABLE. فالتأسيس أن تُوقف الشيء ثابتًا قائمًا.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/establish"
+   }
+  ]
  },
  {
   "id": "ply",
@@ -4245,7 +4553,43 @@
     "ar": "مسألة الرياضيات هذه معقّدة جدًّا."
    }
   ],
-  "image": "ورقةٌ تُطوى: إلى غيرها فتلصق به، أو راجعةً، أو طيّاتٍ كثيرة، أو مع غيرها حتى تتداخل، أو على ما في داخلها."
+  "image": "ورقةٌ تُطوى: إلى غيرها فتلصق به، أو راجعةً، أو طيّاتٍ كثيرة، أو مع غيرها حتى تتداخل، أو على ما في داخلها.",
+  "more": [
+   {
+    "w": "EMPLOY",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "يوظّف / يستخدم",
+    "how": "من الفرنسية القديمة emploiier، من اللاتينية implicare (لفَّ، أدخلَ): in- (في) + plicare (طوى)، وهي أصل IMPLY. فالتوظيف أن تُدخِل المرءَ في عملٍ وتطويه فيه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/employ",
+    "kin": [
+     "EMPLOYEE",
+     "EMPLOYER",
+     "EMPLOYMENT",
+     "UNEMPLOYED",
+     "UNEMPLOYMENT"
+    ]
+   },
+   {
+    "w": "DISPLAY",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يعرض / عرض",
+    "how": "من الفرنسية القديمة desploiir (بسطَ، فكَّ)، من اللاتينية displicare: dis- (تفريق) + plicare (طوى). فالعرض فكُّ الطيّ ليظهر ما كان مطويًّا.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/display"
+   },
+   {
+    "w": "EXPLOIT",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يستغلّ / مأثرة",
+    "how": "من الفرنسية القديمة esploit (إنجاز، منفعة)، من اللاتينية explicitum، من explicare (بسط، فكّ): ex- (خارج) + plicare (طوى). فالمأثرةُ نفعٌ أُخرج من طيّه فظهر، ومنها الاستغلال.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/exploit"
+   }
+  ]
  },
  {
   "id": "mov",
@@ -4394,7 +4738,45 @@
     "ar": "رُقّيت إلى مديرة العام الماضي."
    }
   ],
-  "image": "يدٌ تحرّك الشيء: من مكانه، أو من داخل الإنسان، أو إلى الخلف، أو إلى الأمام، أو حتى يهيج."
+  "image": "يدٌ تحرّك الشيء: من مكانه، أو من داخل الإنسان، أو إلى الخلف، أو إلى الأمام، أو حتى يهيج.",
+  "more": [
+   {
+    "w": "MOBILE",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "متنقّل / جوّال",
+    "how": "من اللاتينية mobilis (سهل الحركة)، مختصر *movibilis، من movere (التحريك). فالجوّال جهازٌ سهلُ التحريك يتنقّل معك.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/mobile"
+   },
+   {
+    "w": "MOTORCYCLE",
+    "kind": "visible",
+    "lvl": "A2",
+    "ar": "درّاجة نارية",
+    "how": "مركّبة من motor (من movere: التحريك) + -cycle من bicycle. فهي درّاجة يحرّكها محرّك صغير.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/motorcycle"
+   },
+   {
+    "w": "MOTION",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "حركة / اقتراح",
+    "how": "من اللاتينية motionem (حركة)، من movere (التحريك). فالحركة أثرُ التحريك.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/motion"
+   },
+   {
+    "w": "MOTOR",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "محرّك",
+    "how": "من اللاتينية motor (المحرِّك)، من movere (التحريك). فالمحرّك آلةٌ تحرّك غيرها.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/motor"
+   }
+  ]
  },
  {
   "id": "part",
@@ -4539,7 +4921,54 @@
     "ar": "تأكّد من موعد مغادرة رحلتك."
    }
   ],
-  "image": "شيءٌ كبير يُقسم أقسامًا: قطعة، أو جماعة، أو شقّة، أو إدارة، أو إنسانٌ ينفصل عن جماعته."
+  "image": "شيءٌ كبير يُقسم أقسامًا: قطعة، أو جماعة، أو شقّة، أو إدارة، أو إنسانٌ ينفصل عن جماعته.",
+  "more": [
+   {
+    "w": "PORTION",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "حصة / جزء",
+    "how": "من اللاتينية portionem، من عبارة pro portione، من *partio (قسمة) المرتبطة بـ pars (جزء). فالحصة جزءٌ يُقتطع لصاحبه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/portion"
+   },
+   {
+    "w": "PROPORTION",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "نسبة / تناسب",
+    "how": "من العبارة اللاتينية pro portione (بحسب علاقة الأجزاء)، من *partio المرتبطة بـ pars (جزء). فالتناسب علاقةُ الأجزاء بعضها ببعض.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/proportion"
+   },
+   {
+    "w": "APART",
+    "kind": "visible",
+    "lvl": "B1",
+    "ar": "بعيدًا / منفصلًا",
+    "how": "من الفرنسية القديمة a part (إلى جانب)، من اللاتينية ad + partem (من pars: جزء). فالمنفصل ما صار جزءًا في جانب.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/apart"
+   },
+   {
+    "w": "PART-TIME",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "دوام جزئي",
+    "how": "مركّبة من part (جزء) + time (وقت). فالدوام الجزئي عملٌ في جزءٍ من الوقت المعتاد.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/part-time"
+   },
+   {
+    "w": "PARTICIPATION",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "مشاركة",
+    "how": "من اللاتينية participationem، من participare، من particeps، من pars (جزء) + capere (أخذ). فالمشاركة أخذُ جزءٍ من الأمر.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/participation"
+   }
+  ]
  },
  {
   "id": "nat",
@@ -4795,7 +5224,27 @@
     "ar": "اضطرّ إلى دفع غرامة قدرها 50 دولارًا لأنه أوقف سيارته هناك."
    }
   ],
-  "image": "خطٌّ يُرسم عند نهاية الشيء: يُنهى العمل عنده، ويكون الأخير، ويبلغ الإتقان، ويحدّ المعنى."
+  "image": "خطٌّ يُرسم عند نهاية الشيء: يُنهى العمل عنده، ويكون الأخير، ويبلغ الإتقان، ويحدّ المعنى.",
+  "more": [
+   {
+    "w": "FINANCIAL",
+    "kind": "visible",
+    "lvl": "B1",
+    "ar": "مالي",
+    "how": "صفةٌ من finance، من الفرنسية القديمة finer (أنهى الدَّين)، من اللاتينية finis (النهاية). فالماليّ ما يتعلّق بالمال الذي تُنهى به الديون.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/finance"
+   },
+   {
+    "w": "FINANCE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "المالية / يموّل",
+    "how": "من الفرنسية القديمة finance (تسوية الدَّين)، من finer (أنهى، سوّى)، من fin، من اللاتينية finis (النهاية). فالمالية في أصلها إنهاءُ الدَّين بسداده.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/finance"
+   }
+  ]
  },
  {
   "id": "caput",
@@ -4919,7 +5368,30 @@
     "ar": "طبخ الطاهي عشاءً رائعًا."
    }
   ],
-  "image": "رأسٌ في أعلى الجسد يُدار منه الأمر: رأس البلاد، ورأس الجماعة، ورأس القوم، ورأس المطبخ."
+  "image": "رأسٌ في أعلى الجسد يُدار منه الأمر: رأس البلاد، ورأس الجماعة، ورأس القوم، ورأس المطبخ.",
+  "more": [
+   {
+    "w": "ACHIEVE",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "ينجز / يحقّق",
+    "how": "من الفرنسية القديمة achever (أتمّ)، من عبارة à chef venir: ad (إلى) + caput (رأس)، أي «بلغ الرأس». فالإنجاز بلوغُ العمل رأسَه ومنتهاه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/achieve",
+    "kin": [
+     "ACHIEVEMENT"
+    ]
+   },
+   {
+    "w": "CHAPTER",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "فصل (من كتاب)",
+    "how": "من الفرنسية القديمة chapitre، من اللاتينية capitulum (رأس صغير)، تصغير caput (رأس). فالفصلُ رأسٌ صغير من رؤوس الكتاب.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/chapter"
+   }
+  ]
  },
  {
   "id": "circ",
@@ -5172,7 +5644,18 @@
     "ar": "في الفندق خدمة غرف ممتازة."
    }
   ],
-  "image": "خادمٌ يقف في خدمة غيره: يقدّم ما يُطلب، حتى تُرفع الصحون."
+  "image": "خادمٌ يقف في خدمة غيره: يقدّم ما يُطلب، حتى تُرفع الصحون.",
+  "more": [
+   {
+    "w": "DESERVE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يستحق",
+    "how": "من الفرنسية القديمة deservir، من اللاتينية deservire (أحسن الخدمة)، من de- (تمامًا) + servire (خدم). فالاستحقاق ما يناله المرء بخدمته الحسنة.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/deserve"
+   }
+  ]
  },
  {
   "id": "memor",
@@ -5383,7 +5866,7 @@
     "مصمّم"
    ],
    [
-    "SIGNIFICANT",
+    "SIGNIFICANT / SIGNIFICANCE",
     "مهمّ: له علامة ودلالة"
    ],
    [
@@ -5553,7 +6036,69 @@
     "ar": "ركبنا رحلة مباشرة إلى لندن."
    }
   ],
-  "image": "عصًا مستقيمة يُخطّ بها الخطّ: قاعدةً، وتقويمًا لما مال، وطريقًا مستقيمًا، وحدودًا لأرض."
+  "image": "عصًا مستقيمة يُخطّ بها الخطّ: قاعدةً، وتقويمًا لما مال، وطريقًا مستقيمًا، وحدودًا لأرض.",
+  "more": [
+   {
+    "w": "RAILWAY",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "سكة حديد",
+    "how": "من rail (قضيب، من regula العصا المستقيمة) + way (طريق). فالسكة طريقٌ ممدودٌ على قضبانٍ مستقيمة.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/railway"
+   },
+   {
+    "w": "SOURCE",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "مصدر / منبع",
+    "how": "من الفرنسية القديمة sourse (منبع)، من sourdre (ينبع)، من اللاتينية surgere، مختصر surrigere: sub (من أسفل) + regere (التقويم). فالمنبع ماءٌ ينهض من أسفل مستقيمًا صاعدًا.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/source"
+   },
+   {
+    "w": "RESOURCE",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "مورد / مصدر",
+    "how": "من الفرنسية resourse (منبع)، من resourdre (ينهض ثانية)، من اللاتينية resurgere: re- + surgere، وهي مختصر surrigere: sub + regere (التقويم). فالمورد منبعٌ يُنهض صاحبه مستقيمًا من جديد.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/resource"
+   },
+   {
+    "w": "RAIL",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "قضيب / حاجز / سكة",
+    "how": "من الفرنسية القديمة reille (مزلاج، قضيب)، من اللاتينية regula (عودٌ مستقيم؛ قاعدة)، المتصلة بـ regere. فالقضيب عودٌ مستقيم كالمسطرة.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/rail"
+   },
+   {
+    "w": "REGULAR",
+    "kind": "visible",
+    "lvl": "A2",
+    "ar": "منتظم / معتاد",
+    "how": "من اللاتينية regularis، من regula (عصا مستقيمة؛ قاعدة). فالمنتظم ما جرى على قاعدةٍ مستقيمة.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/regular",
+    "kin": [
+     "REGULARLY"
+    ]
+   },
+   {
+    "w": "REGULATE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يُنظّم / يضبط",
+    "how": "من اللاتينية regulatus، من regulare، من regula (قاعدة؛ عصا مستقيمة). فالتنظيم إقامةُ الأمر على قاعدةٍ مستقيمة.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/regulate",
+    "kin": [
+     "REGULATION"
+    ]
+   }
+  ]
  },
  {
   "id": "jour",
@@ -6182,7 +6727,7 @@
     "استبانة"
    ],
    [
-    "INQUIRY",
+    "INQUIRY / ENQUIRY",
     "استفسار / تحقيق: طلبٌ إلى داخل الأمر (IN)"
    ],
    [
@@ -6551,7 +7096,18 @@
    }
   ],
   "section": "b1_2",
-  "image": "عدّاءٌ يجري وماءٌ يجري: يجري الآن، ويجري بين الأيدي، ويسلك مجرًى مرسومًا، ويجري نحوك فيلقاك، ويجري إلى الخارج."
+  "image": "عدّاءٌ يجري وماءٌ يجري: يجري الآن، ويجري بين الأيدي، ويسلك مجرًى مرسومًا، ويجري نحوك فيلقاك، ويجري إلى الخارج.",
+  "more": [
+   {
+    "w": "CURRICULUM",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "منهج دراسي",
+    "how": "من اللاتينية curriculum (جَرْي، مضمار)، من currere (جرى). فالمنهجُ مضمارٌ يجري فيه الطالب حتى يبلغ غايته.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/curriculum"
+   }
+  ]
  },
  {
   "id": "leg",
@@ -6705,7 +7261,27 @@
    }
   ],
   "section": "b1_2",
-  "image": "يدٌ تلتقط الثمار واحدةً واحدة: تجمعها، وتنتقي أجودها؛ ثم صار الالتقاط بالعقل وبالعين."
+  "image": "يدٌ تلتقط الثمار واحدةً واحدة: تجمعها، وتنتقي أجودها؛ ثم صار الالتقاط بالعقل وبالعين.",
+  "more": [
+   {
+    "w": "INTELLECTUAL",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "فكريّ؛ مثقّف",
+    "how": "من اللاتينية intellectualis، من intellectus (الفهم، التمييز)، من intelligere: inter (بين) + legere (اختار، التقط). فالمثقّف من يلتقط المعاني ويميّز بينها.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/intellectual"
+   },
+   {
+    "w": "LEGEND",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "أسطورة / حكاية",
+    "how": "من اللاتينية الوسيطة legenda «ما يُقرأ»، من legere (قرأ، التقط). فالأسطورة أصلها سِيَرٌ تُقرأ، والقراءة التقاطُ الحروف بالعين.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/legend"
+   }
+  ]
  },
  {
   "id": "scrib",
@@ -6988,7 +7564,18 @@
    }
   ],
   "section": "b1_2",
-  "image": "رأس قلمٍ يخدش سطحًا فيترك خطوطًا: حروفًا تُكتب، أو رسومًا تُخطّ."
+  "image": "رأس قلمٍ يخدش سطحًا فيترك خطوطًا: حروفًا تُكتب، أو رسومًا تُخطّ.",
+  "more": [
+   {
+    "w": "DIAGRAM",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "مخطّط / رسم توضيحي",
+    "how": "من اليونانية diagramma (ما يُرسم بالخطوط)، من diagraphein (حدّد بالخطوط): dia- (عبر) + graphein (كتب، خطّ). فالمخطّط خطوطٌ تُرسم لتُبيّن الشيء.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/diagram"
+   }
+  ]
  },
  {
   "id": "loc",
@@ -7279,7 +7866,188 @@
    }
   ],
   "section": "b2_1",
-  "image": "صانعٌ يعمل الشيء: فهو العامل في النتيجة، ويصنع بيده، أو بحِذقه، أو يُخرج العمل تامًّا، أو يصنع ما يلزم حتى يبلغ قدر الحاجة."
+  "image": "صانعٌ يعمل الشيء: فهو العامل في النتيجة، ويصنع بيده، أو بحِذقه، أو يُخرج العمل تامًّا، أو يصنع ما يلزم حتى يبلغ قدر الحاجة.",
+  "more": [
+   {
+    "w": "BENEFIT",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "منفعة / يستفيد",
+    "how": "من الفرنسية القديمة bienfait، من اللاتينية benefactum «العمل الحسن»، من bene (حسنًا) + facere (فعل). فالمنفعة في أصلها صنيعٌ حسن.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/benefit"
+   },
+   {
+    "w": "FASHION",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "موضة / طريقة / يُشكِّل",
+    "how": "من الفرنسية القديمة façon (هيئة، تصميم)، من اللاتينية factionem (الصنع، الفعل)، من facere. فالموضة أصلها هيئةُ الشيء كما صُنع، ثم الطراز السائد.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/fashion",
+    "kin": [
+     "FASHIONABLE",
+     "OLD-FASHIONED"
+    ]
+   },
+   {
+    "w": "FEATURE",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "سِمة / ملمح / ميزة",
+    "how": "من الأنجلو-فرنسية feture، من اللاتينية factura (التكوين، العمل)، من facere. فالسِّمة أوّلًا هيئةُ الجسد كما صُنع، ثم كلُّ ملمحٍ مميّز.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/feature"
+   },
+   {
+    "w": "OFFICER",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "ضابط / موظّف",
+    "how": "من الفرنسية القديمة oficier، من اللاتينية الوسيطة officiarius، من officium (الواجب)، المختصرة من opificium «أداء العمل»: ops (القدرة) + facere. فالضابط مَن يؤدّي واجبًا موكولًا إليه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/officer"
+   },
+   {
+    "w": "DIFFICULTY",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "صعوبة",
+    "how": "من اللاتينية difficultas، من difficilis (صعب): dis- (نفي) + facilis (سهل الفعل)، من facere. فالصعوبة ما لا يسهل فعله.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/difficulty"
+   },
+   {
+    "w": "OFFICIAL",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "رسمي / مسؤول",
+    "how": "من اللاتينية المتأخرة officialis «المتعلّق بالواجب والوظيفة»، من officium، وحرفيًّا «أداء العمل»: ops (القدرة) + facere. فالرسميّ ما صدر عن الوظيفة وأدائها.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/official"
+   },
+   {
+    "w": "PROFIT",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "ربح / يستفيد",
+    "how": "من الفرنسية القديمة prufit، من اللاتينية profectus (نموّ، تقدّم)، من proficere (تقدّم، نفع)، من pro (إلى الأمام) + facere. فالربح ما يصنعه العمل من نماءٍ وتقدّم.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/profit"
+   },
+   {
+    "w": "SCIENTIFIC",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "علميّ",
+    "how": "من اللاتينية الوسيطة scientificus، من scientia (المعرفة) + ‑ficus (صانع) من facere؛ فالمقطع ‑FIC هو facere. وتُرجمت بها اليونانية epistēmonikos «صانع المعرفة».",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/scientific"
+   },
+   {
+    "w": "AFFAIR",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "شأن / قضية",
+    "how": "من الأنجلو-فرنسية afere، من الفرنسية القديمة à faire «ما يُفعَل»، من اللاتينية ad + facere (صنع، فعل). فالشأن في أصله ما عليك أن تفعله.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/affair"
+   },
+   {
+    "w": "BENEFICIAL",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "نافع / مفيد",
+    "how": "من اللاتينية beneficialis، من beneficium (المعروف، الخدمة)، من bene (حسنًا) + ‑ficus (صانع) من facere؛ فالمقطع ‑FIC هو facere. فالنافع ما يصنع خيرًا.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/beneficial"
+   },
+   {
+    "w": "CERTIFICATE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "شهادة / وثيقة",
+    "how": "من اللاتينية الوسيطة certificatum (الشيء المصدَّق)، من certificare (جعله يقينًا)، من certus (ثابت، أكيد) + facere؛ فالمقطع ‑FIC هو facere. فالشهادة وثيقةٌ تصنع اليقين.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/certificate"
+   },
+   {
+    "w": "CLARIFY",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يوضّح",
+    "how": "من الفرنسية القديمة clarifiier، من اللاتينية المتأخرة clarificare (حرفيًّا: جعله واضحًا)، من clarus (واضح) + facere؛ فالمقطع ‑FY هو facere. فالتوضيح صنعُ الوضوح.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/clarify"
+   },
+   {
+    "w": "DEFEAT",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يهزم / هزيمة",
+    "how": "من الفرنسية القديمة desfait «منقوض»، من اللاتينية العامية *diffacere (نقض، أهلك)، من dis- + facere (صنع). فالهزيمة نقضُ ما صنعه الخصم وبناه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/defeat"
+   },
+   {
+    "w": "MAGNIFICENT",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "رائع / فخم",
+    "how": "من اللاتينية magnificus (عظيم، نبيل؛ وحرفيًّا: فاعل العظائم)، من magnus (عظيم) + facere؛ فالمقطع ‑FIC هو facere. فالفخم في أصله صانعُ الأعمال العظيمة.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/magnificent"
+   },
+   {
+    "w": "MODIFY",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يعدّل / يغيّر",
+    "how": "من الفرنسية القديمة modifier، من اللاتينية modificare (حدّ، قدّر)، من modus (المقدار، الطريقة) + facere؛ فالمقطع ‑FY هو facere. فالتعديل صنعُ الشيء على مقدارٍ جديد.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/modify"
+   },
+   {
+    "w": "SATISFY",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "يُرضي / يُشبِع",
+    "how": "من الفرنسية القديمة satisfiier، من اللاتينية satisfacere (حرفيًّا: فعل ما يكفي)، من satis (كفاية) + facere؛ فالمقطع ‑FY هو facere. فالإرضاء أن تصنع للآخر ما يكفيه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/satisfy",
+    "kin": [
+     "SATISFIED",
+     "SATISFACTION"
+    ]
+   },
+   {
+    "w": "PERFECTLY",
+    "kind": "visible",
+    "lvl": "B1",
+    "ar": "تمامًا / بإتقان",
+    "how": "من perfect، من اللاتينية perfectus (مكتمل)، من perficere (أتمّ، أنجز)، من per (تمامًا) + facere. فالإتقان صنعُ الشيء صنعًا تامًّا.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/perfect"
+   },
+   {
+    "w": "FACILITY",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "مرفق؛ سهولة",
+    "how": "من اللاتينية facilitatem (السهولة)، من facilis (سهل الفعل)، من facere. والمرفق وسيلةٌ يسهل بها فعلُ الشيء.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/facility"
+   },
+   {
+    "w": "INFECTION",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "عدوى؛ التهاب",
+    "how": "من اللاتينية infectionem، من inficere (صبغ، أفسد؛ وحرفيًّا: وضع في، غمس)، من in- + facere. فالعدوى فسادٌ يُصنع في الجسد بما يدخله.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/infection"
+   }
+  ]
  },
  {
   "id": "pon",
@@ -7453,7 +8221,30 @@
    }
   ],
   "section": "b2_1",
-  "image": "يدٌ تضع الشيء في موضعه: مع غيره، أو جانبًا عند أمين، أو في الخارج بلا ساتر، أو في وجه غيره، أو بعد غيره."
+  "image": "يدٌ تضع الشيء في موضعه: مع غيره، أو جانبًا عند أمين، أو في الخارج بلا ساتر، أو في وجه غيره، أو بعد غيره.",
+  "more": [
+   {
+    "w": "SUPPOSE",
+    "kind": "visible",
+    "lvl": "A2",
+    "ar": "يفترض / يظنّ؛ عبر الفرنسية poser (انظر التنبيه)",
+    "how": "من الفرنسية القديمة suposer، بدلًا من supponere اللاتينية (وضع تحت): sub (تحت) + ponere (وضع). فالافتراض أن تضع الفكرة تحت الكلام أساسًا تبني عليه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/suppose"
+   },
+   {
+    "w": "OPPOSE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يعارض / يقاوم؛ عبر الفرنسية poser (انظر التنبيه)",
+    "how": "من الفرنسية القديمة oposer (ob + poser)، وامتزج معناها باللاتينية opponere (وضعه قُبالة): ob (أمام) + ponere (وضع). فالمعارضة وضعُ الشيء في وجه غيره.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/oppose",
+    "kin": [
+     "OPPOSED"
+    ]
+   }
+  ]
  },
  {
   "id": "tract",
@@ -7622,7 +8413,39 @@
    }
   ],
   "section": "b2_1",
-  "image": "يدٌ تسحب الشيء وتجرّه: إليها، أو من داخله إلى الخارج، أو بعيدًا عن غيره، أو في جهاتٍ شتّى، أو تجمع أطرافه معًا."
+  "image": "يدٌ تسحب الشيء وتجرّه: إليها، أو من داخله إلى الخارج، أو بعيدًا عن غيره، أو في جهاتٍ شتّى، أو تجمع أطرافه معًا.",
+  "more": [
+   {
+    "w": "TREAT",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "يعامل / يعالج",
+    "how": "من الفرنسية القديمة traitier، من اللاتينية tractare (تناول، دبّر؛ وحرفيًّا: جرّ وشدّ)، صيغة تكرار من trahere. فالمعاملة والعلاج تناولٌ للشيء وتدبيرٌ له.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/treat",
+    "kin": [
+     "TREATMENT"
+    ]
+   },
+   {
+    "w": "TRACE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "أثر / يتتبّع",
+    "how": "من الفرنسية القديمة tracier (تتبّع)، من اللاتينية العامية *tractiare، من tractus (المسار؛ وحرفيًّا: السحب)، من trahere. فالأثر خطٌّ مسحوب، وتتبّعه سيرٌ عليه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/trace"
+   },
+   {
+    "w": "TRAIT",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "سِمة / خَصلة",
+    "how": "من الفرنسية trait (خطّ، ملمح)، من اللاتينية tractus اسم مفعول trahere (سحب)، وأوّل معناها خطٌّ قصير في الرسم. فالسِّمة خطٌّ مسحوب في صورة المرء يميّزه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/trait"
+   }
+  ]
  },
  {
   "id": "vert",
@@ -7796,7 +8619,48 @@
    }
   ],
   "section": "b2_1",
-  "image": "شيءٌ يدور فيتغيّر وجهه: إلى صورةٍ أخرى، أو مع العام حتى يعود، أو إلى واحد، أو إلى حالٍ جديدة، أو إلى الخلف، أو في جهاتٍ شتّى."
+  "image": "شيءٌ يدور فيتغيّر وجهه: إلى صورةٍ أخرى، أو مع العام حتى يعود، أو إلى واحد، أو إلى حالٍ جديدة، أو إلى الخلف، أو في جهاتٍ شتّى.",
+  "more": [
+   {
+    "w": "DIVORCED",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "مطلَّق",
+    "how": "صفةٌ من divorce، من اللاتينية divortium، من divertere: dis- (بعيدًا) + vertere (أدار). فالمطلَّق من انصرف عنه شريكه إلى وجهةٍ أخرى.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/divorce"
+   },
+   {
+    "w": "DIVORCE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "طلاق / يطلّق",
+    "how": "من الفرنسية القديمة divorce، من اللاتينية divortium (الافتراق)، من divertere (افترق، انصرف)، من dis- + vertere (أدار). فالطلاق أن يدير كلُّ زوجٍ وجهه عن صاحبه.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/divorce"
+   },
+   {
+    "w": "CONTROVERSY",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "جدل / خلاف",
+    "how": "من اللاتينية controversia (الانقلاب على الآخر، النزاع)، من controversus، من contra (ضد) + versus، من vertere (أدار). فالجدل أن يستدير كلُّ طرفٍ في وجه الآخر.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/controversy",
+    "kin": [
+     "CONTROVERSIAL"
+    ]
+   },
+   {
+    "w": "VERTICAL",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "عمودي / رأسي",
+    "how": "من اللاتينية المتأخرة verticalis (فوق الرأس)، من vertex (أعلى نقطة؛ وحرفيًّا: نقطة الدوران)، من vertere. فالعموديّ ما اتّجه إلى القمّة، والقمّة أصلها نقطة الدوران.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/vertical"
+   }
+  ]
  },
  {
   "id": "clud",
@@ -8104,7 +8968,33 @@
    }
   ],
   "section": "b2_1",
-  "image": "يدٌ تلتقط الكلمات وتجمعها: فتُرتَّب بالعقل، وتُرسم علامة، وتُبسط علمًا، وتعبر بين المتحاورين، وتدفع اللوم عن صاحبها."
+  "image": "يدٌ تلتقط الكلمات وتجمعها: فتُرتَّب بالعقل، وتُرسم علامة، وتُبسط علمًا، وتعبر بين المتحاورين، وتدفع اللوم عن صاحبها.",
+  "more": [
+   {
+    "w": "BIOLOGY",
+    "kind": "visible",
+    "lvl": "A2",
+    "ar": "علم الأحياء",
+    "how": "صيغت سنة 1802، من اليونانية bios (الحياة) + -logy، من -logia، من logos (الكلام). فعلم الأحياء كلامٌ منظَّم عن الحياة.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/biology",
+    "kin": [
+     "BIOLOGICAL"
+    ]
+   },
+   {
+    "w": "TECHNOLOGY",
+    "kind": "visible",
+    "lvl": "A2",
+    "ar": "تقنية / تكنولوجيا",
+    "how": "من اليونانية tekhnologia، من tekhno- (من tekhnē: الصنعة) + -logia. فالتقنية في أصلها كلامٌ منظَّمٌ في صنعةٍ من الصنائع.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/technology",
+    "kin": [
+     "TECHNOLOGICAL"
+    ]
+   }
+  ]
  },
  {
   "id": "rupt",
@@ -8581,7 +9471,18 @@
    }
   ],
   "section": "b2_1",
-  "image": "خطواتٌ تمشي خلف خطوات: شيءٌ يأتي بعد شيء، وحاشيةٌ تتبع سيّدها، وعاقبةٌ تلزم الفعل، وأمرٌ يُتبَع إلى آخره، وغايةٌ تُطارَد."
+  "image": "خطواتٌ تمشي خلف خطوات: شيءٌ يأتي بعد شيء، وحاشيةٌ تتبع سيّدها، وعاقبةٌ تلزم الفعل، وأمرٌ يُتبَع إلى آخره، وغايةٌ تُطارَد.",
+  "more": [
+   {
+    "w": "CONSEQUENTLY",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "وبالتالي / نتيجةً لذلك",
+    "how": "من consequent، من اللاتينية consequi (تبع ولحق): com (مع) + sequi (تبع). فما يأتي بعدها نتيجةٌ تتبع ما قبلها.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/consequent"
+   }
+  ]
  },
  {
   "id": "put",
@@ -8912,7 +9813,45 @@
    }
   ],
   "section": "b1_3",
-  "image": "يدٌ تسوق الشيء أمامها فتحرّكه وتدفعه إلى الأمام، ثم يصير كلُّ ما حرّكه الإنسان وأمضاه فعلًا يقع."
+  "image": "يدٌ تسوق الشيء أمامها فتحرّكه وتدفعه إلى الأمام، ثم يصير كلُّ ما حرّكه الإنسان وأمضاه فعلًا يقع.",
+  "more": [
+   {
+    "w": "ESSAY",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "مقال / محاولة",
+    "how": "من الفرنسية essai (محاولة)، من اللاتينية المتأخرة exagium (الوزن)، من exigere (امتحن، وزن): ex (خارج) + agere (ساق). فالمقال في أصله محاولةٌ يزن بها الكاتب فكرته ويختبرها.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/essay"
+   },
+   {
+    "w": "NAVIGATION",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "ملاحة / توجيه",
+    "how": "من اللاتينية navigationem، من navigare (أبحر، وجّه السفينة)، من navis (السفينة) + جذر agere (ساق، دفع). فالملاحة سَوقُ السفينة وتوجيهها.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/navigation"
+   },
+   {
+    "w": "AGENCY",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "وكالة",
+    "how": "من اللاتينية الوسيطة agentia، من agentem (الفاعل المؤثّر)، من agere (ساق، فعل). فالوكالة جهةٌ تُمضي الأعمال عن غيرها.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/agency"
+   },
+   {
+    "w": "INTERACT",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "يتفاعل",
+    "how": "من inter- (بين) + act، من اللاتينية actus، من agere (ساق، فعل). فالتفاعل فعلٌ متبادل بين طرفين.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/interact"
+   }
+  ]
  },
  {
   "id": "stat",
@@ -9084,7 +10023,117 @@
    }
   ],
   "section": "b1_3",
-  "image": "شيءٌ قائمٌ في موضعه: على هيئةٍ يقف عليها، وفي مقامٍ يقف عنده، أو منصوبٌ قائمًا، وبينه وبين غيره مسافة، وحوله أمورٌ قائمة."
+  "image": "شيءٌ قائمٌ في موضعه: على هيئةٍ يقف عليها، وفي مقامٍ يقف عنده، أو منصوبٌ قائمًا، وبينه وبين غيره مسافة، وحوله أمورٌ قائمة.",
+  "more": [
+   {
+    "w": "STAGE",
+    "kind": "hidden",
+    "lvl": "A2",
+    "ar": "مرحلة / خشبة المسرح",
+    "how": "من الفرنسية القديمة estage (منصّة، مرحلة، استراحة في السفر)، من اللاتينية العامية *staticum (موضع الوقوف)، من statum، اسم مفعول stare (وقف). فالخشبةُ موضعُ وقوف، والمرحلةُ موقفٌ في الطريق.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/stage"
+   },
+   {
+    "w": "ARREST",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "يعتقل / اعتقال",
+    "how": "من الفرنسية القديمة arester (أوقفَ)، من اللاتينية العامية *arrestare (أوقفَ، كبحَ)، من ad + restare (توقّف، تخلّف)، من re- + stare (وقف). فالاعتقال إيقافُ المرء عن المضيّ.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/arrest"
+   },
+   {
+    "w": "CONTRAST",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "تباين / يقارن",
+    "how": "من الفرنسية contraster، متأثّرةً بالإيطالية contrastare، من اللاتينية العامية *contrastare (وقف في وجهه)، من contra (ضد) + stare (وقف). فالتباين وقوفُ الشيء في وجه غيره فيظهر الفرق.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/contrast"
+   },
+   {
+    "w": "INSTITUTE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "معهد؛ يؤسّس",
+    "how": "من اللاتينية instituere (أقامَ، أسّسَ): in- + statuere (جعله يقف)؛ والاسم institutum «شيءٌ أُقيم». فالمعهد في أصله شيءٌ أُقيم ونُصب لعملٍ أو علم.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/institute",
+    "kin": [
+     "INSTITUTION"
+    ]
+   },
+   {
+    "w": "OBSTACLE",
+    "kind": "hidden",
+    "lvl": "B2",
+    "ar": "عائق / عقبة",
+    "how": "من الفرنسية القديمة obstacle، من اللاتينية obstaculum، من obstare (وقف قُبالته، اعترضه): ob (أمام) + stare (وقف). فالعائق ما يقف أمامك فيسدّ طريقك.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/obstacle"
+   },
+   {
+    "w": "SUBSTANCE",
+    "kind": "visible",
+    "lvl": "B1",
+    "ar": "مادة / جوهر",
+    "how": "من اللاتينية substantia (الوجود، الجوهر، المادة)، من substare (ثبت، وقف تحت): sub (تحت) + stare (وقف). فالجوهر ما يقف تحت الشيء ثابتًا يقوم عليه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/substance"
+   },
+   {
+    "w": "CONSTANT",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "ثابت / دائم",
+    "how": "من اللاتينية constantem «الثابت الراسخ»، من constare (وقف معًا): com (معًا) + stare (وقف). فالثابتُ ما يقف في مكانه لا يتحوّل.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/constant",
+    "kin": [
+     "CONSTANTLY"
+    ]
+   },
+   {
+    "w": "ESTATE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "عقار / ممتلكات؛ وأصلها: الحال والمقام",
+    "how": "من الفرنسية القديمة estat (الحال، المقام)، من اللاتينية status (الحال، المنزلة)، وحرف e- في أوّلها زائد. ثم صار مقامُ المرء في الدنيا اسمًا لما يملكه.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/estate"
+   },
+   {
+    "w": "INSTANCE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "مثال؛ حالة",
+    "how": "من الفرنسية القديمة instance، من اللاتينية instantia «الوقوف قريبًا»، من instans، من instare: in- + stare (وقف). ثم صارت في المنطق «المثال» ترجمةً لليونانية enstasis.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/instance"
+   },
+   {
+    "w": "INSTANT",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "لحظة؛ فوريّ",
+    "how": "من الفرنسية القديمة instant (قريب، حاضر)، من اللاتينية instans «الواقف قريبًا»، من instare: in- + stare (وقف). فاللحظة هي الحاضر الواقف قريبًا منك.",
+    "bt": "interp",
+    "src": "https://www.etymonline.com/word/instant",
+    "kin": [
+     "INSTANTLY"
+    ]
+   },
+   {
+    "w": "STANCE",
+    "kind": "visible",
+    "lvl": "B2",
+    "ar": "موقف / وقفة",
+    "how": "من الفرنسية stance (موضع الإقامة)، من الإيطالية stanza، من اللاتينية العامية *stantia (مكان، مقام)، من stans، من stare (وقف). فالموقف موضعُ الوقوف، ثم الرأي الذي تقف عنده.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/stance"
+   }
+  ]
  },
  {
   "id": "man",
@@ -10990,7 +12039,18 @@
    }
   ],
   "section": "b2_2",
-  "image": "نقطةٌ في الوسط بين طرفين: تكون مقدارًا وسطًا، ووسيطًا يحمل الشيء من طرفٍ إلى طرف، وطريقًا بين المرء وغايته، وقد تُرفع فيلتقي الطرفان بلا فاصل."
+  "image": "نقطةٌ في الوسط بين طرفين: تكون مقدارًا وسطًا، ووسيطًا يحمل الشيء من طرفٍ إلى طرف، وطريقًا بين المرء وغايته، وقد تُرفع فيلتقي الطرفان بلا فاصل.",
+  "more": [
+   {
+    "w": "MEANWHILE",
+    "kind": "hidden",
+    "lvl": "B1",
+    "ar": "في أثناء ذلك",
+    "how": "من mean (الأوسط) + while (المدّة)؛ وmean من الفرنسية القديمة meien، من اللاتينية المتأخرة medianus، من medius (الوسط). فهو الزمن الواقع وسطًا بين حدثين.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/meanwhile"
+   }
+  ]
  },
  {
   "id": "min",
@@ -11741,7 +12801,18 @@
    }
   ],
   "section": "b2_2",
-  "image": "إنسانٌ يندفع نحو ما يريده، يقصده ليبلغه وينال منه."
+  "image": "إنسانٌ يندفع نحو ما يريده، يقصده ليبلغه وينال منه.",
+  "more": [
+   {
+    "w": "COMPETE",
+    "kind": "visible",
+    "lvl": "A2",
+    "ar": "يتنافس",
+    "how": "من اللاتينية المتأخرة competere (سعى مع غيره)، من com (معًا) + petere (قصد، سعى). فالتنافس أن يقصد اثنان الغايةَ نفسها معًا.",
+    "bt": "doc",
+    "src": "https://www.etymonline.com/word/compete"
+   }
+  ]
  },
  {
   "id": "cord",
