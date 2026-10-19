@@ -38,6 +38,10 @@ nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
 .secs{display:flex;border:1px solid var(--line);border-radius:999px;padding:2px;gap:2px;background:var(--card)}
 .secs button{font:600 .85rem var(--f-ui);background:none;border:0;color:var(--muted);padding:4px 12px;border-radius:999px;cursor:pointer;min-width:44px}
 .secs button[aria-pressed="true"]{background:var(--ochre-soft);color:var(--ochre)}
+.secs button.v{color:var(--verd)}
+.secs button.v[aria-pressed="true"]{background:var(--verd-soft);color:var(--verd)}
+.secs button.v.first{margin-inline-start:6px;box-shadow:inset 1px 0 0 var(--line)}
+:root[data-kind="verb"]{--ochre:var(--verd);--ochre-soft:var(--verd-soft)}
 @media (max-width:460px){.secs{max-width:100%;flex-wrap:wrap;justify-content:center}.secs button{padding:4px 7px;min-width:0;font-size:.78rem}}
 nav.tabs button{font:500 .95rem var(--f-ui);background:none;border:0;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer}
 nav.tabs button[aria-current="page"]{background:var(--ink);color:var(--paper)}
@@ -102,6 +106,9 @@ select{font:500 .95rem var(--f-ui);padding:8px 12px;border-radius:var(--r);borde
 .lex .hw{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
 .lex .hw .word{font-size:1.05rem;border:0}
 .lex .hw .pxm{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.lex .hw .pv{font-family:var(--f-ui);font-size:.78rem;color:var(--verd);background:var(--verd-soft);border-radius:6px;padding:1px 7px;line-height:1.6}
+.lex .hw .pv{display:flex;flex-direction:column;align-items:flex-start}
+.lex .hw .pv bdi{font-family:var(--f-en);direction:ltr;text-align:left}
 .story .image{font-family:var(--f-body);font-size:1.02rem;color:var(--muted);padding-top:12px;max-width:68ch}
 .story .image b{color:var(--ochre);font-family:var(--f-ui);font-size:.9rem;font-weight:600;margin-inline-end:6px}
 .how{margin-top:8px;font-family:var(--f-ui);font-size:.9rem;line-height:1.8}
@@ -210,7 +217,7 @@ footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:
 <header class="top"><div class="wrap">
   <div class="brand"><b>حكايات العائلات</b><span>RADICES LATINAE</span></div>
   <div class="secs" role="group" aria-label="المستوى">
-    <button data-sec="a2">A2.1</button><button data-sec="b1">B1.1</button><button data-sec="b1_2">B1.2</button><button data-sec="b1_3">B1.3</button><button data-sec="b2_1">B2.1</button><button data-sec="b2_2">B2.2</button><button data-sec="b2_3">B2.3</button><button data-sec="tech">التقني</button>
+    <button data-sec="a2">A2.1</button><button data-sec="b1">B1.1</button><button data-sec="b1_2">B1.2</button><button data-sec="b1_3">B1.3</button><button data-sec="b2_1">B2.1</button><button data-sec="b2_2">B2.2</button><button data-sec="b2_3">B2.3</button><button data-sec="v1_1" class="v first" title="الأفعال المركّبة">V1.1</button><button data-sec="tech">التقني</button>
   </div>
   <nav class="tabs" aria-label="الأقسام">
     <button data-tab="today">اليوم</button>
@@ -242,7 +249,9 @@ const INTERVALS = [0, 0, 1, 3, 7, 16]; // days for box 0..5
 const ALL = [];
 FAMILIES.forEach((f, fi) => f.words.forEach((w, wi) => ALL.push({f, w, key: w.w, fi, wi})));
 const BY = Object.fromEntries(ALL.map(x => [x.key, x]));
-const SECTIONS = { a2: { name: "A2.1", long: "مستوى A2 · المجموعة الأولى", usage: "في الاستعمال" }, b1: { name: "B1.1", long: "مستوى B1 · المجموعة الأولى", usage: "في الاستعمال" }, b1_2: { name: "B1.2", long: "مستوى B1 · المجموعة الثانية", usage: "في الاستعمال" }, b1_3: { name: "B1.3", long: "مستوى B1 · المجموعة الثالثة", usage: "في الاستعمال" }, b2_1: { name: "B2.1", long: "مستوى B2 · المجموعة الأولى", usage: "في الاستعمال" }, b2_2: { name: "B2.2", long: "مستوى B2 · المجموعة الثانية", usage: "في الاستعمال" }, b2_3: { name: "B2.3", long: "مستوى B2 · المجموعة الثالثة", usage: "في الاستعمال" }, tech: { name: "التقني", long: "القسم التقني", usage: "في الاختبار" } };
+const SECTIONS = { a2: { name: "A2.1", long: "مستوى A2 · المجموعة الأولى", usage: "في الاستعمال" }, b1: { name: "B1.1", long: "مستوى B1 · المجموعة الأولى", usage: "في الاستعمال" }, b1_2: { name: "B1.2", long: "مستوى B1 · المجموعة الثانية", usage: "في الاستعمال" }, b1_3: { name: "B1.3", long: "مستوى B1 · المجموعة الثالثة", usage: "في الاستعمال" }, b2_1: { name: "B2.1", long: "مستوى B2 · المجموعة الأولى", usage: "في الاستعمال" }, b2_2: { name: "B2.2", long: "مستوى B2 · المجموعة الثانية", usage: "في الاستعمال" }, b2_3: { name: "B2.3", long: "مستوى B2 · المجموعة الثالثة", usage: "في الاستعمال" }, v1_1: { name: "V1.1", long: "الأفعال المركّبة · المجموعة الأولى", usage: "في الاستعمال", kind: "verb" }, tech: { name: "التقني", long: "القسم التقني", usage: "في الاختبار" } };
+const isVerb = () => SECTIONS[sec].kind === "verb";
+const PV = { intr: "لازم: بلا مفعول", sep: "يُفصل: المفعول بين الفعل واللاحقة", ins: "لا يُفصل: المفعول بعد اللاحقة" };
 let sec = "tech", FAMS = [], SALL = [];
 try { const s = localStorage.getItem("ew-sec"); if (SECTIONS[s]) sec = s; } catch (e) {}
 function setSec(s){
@@ -250,7 +259,9 @@ function setSec(s){
   sec = s; FAMS = FAMILIES.filter(f => f.section === s); SALL = ALL.filter(x => x.f.section === s);
   try { localStorage.setItem("ew-sec", s); } catch (e) {}
   document.querySelectorAll(".secs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.sec === s ? "true" : "false"));
-  const si = document.getElementById("secInfo"); if (si) si.textContent = `${SECTIONS[s].long} · ${FAMS.length} عائلة · ${SALL.length} كلمة`;
+  const si = document.getElementById("secInfo"); if (si) si.textContent = `${SECTIONS[s].long} · ${FAMS.length} عائلة · ${SALL.length} ${SECTIONS[s].kind === "verb" ? (SALL.length >= 3 && SALL.length <= 10 ? "تراكيب" : "تركيبًا") : "كلمة"}`;
+  document.documentElement.dataset.kind = SECTIONS[s].kind || "word";
+  const pt = document.querySelector('nav.tabs [data-tab="prefixes"]'); if (pt) pt.textContent = SECTIONS[s].kind === "verb" ? "اللواحق" : "السوابق";
 }
 setSec(sec);
 const secExams = () => P.exams.filter(e => (e.sec || "tech") === sec);
@@ -362,11 +373,11 @@ document.addEventListener("click", e => {
 });
 
 /* ---------- rich text: wrap Latin runs ---------- */
-const PX = new Set(["IN","IM","EX","E","DE","TRANS","SUB","SUP","SU","RE","PRO","CON","INTRO","INFRA","PLAT","PRE","CONTRA","VER","AD","A","SUPER","UN","BACK","LEGE","LEX","IR","‑IVE","‑ION","‑ABLE","‑IZE","‑ED","‑ING","‑MENT","MAIN","OB","OF","PER","DIS","DIF","SUF","SUS","SUC","AC","AT","AS","AP","COM","MULTI","INTER","DES","S","‑CY","‑ITY","‑ATE","‑URE","‑ARY","‑AL","‑ANT","‑ICE","‑IST"]);
-const ROOTS = new Set(["PORT","SPECT","DUCE","DUCT","STRAIN","STRICT","STRINGENT","STRUCT","FORM","GEN","DICT","VAL","VAIL","TRAIN","VID","VIS","TECT","TRIEVE","TROVE","TRIVE","AUG","AUTH","AUCTOR","AUTOR","PRIV","GROUND","VIDEO","TAIN","FER","MIT","MISS","VEN","VENT","CAP","CEPT","CEIVE","PEND","PENS","TEND","TENS","CEED","CESS","SIST","STA","PLY","PLIC","MOV","MOT","PART","NAT","FIN","CHIEF","CIRC","SERV","MEMOR","SIGN","REG","RECT","JOUR"]);
+const PX = new Set([...FAMILIES.flatMap(f => f.words.flatMap(w => w.px ? w.px.split(/[ →+]+/).filter(x => x && x !== "+") : [])), "IN","IM","EX","E","DE","TRANS","SUB","SUP","SU","RE","PRO","CON","INTRO","INFRA","PLAT","PRE","CONTRA","VER","AD","A","SUPER","UN","BACK","LEGE","LEX","IR","‑IVE","‑ION","‑ABLE","‑IZE","‑ED","‑ING","‑MENT","MAIN","OB","OF","PER","DIS","DIF","SUF","SUS","SUC","AC","AT","AS","AP","COM","MULTI","INTER","DES","S","‑CY","‑ITY","‑ATE","‑URE","‑ARY","‑AL","‑ANT","‑ICE","‑IST"]);
+const ROOTS = new Set([...FAMILIES.flatMap(f => f.root.split("/").map(x => x.trim())), "PORT","SPECT","DUCE","DUCT","STRAIN","STRICT","STRINGENT","STRUCT","FORM","GEN","DICT","VAL","VAIL","TRAIN","VID","VIS","TECT","TRIEVE","TROVE","TRIVE","AUG","AUTH","AUCTOR","AUTOR","PRIV","GROUND","VIDEO","TAIN","FER","MIT","MISS","VEN","VENT","CAP","CEPT","CEIVE","PEND","PENS","TEND","TENS","CEED","CESS","SIST","STA","PLY","PLIC","MOV","MOT","PART","NAT","FIN","CHIEF","CIRC","SERV","MEMOR","SIGN","REG","RECT","JOUR"]);
 function rich(text, fam){
   const fw = new Set(fam ? fam.words.map(w => w.w) : []);
-  return esc(text).replace(/[A-Za-zÀ-ÿ‑][A-Za-zÀ-ÿ0-9‑'’\-]*(?:[ .][A-Za-zÀ-ÿ0-9$][A-Za-zÀ-ÿ0-9‑'’\-]*)*/g, run => {
+  return esc(text).replace(/[A-Za-zÀ-ÿ‑][A-Za-zÀ-ÿ0-9‑'’\-]*(?:[ .][A-Za-zÀ-ÿ0-9$][A-Za-zÀ-ÿ0-9‑'’\-]*)*[?!]?/g, run => {
     if (fw.has(run) || BY[run]) return `<button class="word" data-say="${run}" title="انطق">${run}</button>`;
     if (PX.has(run)) return `<bdi class="px" dir="ltr">${run}</bdi>`;
     if (ROOTS.has(run)) return `<span class="root-t">${run}</span>`;
@@ -457,7 +468,7 @@ function vStories(id){
       ${f.image ? `<p class="image"><b>الصورة المحورية</b>${rich(f.image, f)}</p>` : ""}
       <p class="intro">${rich(f.intro, f)}</p>
       <div class="lex">${f.words.map(w => `
-        <div class="hw"><div class="row" style="gap:8px"><button class="word" data-say="${w.w}">${w.w}</button>${spk(w.w)}</div>${w.px ? `<span class="pxm"><bdi class="px" dir="ltr">${w.px}</bdi> ${w.pxm}</span>` : ""}</div>
+        <div class="hw"><div class="row" style="gap:8px"><button class="word" data-say="${w.w}">${w.w}</button>${spk(w.w)}</div>${w.px ? `<span class="pxm"><bdi class="px" dir="ltr">${w.px}</bdi> ${w.pxm}</span>` : ""}${w.pv ? `<span class="pv">${PV[w.pv.t]}${w.pv.ex ? `<bdi dir="ltr">${esc(w.pv.ex)}</bdi>` : ""}</span>` : ""}</div>
         <div class="para">${rich(w.p, f)}${howHTML(w, f)}</div>`).join("")}
       </div>
       <p class="closing">${rich(f.closing, f)}</p>
@@ -524,14 +535,16 @@ function vPrefixes(){
   const rows = [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   view.innerHTML = `
   <div class="stack">
-    <h1>السوابق واللواحق</h1>
+    ${isVerb() ? `<h1>اللواحق</h1>
+    <p class="muted" style="font-family:var(--f-body);font-size:1.05rem;max-width:65ch">اللاحقة كلمةٌ صغيرة مستقلّة تأتي بعد الفعل، فتحدّد جهة حركته: إلى أعلى، أو عن، أو رجوعًا. هذا الجدول يجمع ما ورد منها في حكايات الأفعال، مع تراكيبه. واللاحقة الواحدة قد تحمل معنيين بحسب الفعل الذي قبلها.</p>
+    <div><button class="btn" id="pq">تدرّب على اللواحق</button></div>` : `<h1>السوابق واللواحق</h1>
     <p class="muted" style="font-family:var(--f-body);font-size:1.05rem;max-width:65ch">السابقة تحدّد «غرض» الفعل الأصلي. هذا الجدول يجمع ما ورد منها في الحكايات، مع كلماته. والسابقة الواحدة قد تحمل معنيين، مثل RE: «إلى الخلف» في REPORT و«مرة أخرى» في RETRAIN، ومثل IN: «إلى الداخل» في IMPORT و«لا» في INVALID.</p>
-    <div><button class="btn" id="pq">تدرّب على السوابق</button></div>
+    <div><button class="btn" id="pq">تدرّب على السوابق</button></div>`}
     <div class="tblwrap"><table class="ptable"><thead><tr><th>الصورة</th><th>المعنى</th><th>الكلمات</th></tr></thead><tbody>
     ${rows.map(([k, ws]) => { const [p, m] = k.split("|"); return `<tr><td><bdi class="px" dir="ltr">${p}</bdi></td><td>${m}</td><td>${ws.map(w => `<button class="word" data-say="${w.w}">${w.w}</button>`).join("")}</td></tr>`; }).join("")}
     </tbody></table></div>
   </div>`;
-  $("#pq").onclick = () => runQuiz(shuffle(SALL.filter(x => x.w.px && !x.w.px.startsWith("‑")).map(x => qPrefix(x))).slice(0, 15), { title: "السوابق · " + SECTIONS[sec].name, srs: true });
+  $("#pq").onclick = () => runQuiz(shuffle(SALL.filter(x => x.w.px && !x.w.px.startsWith("‑")).map(x => qPrefix(x))).slice(0, 15), { title: (isVerb() ? "اللواحق · " : "السوابق · ") + SECTIONS[sec].name, srs: true });
 }
 
 /* ---------- question builders ---------- */
@@ -548,13 +561,18 @@ function others(x, n, field){
 function qMeaning(x){ const o = others(x, 3, "ar"); return { kind: "المعنى", key: x.key, f: x.f, prompt: `ما معنى <span class="big">${x.w.w}</span>؟`, say: x.w.w, opts: shuffle([x.w.ar, ...o.map(w => w.ar)]), a: x.w.ar, en: false }; }
 function qReverse(x){ const o = others(x, 3, "w"); return { kind: "الكلمة", key: x.key, f: x.f, prompt: `أيّ كلمة معناها: «${esc(x.w.ar)}»؟`, opts: shuffle([x.w.w, ...o.map(w => w.w)]), a: x.w.w, en: true }; }
 function qImage(x){ const o = others(x, 3, "w"); return { kind: "الصورة", key: x.key, f: x.f, prompt: `أيّ كلمة ترسم هذه الصورة؟<br>«${esc(x.w.m)}»`, opts: shuffle([x.w.w, ...o.map(w => w.w)]), a: x.w.w, en: true }; }
+const VPXPOOL = ["إلى أعلى","إلى أسفل","إلى الداخل","إلى الخارج","على (سطحٍ يحملك)","عن (انفصال)","رجوع","من فوقُ إلى الجهة الأخرى","معًا على طول الطريق","بعيدًا","حول","خلال / عبر","الاكتمال","النفاد"];
 function qPrefix(x){
-  const p = x.w.px.split(" ").pop(), ex = new Set(sibOf(x.w.pxm));
-  const d = pick(PXPOOL.filter(m => !ex.has(m)), 3);
-  return { kind: "السابقة", key: x.key, f: x.f, prompt: `ما معنى <bdi class="px" dir="ltr">${p}</bdi> في <span class="big">${x.w.w}</span>؟`, say: x.w.w, opts: shuffle([x.w.pxm, ...d]), a: x.w.pxm, en: false };
+  const v = x.f.section && SECTIONS[x.f.section] && SECTIONS[x.f.section].kind === "verb";
+  const p = v ? x.w.px : x.w.px.split(" ").pop(), ex = new Set(sibOf(x.w.pxm));
+  const pool = v ? [...new Set(VPXPOOL.concat(ALL.filter(a => a.w.px && SECTIONS[a.f.section].kind === "verb").map(a => a.w.pxm)))] : PXPOOL;
+  const d = pick(pool.filter(m => !ex.has(m)), 3);
+  return { kind: v ? "اللاحقة" : "السابقة", key: x.key, f: x.f, prompt: `ما معنى <bdi class="px" dir="ltr">${p}</bdi> في <span class="big">${x.w.w}</span>؟`, say: x.w.w, opts: shuffle([x.w.pxm, ...d]), a: x.w.pxm, en: false };
 }
 function qCore(x){
-  const d = pick([...new Set(FAMS.filter(f => f !== x.f && f.core !== x.f.core).map(f => f.core))], 3);
+  let pool = [...new Set(FAMS.filter(f => f !== x.f && f.core !== x.f.core).map(f => f.core))];
+  if (pool.length < 3) pool = [...new Set(FAMILIES.filter(f => f !== x.f && f.core !== x.f.core).map(f => f.core))];
+  const d = pick(pool, 3);
   return { kind: "العائلة", key: x.key, f: x.f, prompt: `<span class="big">${x.w.w}</span> من عائلة تدور حول:`, say: x.w.w, opts: shuffle([x.f.core, ...d]), a: x.f.core, en: false };
 }
 function qCloze(f, c){ return { kind: "السياق", key: null, f, prompt: `اختر الكلمة التي تكمل الجملة:<span class="sent">${esc(c.s).replace("___", "<u>&nbsp;</u>")}</span>`, opts: shuffle(c.o), a: c.a, en: true, after: { en: c.s.replace("___", c.a), ar: c.ar } }; }
