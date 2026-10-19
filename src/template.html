@@ -213,6 +213,34 @@ footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:
   nav.tabs button{white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Affix links and pages */
+a.px{text-decoration:none;cursor:pointer;border-bottom:1px dashed currentColor}
+a.px:hover,a.px:focus-visible{background:var(--verd);color:var(--card)}
+.px.sfx{color:var(--lapis);background:var(--lapis-soft)}
+a.px.sfx:hover,a.px.sfx:focus-visible{background:var(--lapis);color:var(--card)}
+.lex .hw .pxm small{display:block;font-size:.75rem;color:var(--muted);opacity:.85}
+.afx-head{display:flex;align-items:baseline;gap:12px 16px;flex-wrap:wrap;padding-block:8px 12px;border-bottom:1px solid var(--line)}
+.afx-head .big{font-family:var(--f-en);font-weight:600;font-size:clamp(2rem,7vw,3rem);color:var(--verd);direction:ltr;line-height:1.1}
+.afx-head.sfx .big{color:var(--lapis)}
+.afx-head .kind{font-size:.82rem;border:1px solid var(--line);border-radius:999px;padding:1px 10px;color:var(--muted)}
+.afx-head .core{font-family:var(--f-display);font-size:1.6rem;line-height:1.4}
+.afx-lead{font-family:var(--f-body);font-size:1.08rem;line-height:2;max-width:68ch}
+.afx-lead b{font-family:var(--f-ui);font-size:.9rem;color:var(--ochre);margin-inline-end:8px}
+.faces{display:grid;gap:12px}
+.face{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.face h3{display:flex;gap:8px 12px;align-items:baseline;flex-wrap:wrap}
+.face .n{font-size:.8rem;color:var(--muted);font-weight:500}
+.face p{font-family:var(--f-body);font-size:1rem;line-height:1.9}
+.ws{display:flex;flex-wrap:wrap;gap:6px 16px}
+.ws>span{display:inline-flex;gap:6px;align-items:baseline}
+.ws>span a{font-size:.76rem;color:var(--muted);text-decoration:none;font-family:var(--f-ui)}
+.ws>span a:hover{color:var(--ink);text-decoration:underline}
+.back{color:var(--lapis);text-decoration:none;font-size:.92rem;width:max-content}
+.note ul{margin:6px 0 0;padding-inline-start:20px}
+.note li{margin-block:4px}
+.afx-tbl td:first-child{white-space:nowrap}
+.afx-all{display:flex;flex-wrap:wrap;gap:8px}
 </style>
 
 <header class="top"><div class="wrap">
@@ -225,7 +253,7 @@ footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:
     <button data-tab="stories">الحكايات</button>
     <button data-tab="practice">التدريب</button>
     <button data-tab="exam">الاختبار الشامل</button>
-    <button data-tab="prefixes">السوابق</button>
+    <button data-tab="prefixes">السوابق واللواحق</button>
   </nav>
 </div></header>
 <main class="wrap" id="view" aria-live="polite"></main>
@@ -241,6 +269,7 @@ footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:
 
 <script>
 const FAMILIES = /*__DATA__*/;
+const AFFIXES = /*__AFFIX__*/;
 (function(){
 "use strict";
 const $ = (s, r=document) => r.querySelector(s);
@@ -250,6 +279,30 @@ const INTERVALS = [0, 0, 1, 3, 7, 16]; // days for box 0..5
 const ALL = [];
 FAMILIES.forEach((f, fi) => f.words.forEach((w, wi) => ALL.push({f, w, key: w.w, fi, wi})));
 const BY = Object.fromEntries(ALL.map(x => [x.key, x]));
+const AFX_ID = new Map(AFFIXES.map(a => [a.id, a]));
+const AFX_HEAD = new Map(AFFIXES.map(a => [a.head, a]));
+const AFX_FORM = new Map();
+AFFIXES.forEach(a => (a.forms || []).forEach(fm => { const f = String(fm.f || "").replace(/-/g, "‑"); if (f && !AFX_HEAD.has(f) && !AFX_FORM.has(f)) AFX_FORM.set(f, a); }));
+const splitPart = s => { const [h, f] = s.split("→").map(x => x.trim()); return { h, f: f || h }; };
+const pxHeads = w => w && w.px ? w.px.split("+").map(x => splitPart(x.trim())) : [];
+const sxHead = w => w && w.sx ? splitPart(w.sx) : null;
+const isVerbFam = f => !!(f && SECTIONS[f.section] && SECTIONS[f.section].kind === "verb");
+function afxFor(tok, w){
+  if (w) {
+    for (const { h, f } of pxHeads(w)) if ((tok === h || tok === f) && AFX_HEAD.has(h)) return AFX_HEAD.get(h);
+    const s = sxHead(w); if (s && (tok === s.h || tok === s.f) && AFX_HEAD.has(s.h)) return AFX_HEAD.get(s.h);
+  }
+  const a = AFX_HEAD.get(tok) || (w ? AFX_FORM.get(tok) : null);
+  return a && tok.replace("‑", "").length > 1 ? a : null;
+}
+const afxLink = (t, a) => `<a class="px${a.kind === "suffix" ? " sfx" : ""}" dir="ltr" href="#x/${a.id}" title="${esc(a.head + ": " + a.core)}">${t}</a>`;
+function pxChip(w, f){
+  if (!w.px) return "";
+  if (isVerbFam(f)) return `<bdi class="px" dir="ltr">${w.px}</bdi>`;
+  return w.px.split("+").map(x => { x = x.trim(); const a = AFX_HEAD.get(splitPart(x).h); return a ? afxLink(x, a) : `<bdi class="px" dir="ltr">${x}</bdi>`; }).join(" + ");
+}
+function sxChip(w){ const s = sxHead(w); const a = s && AFX_HEAD.get(s.h); return a ? afxLink(w.sx, a) : `<bdi class="px sfx" dir="ltr">${w.sx}</bdi>`; }
+const SXW = { true: "جاءت مع الكلمة", false: "أضافتها الإنجليزية" };
 const SECTIONS = { a2: { name: "A2.1", long: "مستوى A2 · المجموعة الأولى", usage: "في الاستعمال" }, b1: { name: "B1.1", long: "مستوى B1 · المجموعة الأولى", usage: "في الاستعمال" }, b1_2: { name: "B1.2", long: "مستوى B1 · المجموعة الثانية", usage: "في الاستعمال" }, b1_3: { name: "B1.3", long: "مستوى B1 · المجموعة الثالثة", usage: "في الاستعمال" }, b2_1: { name: "B2.1", long: "مستوى B2 · المجموعة الأولى", usage: "في الاستعمال" }, b2_2: { name: "B2.2", long: "مستوى B2 · المجموعة الثانية", usage: "في الاستعمال" }, b2_3: { name: "B2.3", long: "مستوى B2 · المجموعة الثالثة", usage: "في الاستعمال" }, v1_1: { name: "V1.1", long: "الأفعال المركّبة · المجموعة الأولى", usage: "في الاستعمال", kind: "verb" }, v1_2: { name: "V1.2", long: "الأفعال المركّبة · المجموعة الثانية", usage: "في الاستعمال", kind: "verb" }, v1_3: { name: "V1.3", long: "الأفعال المركّبة · المجموعة الثالثة", usage: "في الاستعمال", kind: "verb" }, tech: { name: "التقني", long: "القسم التقني", usage: "في الاختبار" } };
 const isVerb = () => SECTIONS[sec].kind === "verb";
 const PV = { intr: "لازم: بلا مفعول", sep: "يُفصل: المفعول بين الفعل واللاحقة", ins: "لا يُفصل: المفعول بعد اللاحقة" };
@@ -262,7 +315,7 @@ function setSec(s){
   document.querySelectorAll(".secs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.sec === s ? "true" : "false"));
   const si = document.getElementById("secInfo"); if (si) si.textContent = `${SECTIONS[s].long} · ${FAMS.length} عائلة · ${SALL.length} ${SECTIONS[s].kind === "verb" ? (SALL.length >= 3 && SALL.length <= 10 ? "تراكيب" : "تركيبًا") : "كلمة"}`;
   document.documentElement.dataset.kind = SECTIONS[s].kind || "word";
-  const pt = document.querySelector('nav.tabs [data-tab="prefixes"]'); if (pt) pt.textContent = SECTIONS[s].kind === "verb" ? "اللواحق" : "السوابق";
+  const pt = document.querySelector('nav.tabs [data-tab="prefixes"]'); if (pt) pt.textContent = SECTIONS[s].kind === "verb" ? "اللواحق" : "السوابق واللواحق";
 }
 setSec(sec);
 const secExams = () => P.exams.filter(e => (e.sec || "tech") === sec);
@@ -370,17 +423,19 @@ const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 const spk = (t, label) => `<button class="speak" data-say="${esc(t)}" aria-label="${esc(label || "انطق " + t)}" title="انطق">${SPK}</button>`;
 document.addEventListener("click", e => {
   const s = e.target.closest("[data-say]"); if (s) { say(s.dataset.say); return; }
+  const ax = e.target.closest('a[href^="#x/"]'); if (ax && tab === "stories" && curFam && location.hash !== "#" + curFam) { try { history.replaceState(null, "", "#" + curFam); } catch (er) {} }
   const a = e.target.closest(".hide-ar .sum .a"); if (a) a.classList.toggle("show");
 });
 
 /* ---------- rich text: wrap Latin runs ---------- */
 const PX = new Set([...FAMILIES.flatMap(f => f.words.flatMap(w => w.px ? w.px.split(/[ →+]+/).filter(x => x && x !== "+") : [])), "IN","IM","EX","E","DE","TRANS","SUB","SUP","SU","RE","PRO","CON","INTRO","INFRA","PLAT","PRE","CONTRA","VER","AD","A","SUPER","UN","BACK","LEGE","LEX","IR","‑IVE","‑ION","‑ABLE","‑IZE","‑ED","‑ING","‑MENT","MAIN","OB","OF","PER","DIS","DIF","SUF","SUS","SUC","AC","AT","AS","AP","COM","MULTI","INTER","DES","S","‑CY","‑ITY","‑ATE","‑URE","‑ARY","‑AL","‑ANT","‑ICE","‑IST"]);
+AFFIXES.forEach(a => { PX.add(a.head); (a.forms || []).forEach(fm => { const f = String(fm.f || "").replace(/-/g, "‑"); if (f.replace("‑", "").length > 1) PX.add(f); }); });
 const ROOTS = new Set([...FAMILIES.flatMap(f => f.root.split("/").map(x => x.trim())), "PORT","SPECT","DUCE","DUCT","STRAIN","STRICT","STRINGENT","STRUCT","FORM","GEN","DICT","VAL","VAIL","TRAIN","VID","VIS","TECT","TRIEVE","TROVE","TRIVE","AUG","AUTH","AUCTOR","AUTOR","PRIV","GROUND","VIDEO","TAIN","FER","MIT","MISS","VEN","VENT","CAP","CEPT","CEIVE","PEND","PENS","TEND","TENS","CEED","CESS","SIST","STA","PLY","PLIC","MOV","MOT","PART","NAT","FIN","CHIEF","CIRC","SERV","MEMOR","SIGN","REG","RECT","JOUR"]);
-function rich(text, fam){
+function rich(text, fam, w){
   const fw = new Set(fam ? fam.words.map(w => w.w) : []);
   return esc(text).replace(/(?:[-*](?=[A-Za-z]))?[A-Za-zÀ-ɏ‑][A-Za-zÀ-ɏ0-9‑'’\-]*(?:[ .][A-Za-zÀ-ɏ0-9$][A-Za-zÀ-ɏ0-9‑'’\-]*)*[?!]?/g, run => {
     if (fw.has(run) || BY[run]) return `<button class="word" data-say="${run}" title="انطق">${run}</button>`;
-    if (PX.has(run)) return `<bdi class="px" dir="ltr">${run}</bdi>`;
+    if (PX.has(run)) { const a = isVerbFam(fam) ? null : afxFor(run, w); return a ? afxLink(run, a) : `<bdi class="px" dir="ltr">${run}</bdi>`; }
     if (ROOTS.has(run)) return `<span class="root-t">${run}</span>`;
     if (/^[A-Z][a-z]+$/.test(run) && fam && (run === fam.latin || /^(Portare|Spectare|Specere|Ducere|Educare|Educere|Stringere|Struere|Forma|Formare|Generare|Dicere|Valere|Trainer|Trahere|Videre|Tegere|Trover|Augere|Augmentum|Privus|Grund|Tenere|Ferre|Mittere|Venire|Capere|Premere|Pendere|Tendere|Cedere|Sistere|Stare|Plicare|Movere|Pars|Nasci|Finis|Caput|Circus|Cerchier|Servire|Servare|Memor|Signum|Designare|Regere|Diurnus|Jour|Mons|Certus|Vendere|Prae|Esse|Sedere|Mens)$/.test(run))) return `<span class="latin">${run}</span>`;
     return `<bdi class="en">${run}</bdi>`;
@@ -388,8 +443,8 @@ function rich(text, fam){
 }
 
 /* ---------- views ---------- */
-let tab = "today";
-function go(t, arg){ tab = t; document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-current", b.dataset.tab === t ? "page" : "false")); render(t, arg); window.scrollTo({ top: 0 }); }
+let tab = "today", curFam = null;
+function go(t, arg){ if (!(arg && arg.affix) && /^#x\//.test(location.hash)) { try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} } tab = t; document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-current", b.dataset.tab === t ? "page" : "false")); render(t, arg); window.scrollTo({ top: 0 }); }
 document.querySelectorAll("nav.tabs button").forEach(b => b.addEventListener("click", () => go(b.dataset.tab)));
 let lastArg = null;
 function render(t, arg){ lastArg = arg; ({ today: vToday, stories: vStories, practice: vPractice, exam: vExam, prefixes: vPrefixes }[t])(arg); }
@@ -464,12 +519,13 @@ function howHTML(w, f){
   return `<details class="how"><summary>كيف وصلنا إلى هذا المعنى؟</summary>
     <div class="chain">${chain}</div>
     <div class="meta">${w.bt ? `<span class="bt ${w.bt}">${BT[w.bt]}</span>` : ""}${w.cf && w.cf !== "high" ? `<span>الثقة في الأصل: ${w.cf === "medium" ? "متوسطة، والمصادر مختلفة" : "ضعيفة"}</span>` : ""}${w.src ? `<a href="${esc(w.src)}" target="_blank" rel="noopener">المصدر</a>` : ""}</div>
-    ${w.et ? `<p class="et">${rich(w.et, f)}</p>` : ""}</details>`;
+    ${w.et ? `<p class="et">${rich(w.et, f, w)}</p>` : ""}</details>`;
 }
 function vStories(id){
   let f = FAMILIES.find(x => x.id === id);
   if (f && f.section !== sec) setSec(f.section);
   if (!f) f = FAMS[0];
+  curFam = f.id;
   view.innerHTML = `
   <div class="chips" role="group" aria-label="العائلات">${FAMS.map(x => `<button class="chip" data-fam="${x.id}" aria-pressed="${x.id === f.id}">${x.root}</button>`).join("")}</div>
   <article class="${hideAr ? "hide-ar" : ""}" id="art">
@@ -478,8 +534,8 @@ function vStories(id){
       ${f.image ? `<p class="image"><b>الصورة المحورية</b>${rich(f.image, f)}</p>` : ""}
       <p class="intro">${rich(f.intro, f)}</p>
       <div class="lex">${f.words.map(w => `
-        <div class="hw"><div class="row" style="gap:8px"><button class="word" data-say="${w.w}">${w.w}</button>${spk(w.w)}</div>${w.px ? `<span class="pxm"><bdi class="px" dir="ltr">${w.px}</bdi> ${w.pxm}</span>` : ""}${w.pv ? `<span class="pv">${PV[w.pv.t]}${w.pv.ex ? `<bdi dir="ltr">${esc(w.pv.ex)}</bdi>` : ""}</span>` : ""}</div>
-        <div class="para">${rich(w.p, f)}${howHTML(w, f)}</div>`).join("")}
+        <div class="hw"><div class="row" style="gap:8px"><button class="word" data-say="${w.w}">${w.w}</button>${spk(w.w)}</div>${w.px ? `<span class="pxm">${pxChip(w, f)} ${w.pxm}</span>` : ""}${w.sx && !isVerbFam(f) ? `<span class="pxm">${sxChip(w)} ${esc(w.sxm)}${w.sxw === true || w.sxw === false ? `<small>${SXW[w.sxw]}</small>` : ""}</span>` : ""}${w.pv ? `<span class="pv">${PV[w.pv.t]}${w.pv.ex ? `<bdi dir="ltr">${esc(w.pv.ex)}</bdi>` : ""}</span>` : ""}</div>
+        <div class="para">${rich(w.p, f, w)}${howHTML(w, f)}</div>`).join("")}
       </div>
       <p class="closing">${rich(f.closing, f)}</p>
     </div>
@@ -540,7 +596,74 @@ function vExam(){
   $("#go50").onclick = () => startExam(50);
 }
 
-function vPrefixes(){
+const KIND = { prefix: "سابقة", suffix: "لاحقة", combining: "جزءٌ من كلمة يدخل في المركّبات", word: "كلمةٌ في كلمة مركّبة" };
+const nWords = n => n === 1 ? "كلمة واحدة" : n === 2 ? "كلمتان" : n <= 10 ? n + " كلمات" : n + " كلمة";
+function afxUsers(a){
+  const isS = a.kind === "suffix";
+  return ALL.filter(x => !isVerbFam(x.f) && (isS ? (sxHead(x.w) || {}).h === a.head : pxHeads(x.w).some(p => p.h === a.head)));
+}
+const wordRef = x => `<span><button class="word" data-say="${esc(x.w.w)}">${esc(x.w.w)}</button><a href="#${x.f.id}" title="افتح حكاية العائلة">${esc(x.f.root.split(" ")[0])} · ${SECTIONS[x.f.section].name}</a></span>`;
+function vAffix(id){
+  const a = AFX_ID.get(id);
+  if (!a) { vPrefixes(); return; }
+  const isS = a.kind === "suffix";
+  const users = afxUsers(a);
+  const single = x => isS || pxHeads(x.w).length === 1;
+  const lbl = x => isS ? x.w.sxm : x.w.pxm;
+  const faces = a.faces || [];
+  const facesHTML = faces.map(fc => {
+    const ws = users.filter(x => single(x) && lbl(x) === fc.label);
+    return `<div class="face"><h3>${esc(fc.label)} <span class="n">${ws.length ? nWords(ws.length) + " في الموقع" : "لا كلمة له في الموقع بعد"}</span></h3>${fc.note ? `<p>${rich(fc.note)}</p>` : ""}${ws.length ? `<div class="ws">${ws.map(wordRef).join("")}</div>` : ""}</div>`;
+  }).join("");
+  const comp = users.filter(x => !single(x));
+  const stray = users.filter(x => single(x) && !faces.some(fc => fc.label === lbl(x)));
+  const tc = users.filter(x => x.w.sxw === true).length, fc2 = users.filter(x => x.w.sxw === false).length, nc = users.length - tc - fc2;
+  const forms = (a.forms || []).filter(fm => fm && fm.f);
+  const exCell = t => t ? (BY[t] ? `<button class="word" data-say="${esc(t)}">${esc(t)}</button>` : `<bdi class="en">${esc(t)}</bdi>`) : "";
+  const singles = users.filter(single);
+  view.innerHTML = `
+  <div class="stack">
+    <a class="back" href="#prefixes">→ كل السوابق واللواحق</a>
+    <div class="afx-head${isS ? " sfx" : ""}"><span class="big">${esc(a.head)}</span><span class="kind">${KIND[a.kind] || ""}</span><span class="core">${esc(a.core)}</span></div>
+    ${a.image ? `<p class="afx-lead"><b>الصورة</b>${rich(a.image)}</p>` : ""}
+    ${a.origin ? `<p class="afx-lead"><b>الأصل</b>${rich(a.origin)}</p>` : ""}
+    <h2>${faces.length > 1 ? "وجوه المعنى" : "المعنى في كلماته"}</h2>
+    ${faces.length > 1 ? `<p class="muted" style="margin-top:-8px">كل وجهٍ فرعٌ من المعنى الجامع «${esc(a.core)}»، وتحته كلماته في الموقع.</p>` : ""}
+    <div class="faces">${facesHTML}</div>
+    ${comp.length ? `<div class="panel"><h3>مع سابقةٍ أخرى</h3><p class="muted" style="margin:4px 0 8px;font-size:.9rem">كلماتٌ اجتمعت فيها سابقتان، فمعنى كلٍّ منهما في فقرتها.</p><div class="ws">${comp.map(wordRef).join("")}</div></div>` : ""}
+    ${stray.length ? `<div class="panel"><h3>كلمات أخرى</h3><div class="ws">${stray.map(wordRef).join("")}</div></div>` : ""}
+    ${forms.length ? `<h2>صور الكتابة</h2><div class="tblwrap"><table class="ptable afx-tbl"><thead><tr><th>الصورة</th><th>متى تأتي</th><th>مثال</th></tr></thead><tbody>${forms.map(fm => `<tr><td><bdi class="px${isS ? " sfx" : ""}" dir="ltr">${esc(fm.f)}</bdi></td><td>${rich(fm.when || "")}</td><td>${exCell(fm.ex)}</td></tr>`).join("")}</tbody></table></div>` : ""}
+    ${isS && a.whole ? `<div class="panel"><h3>دخلت مع الكلمة، أم أضافتها الإنجليزية؟</h3><p style="font-family:var(--f-body);margin-top:6px">${rich(a.whole)}</p>${users.length ? `<p class="muted" style="margin-top:8px;font-size:.9rem">في الموقع: ${tc} جاءت مع كلماتها، و${fc2} أضافتها الإنجليزية${nc ? `، و${nc} لم يُقطع فيها بشيء` : ""}.</p>` : ""}</div>` : ""}
+    ${(a.notes || []).length ? `<div class="note"><b>تنبيهات</b><ul>${a.notes.map(n => `<li>${rich(n)}</li>`).join("")}</ul></div>` : ""}
+    <div class="row">${!isS && singles.length >= 4 ? `<button class="btn" id="aq">تدرّب على ${esc(a.head)}</button>` : isS && users.length >= 4 ? `<button class="btn" id="aq">تدرّب على ${esc(a.head)}</button>` : ""}${a.src ? `<a class="btn ghost" href="${esc(a.src)}" target="_blank" rel="noopener">المصدر</a>` : ""}</div>
+  </div>`;
+  const aq = $("#aq");
+  if (aq) aq.onclick = () => runQuiz(shuffle(isS ? users : singles).slice(0, 12).map(x => isS ? qSuffix(x) : qPrefix(x)), { title: (isS ? "اللاحقة " : "السابقة ") + a.head, srs: true });
+  bindCommon();
+}
+function vRootAffixes(){
+  const used = new Map();
+  const add = (h, x) => { const a = AFX_HEAD.get(h); if (!a) return; if (!used.has(a.id)) used.set(a.id, { a, ws: [] }); const u = used.get(a.id); if (!u.ws.includes(x)) u.ws.push(x); };
+  SALL.forEach(x => { pxHeads(x.w).forEach(p => add(p.h, x)); const s = sxHead(x.w); if (s) add(s.h, x); });
+  const rows = kind => [...used.values()].filter(u => (u.a.kind === "suffix") === kind).sort((p, q) => q.ws.length - p.ws.length);
+  const table = (list, title) => list.length ? `<h2>${title}</h2><div class="tblwrap"><table class="ptable"><thead><tr><th>الصورة</th><th>المعنى الجامع</th><th>كلماتها في هذا القسم</th></tr></thead><tbody>${list.map(({ a, ws }) => `<tr><td>${afxLink(esc(a.head), a)}</td><td>${esc(a.core)}</td><td>${ws.map(x => `<button class="word" data-say="${x.w.w}">${x.w.w}</button>`).join("")}</td></tr>`).join("")}</tbody></table></div>` : "";
+  const all = kind => AFFIXES.filter(a => (a.kind === "suffix") === kind).sort((p, q) => p.head.replace("‑", "").localeCompare(q.head.replace("‑", ""))).map(a => afxLink(esc(a.head), a)).join("");
+  view.innerHTML = `
+  <div class="stack">
+    <h1>السوابق واللواحق</h1>
+    <p class="muted" style="font-family:var(--f-body);font-size:1.05rem;max-width:65ch">السابقة تحدّد «غرض» الجذر، واللاحقة تحدّد نوع الكلمة: اسمًا أو صفةً أو فعلًا. ولكلٍّ منها معنًى جامع تتفرّع منه وجوه. اضغط على أي سابقة أو لاحقة، هنا أو في الحكايات، لتفتح صفحتها: معناها الجامع، ووجوهها، وصور كتابتها، وكلماتها في الموقع.</p>
+    <div class="row"><button class="btn" id="pq">تدرّب على السوابق</button><button class="btn ghost" id="sq">تدرّب على اللواحق</button></div>
+    ${table(rows(false), "السوابق في " + SECTIONS[sec].name)}
+    ${table(rows(true), "اللواحق في " + SECTIONS[sec].name)}
+    <div class="panel"><h3>كل السوابق في الموقع</h3><div class="afx-all" style="margin-top:8px">${all(false)}</div></div>
+    <div class="panel"><h3>كل اللواحق في الموقع</h3><div class="afx-all" style="margin-top:8px">${all(true)}</div></div>
+  </div>`;
+  $("#pq").onclick = () => runQuiz(shuffle(SALL.filter(x => x.w.px).map(x => qPrefix(x))).slice(0, 15), { title: "السوابق · " + SECTIONS[sec].name, srs: true });
+  $("#sq").onclick = () => runQuiz(shuffle(SALL.filter(x => x.w.sx).map(x => qSuffix(x))).slice(0, 15), { title: "اللواحق · " + SECTIONS[sec].name, srs: true });
+}
+function vPrefixes(arg){
+  if (arg && arg.affix) { vAffix(arg.affix); return; }
+  if (!isVerb()) { vRootAffixes(); return; }
   const map = new Map();
   SALL.forEach(({ w }) => { if (!w.px) return; const k = w.px.split(" ")[0] + "|" + w.pxm; if (!map.has(k)) map.set(k, []); map.get(k).push(w); });
   const rows = [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
@@ -561,6 +684,14 @@ function vPrefixes(){
 /* ---------- question builders ---------- */
 const PXPOOL = ["إلى الداخل","إلى الخارج","إلى الخلف / راجعًا","مرة أخرى","إلى الأمام","أمام","معًا","من تحت","تحت","من فوق","عبر","قبل","ضدّ","بعيدًا","نزع وإزالة","تمامًا","لا (نفي)","إلى (نحو)","صادق","مسطّح","قانون","وراء","اليد","تفرّق وانفصال","من أعلى إلى أسفل","على","كثير","بين","تقوية"];
 const SIBS = [["إلى الخلف / راجعًا","مرة أخرى","تقوية"],["إلى الأمام","أمام","إلى (نحو)"],["من تحت","تحت"],["بعيدًا","نزع وإزالة","تمامًا","من أعلى إلى أسفل","تفرّق وانفصال"],["من فوق","فوق"],["إلى الداخل","على"]];
+AFFIXES.forEach(a => { if (a.kind !== "suffix") (a.faces || []).forEach(fc => { if (!PXPOOL.includes(fc.label)) PXPOOL.push(fc.label); }); if ((a.faces || []).length > 1) SIBS.push(a.faces.map(fc => fc.label)); });
+const SXPOOL = [...new Set(AFFIXES.filter(a => a.kind === "suffix").flatMap(a => (a.faces || []).map(fc => fc.label)))];
+function qSuffix(x){
+  const s = sxHead(x.w), a = AFX_HEAD.get(s.h);
+  const ex = new Set(a ? (a.faces || []).map(fc => fc.label) : []); ex.add(x.w.sxm);
+  const d = pick(SXPOOL.filter(m => !ex.has(m)), 3);
+  return { kind: "اللاحقة", key: x.key, f: x.f, prompt: `ما عمل <bdi class="px sfx" dir="ltr">${s.f}</bdi> في <span class="big">${x.w.w}</span>؟`, say: x.w.w, opts: shuffle([x.w.sxm, ...d]), a: x.w.sxm, en: false };
+}
 const sibOf = m => { const s = new Set([m]); SIBS.forEach(g => { if (g.includes(m)) g.forEach(x => s.add(x)); }); return [...s]; };
 function others(x, n, field){
   const same = shuffle(x.f.words.filter(w => w.w !== x.w.w));
@@ -595,6 +726,7 @@ function wordQ(x){
   const b = card(x.key).b;
   const types = b <= 1 ? [qMeaning, qImage, qMeaning] : b <= 3 ? [qMeaning, qImage, qReverse, qCore] : [qReverse, qImage, qCore];
   if (x.w.px && !x.w.px.startsWith("‑") && b >= 1) types.push(qPrefix);
+  if (x.w.sx && !isVerbFam(x.f) && b >= 2) types.push(qSuffix);
   return pick(types, 1)[0](x);
 }
 
@@ -730,8 +862,8 @@ function startFlash(id){
 
 try { const vs = $("#voiceSel"); vs.value = mode; vs.onchange = () => { mode = vs.value; try { localStorage.setItem("ew-voice2", mode); } catch (e) {} say("respect"); }; } catch (e) {}
 document.querySelectorAll(".secs button").forEach(b => b.addEventListener("click", () => { if (quizActive) return; setSec(b.dataset.sec); render(tab, null); }));
-window.addEventListener("hashchange", () => { const k = (location.hash || "").slice(1); if (!quizActive && FAMILIES.some(f => f.id === k)) go("stories", k); });
+window.addEventListener("hashchange", () => { const k = decodeURIComponent((location.hash || "").slice(1)); if (quizActive) return; if (k.startsWith("x/") && AFX_ID.has(k.slice(2))) go("prefixes", { affix: k.slice(2) }); else if (FAMILIES.some(f => f.id === k)) go("stories", k); else if (["stories","practice","exam","prefixes","today"].includes(k)) go(k); });
 const h = (location.hash || "").slice(1);
-if (FAMILIES.some(f => f.id === h)) go("stories", h); else if (["stories","practice","exam","prefixes"].includes(h)) go(h); else go("today");
+if (h.startsWith("x/") && AFX_ID.has(h.slice(2))) go("prefixes", { affix: h.slice(2) }); else if (FAMILIES.some(f => f.id === h)) go("stories", h); else if (["stories","practice","exam","prefixes"].includes(h)) go(h); else go("today");
 })();
 </script>
