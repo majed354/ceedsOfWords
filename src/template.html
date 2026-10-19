@@ -210,7 +210,7 @@ footer.foot .wrap{display:flex;gap:12px;justify-content:space-between;flex-wrap:
 <header class="top"><div class="wrap">
   <div class="brand"><b>حكايات العائلات</b><span>RADICES LATINAE</span></div>
   <div class="secs" role="group" aria-label="المستوى">
-    <button data-sec="a2">A2.1</button><button data-sec="b1">B1.1</button><button data-sec="b1_2">B1.2</button><button data-sec="b1_3">B1.3</button><button data-sec="b2_1">B2.1</button><button data-sec="b2_2">B2.2</button><button data-sec="tech">التقني</button>
+    <button data-sec="a2">A2.1</button><button data-sec="b1">B1.1</button><button data-sec="b1_2">B1.2</button><button data-sec="b1_3">B1.3</button><button data-sec="b2_1">B2.1</button><button data-sec="b2_2">B2.2</button><button data-sec="b2_3">B2.3</button><button data-sec="tech">التقني</button>
   </div>
   <nav class="tabs" aria-label="الأقسام">
     <button data-tab="today">اليوم</button>
@@ -242,7 +242,7 @@ const INTERVALS = [0, 0, 1, 3, 7, 16]; // days for box 0..5
 const ALL = [];
 FAMILIES.forEach((f, fi) => f.words.forEach((w, wi) => ALL.push({f, w, key: w.w, fi, wi})));
 const BY = Object.fromEntries(ALL.map(x => [x.key, x]));
-const SECTIONS = { a2: { name: "A2.1", long: "مستوى A2 · المجموعة الأولى", usage: "في الاستعمال" }, b1: { name: "B1.1", long: "مستوى B1 · المجموعة الأولى", usage: "في الاستعمال" }, b1_2: { name: "B1.2", long: "مستوى B1 · المجموعة الثانية", usage: "في الاستعمال" }, b1_3: { name: "B1.3", long: "مستوى B1 · المجموعة الثالثة", usage: "في الاستعمال" }, b2_1: { name: "B2.1", long: "مستوى B2 · المجموعة الأولى", usage: "في الاستعمال" }, b2_2: { name: "B2.2", long: "مستوى B2 · المجموعة الثانية", usage: "في الاستعمال" }, tech: { name: "التقني", long: "القسم التقني", usage: "في الاختبار" } };
+const SECTIONS = { a2: { name: "A2.1", long: "مستوى A2 · المجموعة الأولى", usage: "في الاستعمال" }, b1: { name: "B1.1", long: "مستوى B1 · المجموعة الأولى", usage: "في الاستعمال" }, b1_2: { name: "B1.2", long: "مستوى B1 · المجموعة الثانية", usage: "في الاستعمال" }, b1_3: { name: "B1.3", long: "مستوى B1 · المجموعة الثالثة", usage: "في الاستعمال" }, b2_1: { name: "B2.1", long: "مستوى B2 · المجموعة الأولى", usage: "في الاستعمال" }, b2_2: { name: "B2.2", long: "مستوى B2 · المجموعة الثانية", usage: "في الاستعمال" }, b2_3: { name: "B2.3", long: "مستوى B2 · المجموعة الثالثة", usage: "في الاستعمال" }, tech: { name: "التقني", long: "القسم التقني", usage: "في الاختبار" } };
 let sec = "tech", FAMS = [], SALL = [];
 try { const s = localStorage.getItem("ew-sec"); if (SECTIONS[s]) sec = s; } catch (e) {}
 function setSec(s){
